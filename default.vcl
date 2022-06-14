@@ -6,17 +6,17 @@ import dynamic;
 import directors;
 
 backend backend1 {
-    .host = "atlasfrontier-ai.cern.ch/atlr";
+    .host = "atlasfrontier-ai.cern.ch";
     .port = "8000";
 }
 
 backend backend2 {
-    .host = "atlasfrontier1-ai.cern.ch/atlr";
+    .host = "atlasfrontier1-ai.cern.ch";
     .port = "8000";
 }
 
 backend backend3 {
-    .host = "atlasfrontier2-ai.cern.ch/atlr";
+    .host = "atlasfrontier2-ai.cern.ch";
     .port = "8000";
 }
 
