@@ -50,6 +50,15 @@ sub vcl_init {
 
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
+    
+    set obj.http.X-frontier-id = "varnish";
+    
+    if (req.request != "GET" && req.request != "HEAD") {
+        /* We only deal with GET and HEAD by default */
+        return (pipe);
+    }
+
+    return (lookup)
 }
 
 # # set up a dynamic director
