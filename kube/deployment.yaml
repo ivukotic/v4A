@@ -1,0 +1,74 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: v4A
+  namespace: v4A
+  labels:
+    k8s-app: v4A
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    k8s-app: v4A
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: v4A
+  namespace: v4A
+  labels:
+    k8s-app: v4A
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - v4A.atlas-ml.org
+      secretName: auto-generated-v4A
+  rules:
+    - host: v4A.atlas-ml.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: v4A
+                port:
+                  number: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v4A
+  namespace: v4A
+  labels:
+    k8s-app: v4A
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: v4A
+  template:
+    metadata:
+      labels:
+        k8s-app: v4A
+    spec:
+      containers:
+        - name: v4A
+          image: ivukotic/v4a:latest
+          # command: ["python", "findit.py"]
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "4"
+              memory: "4Gi"
+            limits:
+              cpu: "48"
+              memory: "16Gi"
