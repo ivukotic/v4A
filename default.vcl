@@ -58,7 +58,7 @@ sub vcl_recv {
         return (pipe);
     }
 
-    return (lookup)
+    return (lookup);
 }
 
 # # set up a dynamic director
