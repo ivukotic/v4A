@@ -51,7 +51,7 @@ sub vcl_init {
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
     
-    set obj.http.X-frontier-id = "varnish";
+    set req.http.X-frontier-id = "varnish";
     
     if (req.method != "GET" && req.method != "HEAD") {
         /* We only deal with GET and HEAD by default */
