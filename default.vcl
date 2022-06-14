@@ -10,8 +10,13 @@ backend backend1 {
     .port = "8000";
 }
 
-backend backend2 {
-    .host = "cvmfs-s1bnl.opensciencegrid.org";
+backend backend21 {
+    .host = "192.12.15.180";
+    .port = "8000";
+}
+
+backend backend22 {
+    .host = "192.12.15.179";
     .port = "8000";
 }
 
@@ -26,7 +31,8 @@ sub vcl_init {
 
     new vdir = directors.round_robin();
     vdir.add_backend(backend1);
-    vdir.add_backend(backend2);
+    vdir.add_backend(backend21);
+    vdir.add_backend(backend22);
     vdir.add_backend(backend3);    
 }
 

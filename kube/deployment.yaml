@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: v4a
+  name: v4cvmfs
   namespace: v4a
   labels:
     k8s-app: v4a
@@ -18,10 +18,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: v4a
+  name: v4cvmfs
   namespace: v4a
   labels:
-    k8s-app: v4a
+    k8s-app: v4cvmfs
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
@@ -33,30 +33,30 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: v4a
+                name: v4cvmfs
                 port:
                   number: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: v4a
+  name: v4cvmfs
   namespace: v4a
   labels:
-    k8s-app: v4a
+    k8s-app: v4cvmfs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: v4a
+      k8s-app: v4cvmfs
   template:
     metadata:
       labels:
-        k8s-app: v4a
+        k8s-app: v4cvmfs
     spec:
       containers:
-        - name: v4a
-          image: ivukotic/v4a:latest
+        - name: v4cvmfs
+          image: ivukotic/v4cvmfs:latest
           ports:
             - containerPort: 80
           resources:
