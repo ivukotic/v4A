@@ -62,7 +62,6 @@ spec:
       containers:
         - name: v4a
           image: ivukotic/v4a:latest
-          # command: ["python", "findit.py"]
           ports:
             - containerPort: 80
           resources:
