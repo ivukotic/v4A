@@ -5,10 +5,26 @@ vcl 4.1;
 import dynamic;
 import directors;
 
-backend backend1 {
-    .host = "atlasfrontier-ai.cern.ch";
+# backend backend1 {
+#     .host = "atlasfrontier-ai.cern.ch";
+#     .port = "8000";
+# }
+
+backend backend10 {
+    .host = "2001:1458:201:e5::100:c1";
     .port = "8000";
 }
+
+backend backend11 {
+    .host = "2001:1458:201:e5::100:5a";
+    .port = "8000";
+}
+
+backend backend12 {
+    .host = "188.184.29.207";
+    .port = "8000";
+}
+
 
 backend backend2 {
     .host = "atlasfrontier1-ai.cern.ch";
@@ -25,7 +41,9 @@ sub vcl_init {
     new d = dynamic.director(port = "80");
 
     new vdir = directors.round_robin();
-    vdir.add_backend(backend1);
+    vdir.add_backend(backend10);
+    vdir.add_backend(backend11);
+    vdir.add_backend(backend12);
     vdir.add_backend(backend2);
     vdir.add_backend(backend3);    
 }
