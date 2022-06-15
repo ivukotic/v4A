@@ -62,7 +62,7 @@ spec:
       containers:
         - name: v4a
           image: ivukotic/v4a:latest
-          command: ["-p default_keep=3600"]
+          args: ["-p default_keep=3600"]
           env:
             - name: VARNISH_SIZE
               value: "32G"
@@ -74,4 +74,4 @@ spec:
               memory: "33Gi"
             limits:
               cpu: "48"
-              memory: "16Gi"
+              memory: "48Gi"
