@@ -12,3 +12,9 @@ asetup 20.20.6.3,here
 export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:80/atlr)
 db-fnget
 ```
+
+## TO DO
+
+* check how do we handle TTL
+* how to do disk caching
+* add ACL
