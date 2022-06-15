@@ -62,6 +62,9 @@ spec:
       containers:
         - name: v4a
           image: ivukotic/v4a:latest
+          env:
+            - name: VARNISH_SIZE
+              value: "2G"
           ports:
             - containerPort: 80
           resources:
