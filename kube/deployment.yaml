@@ -57,7 +57,6 @@ spec:
       containers:
         - name: v4cvmfs
           image: ivukotic/v4cvmfs:latest
-          arguments: ["-p default_keep=3600"]
           env:
             - name: VARNISH_SIZE
               value: "32G"
