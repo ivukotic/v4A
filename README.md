@@ -1,2 +1,3 @@
 # v4A
-Varnish for ATLAS
+
+Varnish for CVMFS
