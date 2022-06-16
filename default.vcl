@@ -52,15 +52,13 @@ sub vcl_recv {
     set req.http.X-frontier-id = "varnish";
     
     
-    if (client.ip ~ local) {
-        if (req.method != "GET" && req.method != "HEAD") {
-            /* We only deal with GET and HEAD by default */
-            return (pipe);
-        }
-    }
-    else {
+    if (client.ip !~ local) {
         return (synth(405));
     } 
 
+    if (req.method != "GET" && req.method != "HEAD") {
+        /* We only deal with GET and HEAD by default */
+        return (pipe);
+    }
 
 }
