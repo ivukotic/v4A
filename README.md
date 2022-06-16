@@ -9,7 +9,7 @@ to test it do:
 ```sh
 setupATLAS
 asetup 20.20.6.3,here
-export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:80/atlr)
+export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:6081/atlr)
 db-fnget
 ```
 
@@ -17,4 +17,3 @@ db-fnget
 
 * check how do we handle TTL
 * how to do disk caching
-* add ACL
