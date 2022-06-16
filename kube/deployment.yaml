@@ -57,12 +57,12 @@ spec:
       containers:
         - name: v4cvmfs
           image: ivukotic/v4cvmfs:latest
-          args: ["-p", "default_keep=3600"]
+          args: ["-p", "default_keep=3600", "-a", "6123"]
           env:
             - name: VARNISH_SIZE
               value: "32G"
           ports:
-            - containerPort: 80
+            - containerPort: 6123
           resources:
             requests:
               cpu: "4"
