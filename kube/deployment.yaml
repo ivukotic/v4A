@@ -32,3 +32,6 @@ spec:
             limits:
               cpu: "48"
               memory: "48Gi"
+
+      nodeSelector:
+        varnish: frontier
