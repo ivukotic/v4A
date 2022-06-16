@@ -18,16 +18,13 @@ spec:
       containers:
         - name: v4cvmfs
           image: ivukotic/v4cvmfs:latest
-          args: ["-t", "3600", "-a", "http=:6081,HTTP"]
+          args: ["-t", "3600"]
           env:
             - name: VARNISH_SIZE
               value: "32G"
-            - name: VARNISH_LISTEN_PORT
-              value: "6081"
-            - name: DAEMON_OPTS
-              value: "-a :6081 -T localhost:6082"
           ports:
-            - containerPort: 6081
+            - containerPort: 80
+              hostPort: 6081
           resources:
             requests:
               cpu: "4"
@@ -36,6 +33,6 @@ spec:
               cpu: "48"
               memory: "48Gi"
 
-      hostNetwork: true
+      # hostNetwork: true
       nodeSelector:
         varnish: cvmfs
