@@ -69,19 +69,4 @@ sub vcl_recv {
         return (pipe);
     }
 
-    # return (lookup);
 }
-
-# # set up a dynamic director
-# # for more info, see https://github.com/nigoroll/libvmod-dynamic/blob/master/src/vmod_dynamic.vcc
-# sub vcl_init {
-#         new d = dynamic.director(port = "80");
-# }
-
-# sub vcl_recv {
-# 	# force the host header to match the backend (not all backends need it,
-# 	# but example.com does)
-# 	set req.http.host = "http://atlasfrontier-ai.cern.ch:8000/atlr)";
-# 	# set the backend
-# 	set req.backend_hint = d.backend("atlasfrontier-ai.cern.ch:8000/atlr)");
-# }
