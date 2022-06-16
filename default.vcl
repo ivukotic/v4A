@@ -51,8 +51,7 @@ sub vcl_recv {
     
     set req.http.X-frontier-id = "varnish";
     
-    
-    if (client.ip !~ local) {
+    if (!(client.ip ~ local)) {
         return (synth(405));
     } 
 
