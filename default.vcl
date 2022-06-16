@@ -36,6 +36,13 @@ backend backend3 {
     .port = "8000";
 }
 
+acl local {
+ "localhost"; /* myself */
+ "72.36.96.0"/24; 
+ "149.165.224.0"/23; 
+ "192.170.240.0"/23; 
+}
+
 sub vcl_init {
     
     new d = dynamic.director(port = "80");
@@ -53,6 +60,10 @@ sub vcl_recv {
     
     set req.http.X-frontier-id = "varnish";
     
+    if (client.ip !~ local) {
+        return (synth(405));
+    } 
+
     if (req.method != "GET" && req.method != "HEAD") {
         /* We only deal with GET and HEAD by default */
         return (pipe);
