@@ -48,7 +48,7 @@ acl local {
 
 sub vcl_init {
     
-    new d = dynamic.director(port = "80");
+    # new d = dynamic.director(port = "80");
 
     new vdir = directors.round_robin();
     vdir.add_backend(backend10);
