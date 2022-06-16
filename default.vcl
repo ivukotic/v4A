@@ -27,6 +27,7 @@ backend backend3 {
 
 acl local {
  "localhost"; /* myself */
+ "192.168.0.0"/16; 
  "72.36.96.0"/24; 
  "149.165.224.0"/23; 
  "192.170.240.0"/23; 
@@ -49,12 +50,15 @@ sub vcl_recv {
     set req.http.X-frontier-id = "varnish";
     
     
-    if (client.ip !~ local) {
+    if (client.ip ~ local) {
+        if (req.method != "GET" && req.method != "HEAD") {
+            /* We only deal with GET and HEAD by default */
+            return (pipe);
+        }
+    }
+    else {
         return (synth(405));
     } 
 
-    if (req.method != "GET" && req.method != "HEAD") {
-        /* We only deal with GET and HEAD by default */
-        return (pipe);
-    }
+
 }
