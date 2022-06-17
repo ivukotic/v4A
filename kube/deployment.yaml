@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: v4a
+  name: v4as
   namespace: v4a
   labels:
-    k8s-app: v4a
+    k8s-app: v4as
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: v4a
+      k8s-app: v4as
   template:
     metadata:
       labels:
-        k8s-app: v4a
+        k8s-app: v4as
     spec:
       containers:
-        - name: v4a
+        - name: v4as
           image: ivukotic/v4a:latest
           args: ["-t", "3600"]
           env:
