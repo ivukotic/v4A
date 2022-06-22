@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  repository: varnish
+  pullPolicy: Always
+  tag: alpine
+
+resources:
+  limits:
+    cpu: "48"
+    memory: "48Gi"
+  requests:
+    cpu: "4"
+    memory: "32Gi"
+
+nodeSelector:
+  varnish: frontier
