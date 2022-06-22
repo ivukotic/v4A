@@ -5,25 +5,39 @@ vcl 4.1;
 import dynamic;
 import directors;
 
-backend backend1 {
-    .host = "cvmfs-s1fnal.opensciencegrid.org";
-    .port = "8000";
-}
+# CVMFS_REPOSITORIES
+# atlas-condb.cern.ch CHECK
+# atlas-nightlies.cern.ch NIGHTLIES 179, 180
+# atlas.cern.ch CHECK
+# cms.cern.ch CHECK
+# geant4.cern.ch CHECK
+# grid.cern.ch CHECK
+# oasis.opensciencegrid.org CHECK
+# sft.cern.ch CHECK
+# unpacked.cern.ch CHECK
 
+# 2ms
+# backend backend1 {
+#     .host = "cvmfs-s1fnal.opensciencegrid.org";
+#     .port = "8000";
+# }
+
+#25ms
 backend backend21 {
     .host = "192.12.15.180";
     .port = "8000";
 }
-
+# 25ms
 backend backend22 {
     .host = "192.12.15.179";
     .port = "8000";
 }
 
-backend backend3 {
-    .host = "cvmfs-s1goc.opensciencegrid.org";
-    .port = "8000";
-}
+# 17ms
+# backend backend3 {
+#     .host = "cvmfs-s1goc.opensciencegrid.org";
+#     .port = "8000";
+# }
 
 acl local {
  "localhost"; /* myself */
@@ -38,10 +52,10 @@ acl local {
 sub vcl_init {
     
     new vdir = directors.round_robin();
-    vdir.add_backend(backend1);
+    # vdir.add_backend(backend1);
     vdir.add_backend(backend21);
     vdir.add_backend(backend22);
-    vdir.add_backend(backend3);    
+    # vdir.add_backend(backend3);    
 }
 
 sub vcl_recv {
