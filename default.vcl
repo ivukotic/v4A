@@ -22,16 +22,16 @@ import directors;
 #     .port = "8000";
 # }
 
-# #25ms cvmfs-reverse2.sdcc.bnl.gov
-# backend backend21 { 
-#     .host = "192.12.15.180";
-#     .port = "8000";
-# }
-# # 25ms cvmfs-reverse1.sdcc.bnl.gov
-# backend backend22 {
-#     .host = "192.12.15.179";
-#     .port = "8000";
-# }
+#25ms cvmfs-reverse2.sdcc.bnl.gov
+backend backend21 { 
+    .host = "192.12.15.180";
+    .port = "8000";
+}
+# 25ms cvmfs-reverse1.sdcc.bnl.gov
+backend backend22 {
+    .host = "192.12.15.179";
+    .port = "8000";
+}
 
 # 17ms
 # backend backend3 {
@@ -39,10 +39,10 @@ import directors;
 #     .port = "8000";
 # }
 
-backend squid {
-    .host = "uct2-slate.mwt2.org";
-    .port = "32200";
-}
+# backend squid {
+#     .host = "uct2-slate.mwt2.org";
+#     .port = "32200";
+# }
 
 acl local {
  "localhost"; /* myself */
@@ -59,10 +59,10 @@ sub vcl_init {
     
     new vdir = directors.round_robin();
     # vdir.add_backend(backend1);
-    # vdir.add_backend(backend21);
-    # vdir.add_backend(backend22);
+    vdir.add_backend(backend21);
+    vdir.add_backend(backend22);
     # vdir.add_backend(backend3);  
-    vdir.add_backend(squid);    
+    # vdir.add_backend(squid);    
 }
 
 sub vcl_recv {
