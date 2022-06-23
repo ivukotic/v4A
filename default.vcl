@@ -68,7 +68,7 @@ sub vcl_init {
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
     
-    set req.http.X-frontier-id = "varnish";
+    # set req.http.X-frontier-id = "varnish";
     
     if (!(client.ip ~ local)) {
         return (synth(405));
