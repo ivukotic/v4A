@@ -22,17 +22,21 @@ import directors;
 #     .port = "8000";
 # }
 
-#25ms cvmfs-reverse2.sdcc.bnl.gov
-backend backend21 { 
-    .host = "192.12.15.180";
-    .port = "8000";
-}
-# 25ms cvmfs-reverse1.sdcc.bnl.gov
-backend backend22 {
-    .host = "192.12.15.179";
-    .port = "8000";
-}
+# #25ms cvmfs-reverse2.sdcc.bnl.gov
+# backend backend21 { 
+#     .host = "192.12.15.180";
+#     .port = "8000";
+# }
+# # 25ms cvmfs-reverse1.sdcc.bnl.gov
+# backend backend22 {
+#     .host = "192.12.15.179";
+#     .port = "8000";
+# }
 
+backend testStratum1 {
+    .host ="oasis-replica-itb.opensciencegrid.org";
+    .port = "8000";
+}
 # 17ms
 # backend backend3 {
 #     .host = "cvmfs-s1goc.opensciencegrid.org";
@@ -59,15 +63,24 @@ sub vcl_init {
     
     new vdir = directors.round_robin();
     # vdir.add_backend(backend1);
-    vdir.add_backend(backend21);
-    vdir.add_backend(backend22);
+    # vdir.add_backend(backend21);
+    # vdir.add_backend(backend22);
     # vdir.add_backend(backend3);  
-    # vdir.add_backend(squid);    
+    # vdir.add_backend(squid);   
+    vdir.add_backend(testStratum1);    
 }
+
+# sub vcl_backend_fetch {
+#     unset bereq.http.X-Varnish;
+# }
+
+# sub vcl_miss {
+#     unset bereq.http.X-Varnish;
+# }
 
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
-    
+
     # set req.http.X-frontier-id = "varnish";
     
     if (!(client.ip ~ local)) {
