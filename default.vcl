@@ -114,7 +114,7 @@ sub vcl_backend_fetch {
 
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
-    set req.http.Host = vdir.backend();
+    # set req.http.Host = vdir.backend();
   
     # set req.http.X-frontier-id = "varnish";
     
