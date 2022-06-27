@@ -42,7 +42,7 @@ backend fermilab2 {
 #     .port = "8000";
 # }
 
-17ms
+# 17ms
 backend goc {
     .host = "cvmfs-s1goc.opensciencegrid.org";
     .port = "8000";
