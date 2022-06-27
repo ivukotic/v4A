@@ -16,11 +16,25 @@ import directors;
 # sft.cern.ch CHECK
 # unpacked.cern.ch CHECK
 
+# probe www_probe {
+#     .url = "/health";
+# }
+# .probe = www_probe;
+
+# for BNL
+# .probe = {
+#     .request =
+#         "GET / HTTP/1.1"
+#         "Host: www.foo.bar"
+#         "Connection: close";
+# }
+
 # 2ms cvmfs-s1fnal.opensciencegrid.org
 backend fermilab1 {
     .host = "131.225.189.138";
     .port = "8000";
 }
+
 backend fermilab2 {
     .host = "2620:6a:0:8421::244";
     .port = "8000";
@@ -30,6 +44,17 @@ backend fermilab2 {
 # backend bnl1 { 
 #     .host = "192.12.15.180";
 #     .port = "8000";
+    # .probe = {
+    #         .request =
+    # "GET / HTTP/1.1"
+    # "Host: www.foo.bar"
+    # "Connection: close";
+    # .url = "/healthtest";
+    # .timeout = 1s;
+    # .interval = 4s;
+    # .window = 5;
+    # .threshold = 3;
+    # }
 # }
 # # 25ms cvmfs-reverse1.sdcc.bnl.gov
 # backend bnl2 {
@@ -65,9 +90,12 @@ sub vcl_init {
     new vdir = directors.round_robin();
     vdir.add_backend(fermilab1);
     vdir.add_backend(fermilab2);
+
+    new xfallback = directors.fallback();
+
     # vdir.add_backend(bnl1);
     # vdir.add_backend(bnl2);
-    vdir.add_backend(goc);  
+    xfallback.add_backend(goc);  
     # vdir.add_backend(squid);   
     # vdir.add_backend(testStratum1);    
 }
@@ -75,6 +103,10 @@ sub vcl_init {
 # sub vcl_backend_fetch {
 #     unset bereq.http.X-Varnish;
 # }
+
+sub vcl_backend_fetch {
+    unset bereq.http.host;
+}
 
 # sub vcl_miss {
 #     unset bereq.http.X-Varnish;
