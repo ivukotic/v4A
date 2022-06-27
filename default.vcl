@@ -71,11 +71,11 @@ acl local {
 sub vcl_init {
     
     new vdir = directors.round_robin();
-    vdir.add_backend(fermilab1);
-    vdir.add_backend(fermilab2);
+    # vdir.add_backend(fermilab1);
+    # vdir.add_backend(fermilab2);
 
-    # vdir.add_backend(bnl1);
-    # vdir.add_backend(bnl2);
+    vdir.add_backend(bnl1);
+    vdir.add_backend(bnl2);
 
     # new xfallback = directors.fallback();
 
