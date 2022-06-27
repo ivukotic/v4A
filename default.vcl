@@ -17,36 +17,36 @@ import directors;
 # unpacked.cern.ch CHECK
 
 # 2ms cvmfs-s1fnal.opensciencegrid.org
-# backend fermilab1 {
-#     .host = "131.225.189.138";
-#     .port = "8000";
-# }
-# backend fermilab2 {
-#     .host = "2620:6a:0:8421::244";
-#     .port = "8000";
-# }
+backend fermilab1 {
+    .host = "131.225.189.138";
+    .port = "8000";
+}
+backend fermilab2 {
+    .host = "2620:6a:0:8421::244";
+    .port = "8000";
+}
 
-#25ms cvmfs-reverse2.sdcc.bnl.gov
-backend bnl1 { 
-    .host = "192.12.15.180";
-    .port = "8000";
-}
-# 25ms cvmfs-reverse1.sdcc.bnl.gov
-backend bnl2 {
-    .host = "192.12.15.179";
-    .port = "8000";
-}
+# #25ms cvmfs-reverse2.sdcc.bnl.gov
+# backend bnl1 { 
+#     .host = "192.12.15.180";
+#     .port = "8000";
+# }
+# # 25ms cvmfs-reverse1.sdcc.bnl.gov
+# backend bnl2 {
+#     .host = "192.12.15.179";
+#     .port = "8000";
+# }
 
 # backend testStratum1 {
 #     .host ="oasis-replica-itb.opensciencegrid.org";
 #     .port = "8000";
 # }
 
-# 17ms
-# backend goc {
-#     .host = "cvmfs-s1goc.opensciencegrid.org";
-#     .port = "8000";
-# }
+17ms
+backend goc {
+    .host = "cvmfs-s1goc.opensciencegrid.org";
+    .port = "8000";
+}
 
 # backend squid {
 #     .host = "uct2-slate.mwt2.org";
@@ -63,11 +63,11 @@ acl local {
 sub vcl_init {
     
     new vdir = directors.round_robin();
-    # vdir.add_backend(fermilab1);
-    # vdir.add_backend(fermilab2);
-    vdir.add_backend(bnl1);
-    vdir.add_backend(bnl2);
-    # vdir.add_backend(goc);  
+    vdir.add_backend(fermilab1);
+    vdir.add_backend(fermilab2);
+    # vdir.add_backend(bnl1);
+    # vdir.add_backend(bnl2);
+    vdir.add_backend(goc);  
     # vdir.add_backend(squid);   
     # vdir.add_backend(testStratum1);    
 }
