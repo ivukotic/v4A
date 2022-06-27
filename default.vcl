@@ -31,7 +31,6 @@ backend fermilab2 {
 backend bnl1 { 
     .host = "192.12.15.180";
     .port = "8000";
-    .host_header = "Host: cvmfs-reverse2.sdcc.bnl.gov";
     # .probe = {
     #         .request =
     #         "GET / HTTP/1.1"
@@ -48,7 +47,6 @@ backend bnl1 {
 backend bnl2 {
     .host = "192.12.15.179";
     .port = "8000";
-    .host_header = "Host: cvmfs-reverse2.sdcc.bnl.gov";
 }
 
 # 17ms
@@ -74,22 +72,21 @@ sub vcl_init {
     # new vdir = directors.round_robin();
     new vdir = directors.fallback();
 
-    vdir.add_backend(bnl1);
-    vdir.add_backend(bnl2);
-
     vdir.add_backend(fermilab1);
     vdir.add_backend(fermilab2);
 
     vdir.add_backend(goc);  
 
+    vdir.add_backend(bnl1);
+    vdir.add_backend(bnl2);
 
     vdir.add_backend(testStratum1);    
 }
 
-# sub vcl_backend_fetch {
-# #     unset bereq.http.X-Varnish;
-#     unset bereq.http.host;
-# }
+sub vcl_backend_fetch {
+#     unset bereq.http.X-Varnish;
+    unset bereq.http.host;
+}
 
 # sub vcl_miss {
 #     unset bereq.http.X-Varnish;
