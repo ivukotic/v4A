@@ -5,17 +5,6 @@ vcl 4.1;
 import dynamic;
 import directors;
 
-# CVMFS_REPOSITORIES
-# atlas-condb.cern.ch CHECK
-# atlas-nightlies.cern.ch NIGHTLIES 179, 180
-# atlas.cern.ch CHECK
-# cms.cern.ch CHECK
-# geant4.cern.ch CHECK
-# grid.cern.ch CHECK
-# oasis.opensciencegrid.org CHECK
-# sft.cern.ch CHECK
-# unpacked.cern.ch CHECK
-
 # 2ms cvmfs-s1fnal.opensciencegrid.org
 backend fermilab1 {
     .host = "131.225.189.138";
@@ -27,6 +16,12 @@ backend fermilab2 {
     .port = "8000";
 }
 
+# 17ms
+backend goc {
+    .host = "cvmfs-s1goc.opensciencegrid.org";
+    .port = "8000";
+}
+
 #25ms cvmfs-reverse2.sdcc.bnl.gov
 backend bnl1 { 
     .host = "192.12.15.180";
@@ -34,7 +29,7 @@ backend bnl1 {
     # .probe = {
     #         .request =
     #         "GET / HTTP/1.1"
-    #         "Host: www.foo.bar"
+    #         "Host: cvmfs-reverse1.sdcc.bnl.gov"
     #         "Connection: close";
     # .url = "/healthtest";
     # .timeout = 1s;
@@ -46,12 +41,6 @@ backend bnl1 {
 # 25ms cvmfs-reverse1.sdcc.bnl.gov
 backend bnl2 {
     .host = "192.12.15.179";
-    .port = "8000";
-}
-
-# 17ms
-backend goc {
-    .host = "cvmfs-s1goc.opensciencegrid.org";
     .port = "8000";
 }
 
@@ -84,17 +73,11 @@ sub vcl_init {
 }
 
 sub vcl_backend_fetch {
-#     unset bereq.http.X-Varnish;
     unset bereq.http.host;
 }
 
-# sub vcl_miss {
-#     unset bereq.http.X-Varnish;
-# }
-
 sub vcl_recv {
     set req.backend_hint = vdir.backend();
-    # set req.http.X-frontier-id = "varnish";
     
     if (!(client.ip ~ local)) {
         return (synth(405));
