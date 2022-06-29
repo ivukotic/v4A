@@ -1,15 +1,11 @@
-# specify the VCL syntax version to use
 vcl 4.1;
 
 # import vmod_dynamic for better backend name resolution
 import dynamic;
 import directors;
 
-# backend backend1 {
-#     .host = "atlasfrontier-ai.cern.ch";
-#     .port = "8000";
-# }
 
+# atlasfrontier-ai.cern.ch
 backend backend10 {
     .host = "2001:1458:201:e5::100:c1";
     .port = "8000";
