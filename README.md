@@ -16,4 +16,3 @@ db-fnget
 ## TO DO
 
 * check how do we handle TTL
-* how to do disk caching
