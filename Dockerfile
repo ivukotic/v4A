@@ -1,9 +1,7 @@
 FROM varnish:fresh-alpine
 
 # COPY default.vcl /etc/varnish/
-RUN whoami
 USER root
-RUN whoami
-RUN apk add curl
+RUN apk add --no-cache --upgrade curl bash
 USER varnish
 COPY sender.sh /etc/varnish/
