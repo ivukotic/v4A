@@ -1,4 +1,8 @@
 #!/bin/sh
 
 data=$(varnishstat -j)
-wget --post-data=$data --header='Content-Type:application/json' 'http://varnish.atlas-ml.org:80/'
+
+curl --request POST -L -k \
+  --url http://varnish.atlas-ml.org:80/ \
+  --header 'content-type: application/json' \
+  --data "$data"
