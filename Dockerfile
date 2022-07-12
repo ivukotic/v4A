@@ -4,4 +4,4 @@ FROM varnish:fresh-alpine
 USER root
 RUN apk add --no-cache --upgrade curl bash
 USER varnish
-COPY sender.sh /etc/varnish/
+COPY sender.sh /usr/local/bin/
