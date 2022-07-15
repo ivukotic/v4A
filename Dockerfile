@@ -7,17 +7,15 @@ USER root
 # RUN apk add --no-cache --upgrade curl bash net-snmp jq
 
 # debian version
-RUN apt-get update; apt-get -y install curl snmpd snmp jq vim python3
-
+RUN apt-get update; apt-get -y install curl snmpd snmp jq vim python3 procps
 
 RUN rm /usr/share/snmp/mibs/*
 RUN mkdir -p /usr/share/snmp/mibs/squid
 
-# USER varnish
-
 COPY default.vcl /etc/varnish/
 
-COPY Monitoring/sender.sh  runme.sh /usr/local/bin/
+COPY runme.sh /usr/local/bin/
+COPY Monitoring/sender.sh /usr/local/bin/
 
 COPY Monitoring/snmpd.conf /etc/snmp/
 COPY Monitoring/snmp.conf /etc/snmp/
@@ -30,4 +28,4 @@ COPY Monitoring/snmpd_sender.py /usr/local/bin/
 ENV MIBS=ALL
 EXPOSE 3401/udp
 
-ENTRYPOINT [ "/usr/local/bin/runme.sh" ]
+CMD [ "/usr/local/bin/runme.sh" ]
