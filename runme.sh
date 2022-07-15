@@ -1,5 +1,3 @@
-VARNISH_MEM=32G
-VARNISH_PORT=89
 echo "Starting Varnish on port $VARNISH_PORT with $VARNISH_MEM memory"
 
 # service snmpd start
