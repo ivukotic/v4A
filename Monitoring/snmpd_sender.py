@@ -7,12 +7,12 @@ class VarnishStatus:
 
     def __init__(self, oid_prefix):
 
-        i = 'INTEGER'
-        s = 'STRING'
-        c3 = 'Counter32'
-        c6 = 'Counter64'
-        g = 'GAUGE'
-        t = 'TIMETICKS'
+        i = 'integer'
+        s = 'string'
+        c = 'counter'
+        g = 'gauge'
+        t = 'timeticks'
+        o = 'octet'
 
         self.v_s = {
             "SMA.s0.g_space": ['1.1.1.0', i, 'Storage Mem size in KB'],
@@ -88,12 +88,21 @@ class VarnishStatus:
 
 
 def getline():
-    return sys.stdin.readline().strip()
+    line = sys.stdin.readline().strip()
+    writelog(line)
+    return line
 
 
 def output(line):
     sys.stdout.write(line + "\n")
     sys.stdout.flush()
+    writelog(">> "+line)
+
+
+def writelog(line):
+    f = open("/tmp/snmp.log", "a")
+    f.write(line+'\n')
+    f.close()
 
 
 def main():
@@ -103,10 +112,6 @@ def main():
     try:
         while True:
             command = getline()
-
-            f = open("/tmp/snmp.log", "a")
-            f.write(command)
-            f.close()
 
             if command == "":
                 sys.exit(0)
@@ -120,22 +125,46 @@ def main():
 
             elif command == "get":
                 oid = getline()
-                output(str(oid))
-                output(str(s.data[oid.lstrip(".")][0]))
-                output(str(s.data[oid.lstrip(".")][1]))
-                sys.exit(0)
+                cl_oid = oid.lstrip(".")
+                if cl_oid in s.data:
+                    output(str(oid))
+                    output(str(s.data[cl_oid][0]))
+                    output(str(s.data[cl_oid][1]))
+                else:
+                    output("NONE")
 
             elif command == "getnext":
                 oid = getline()
-                ni = s.sorted_oids.index(oid.lstrip(".")) + 1
-                if ni >= len(s.sorted_oids) - 1:
-                    sys.exit(0)
-                else:
-                    output("." + str(s.sorted_oids[ni]))
-                    output(str(s.data[s.sorted_oids[ni]][0]))
-                    output(str(s.data[s.sorted_oids[ni]][1]))
+                cl_oid = oid.lstrip(".")
 
+                # remove trailing zeroes from the oid
+                while len(oid) > 0 and oid[-2:] == ".0" and oid not in s.sorted_oids:
+                    oid = oid[:-2]
+
+                # does provided oid exist in the list
+                if cl_oid in s.sorted_oids:
+                    # exact match return next one unless this was the last one
+                    ni = s.sorted_oids.index(cl_oid) + 1
+                    if ni >= len(s.sorted_oids) - 1:
+                        output("NONE")
+                    else:
+                        output("." + str(s.sorted_oids[ni]))
+                        output(str(s.data[s.sorted_oids[ni]][0]))
+                        output(str(s.data[s.sorted_oids[ni]][1]))
+                else:
+                    # not matched, try to find related
+                    match = False
+                    for ex_oid in s.sorted_oids:
+                        if ex_oid.startswith(cl_oid):
+                            output("." + str(ex_oid))
+                            output(str(s.data[ex_oid][0]))
+                            output(str(s.data[ex_oid][1]))
+                            match = True
+                            break
+                    if not match:
+                        output("NONE")
             else:
+                # command not recognized
                 pass
 
     except Exception as ep:

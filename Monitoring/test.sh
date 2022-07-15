@@ -1,5 +1,3 @@
-# https://wiki.squid-cache.org/Features/Snmp
-
 apt-get install snmpd snmp libsnmp-dev -y
 
 /etc/init.d/snmpd stop 
