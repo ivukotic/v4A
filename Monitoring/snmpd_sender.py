@@ -15,13 +15,12 @@ class VarnishStatus:
         o = 'octet'
 
         self.v_s = {
-            "SMA.s0.g_space": ['1.1.1.0', i, 'Storage Mem size in KB'],
-            "fake1": ['1.1.2.0', i, 'Storage Swap size in KB'],
+            "SMA.s0.c_bytes": ['1.1.1.0', i, 'Storage Mem size in KB'],  # TODO kB
             "MAIN.uptime": ['1.1.3.0', t, 'The Uptime of the cache in timeticks'],
-            "fake2": ['1.2.1.0', s, 'Cache Administrator E-Mail address'],
-            "fake3": ['1.2.2.0', s, 'Cache Software Name'],
-            "fake4": ['1.2.3.0', s, 'Cache Software Version'],
-            "fake5": ['1.2.4.0', s, 'Logging Facility.']
+            # TODO MB
+            "SMA.s0.g_space": ['1.2.5.1.0', i, 'The value of the cache_mem parameter in MB'],
+            "SMA.s0.c_bytes": ['1.3.1.3.0', i, 'cacheMemUsage'],  # TODO kB
+            'MAIN.n_object': ['1.3.1.7.0', i, 0, 'cacheNumObjCount'],
         }
 
         self.fakes = [
@@ -29,7 +28,23 @@ class VarnishStatus:
             ['1.2.1.0', s, 'ivukotic@uchicago.edu', 'Cache Administrator E-Mail address'],
             ['1.2.2.0', s, 'varnish', 'Cache Software Name'],
             ['1.2.3.0', s, '7.1', 'Cache Software Version'],
-            ['1.2.4.0', s, 'kibana', 'Logging Facility.']
+            ['1.2.4.0', s, 'ALL,1', 'Logging Facility.'],
+            ['1.2.5.2.0', i, 0, 'cacheSwapMaxSize'],
+            ['1.2.5.3.0', i, 0, 'cacheSwapHighWM'],
+            ['1.2.5.4.0', i, 0,  'cacheSwapLowWM'],
+            ['1.2.6.0', s, 'varnish-test', 'cacheUniqName'],  # TODO proper instance
+
+            ['1.3.1.1.0', i, 0, 'cacheSysPageFaults'],
+            ['1.3.1.2.0', i, 0, 'cacheSysNumReads'],
+            ['1.3.1.4.0', i, 0, 'cacheCpuTime'],
+            ['1.3.1.5.0', i, 0, 'cacheCpuUsage'],
+            ['1.3.1.6.0', i, 0, 'cacheMaxResSize'],
+            ['1.3.1.8.0', i, 0, 'cacheCurrentLRUExpiration'],
+            ['1.3.1.9.0', i, 0, 'cacheCurrentUnlinkRequests'],
+            ['1.3.1.10.0', i, 0, 'cacheCurrentUnusedFDescrCnt'],
+            ['1.3.1.11.0', i, 0, 'cacheCurrentResFileDescrCnt'],
+            ['1.3.1.12.0', i, 0, 'cacheCurrentFileDescrCnt'],
+            ['1.3.1.13.0', i, 0, 'cacheCurrentFileDescrMax'],
         ]
 
         self.oid_prefix = oid_prefix
