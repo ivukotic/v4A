@@ -1,6 +1,6 @@
 #!/bin/sh
 
-data=$(varnishstat -j)
+# data=$(varnishstat -j)
 
 # jsn=$(echo $data | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { instance: $INST, site: $SITE }')
 
