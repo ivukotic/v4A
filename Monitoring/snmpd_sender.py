@@ -15,7 +15,7 @@ def to_MB(vars):
 
 
 def get_instance(vars):
-    return os.getenv("SITE", default="TestSite")+os.getenv("INSTANCE", default="Inst-01")
+    return os.getenv("SITE", default="TestSite")+"_"+os.getenv("INSTANCE", default="Inst-01")
 
 
 class VarnishStatus:
@@ -171,14 +171,14 @@ class VarnishStatus:
 
 def getline():
     line = sys.stdin.readline().strip()
-    writelog(line)
+    # writelog(line)
     return line
 
 
 def output(line):
     sys.stdout.write(line + "\n")
     sys.stdout.flush()
-    writelog(">> "+line)
+    # writelog(">> "+line)
 
 
 def writelog(line):
