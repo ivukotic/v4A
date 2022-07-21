@@ -62,8 +62,8 @@ class VarnishStatus:
             '1.3.1.11': [g, 0, 'cacheCurrentResFileDescrCnt'],
             '1.3.1.12': [g, 0, 'cacheCurrentFileDescrCnt'],
             '1.3.1.13': [g, 0, 'cacheCurrentFileDescrMax'],
-            '1.3.2.1.1': [c, 'cacheProtoClientHttpRequests', "MAIN.client_req"],
-            '1.3.2.1.2': [c, 'cacheHttpHits', "MAIN.cache_hit"],
+            '1.3.2.1.1': [c, 0, 'cacheProtoClientHttpRequests', "MAIN.client_req"],
+            '1.3.2.1.2': [c, 0, 'cacheHttpHits', "MAIN.cache_hit"],
             '1.3.2.1.3': [c, 0, 'cacheHttpErrors'],  # ?
             '1.3.2.1.4': [c, 0, 'cacheHttpInKb', self.get_beresp_kb],
             '1.3.2.1.5': [c, 0, 'cacheHttpOutKb', to_kB, "MAIN.s_resp_bodybytes"],
