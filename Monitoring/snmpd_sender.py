@@ -249,7 +249,7 @@ def main():
                     if ni >= len(s.sorted_oids) - 1:
                         output("NONE")
                     else:
-                        output("." + str(s.sorted_oids[ni][0]))
+                        output("." + str(s.sorted_oids[ni][0]) + ".0")
                         output(s.sorted_oids[ni][1])
                         output(str(s.sorted_oids[ni][2]))
                 else:
@@ -259,7 +259,7 @@ def main():
                         ex_k = ex[0]
                         ex_v = ex[1:]
                         if ex_k.startswith(oid):
-                            output("." + str(ex_k))
+                            output("." + str(ex_k) + ".0")
                             output(ex_v[0])
                             output(str(ex_v[1]))
                             match = True
