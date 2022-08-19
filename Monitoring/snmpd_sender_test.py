@@ -2,7 +2,6 @@
 import subprocess
 import os
 import sys
-import time
 
 
 def to_kB(vars):
@@ -36,7 +35,7 @@ class VarnishStatus:
         g = 'gauge'
         t = 'timeticks'
         o = 'octet'
-        self.last_update = 0
+
         self.sq_oids = {
             '1.1.1': [i, 9, 'cacheSysVMsize',  to_kB, "SMA.s0.c_bytes"],
             '1.1.2': [i, 0, 'cacheSysStorage'],  # Storage Swap size in KB
@@ -135,7 +134,8 @@ class VarnishStatus:
         self.sorted_oids = []
         self.cache_service_status()
 
-        # print('sorted oids', self.sorted_oids)
+        for i in self.sorted_oids:
+            print(i)
 
     def get_oid(self, oid):
         for l in self.sorted_oids:
@@ -169,112 +169,18 @@ class VarnishStatus:
                 args.append(self.v_metrics[c])
             self.sorted_oids.append([fo, v[0], v[3](args)])
 
-        self.last_update = time.time()
-
-
-def getline():
-    line = sys.stdin.readline().strip()
-    # writelog(line)
-    return line
-
-
-def output(line):
-    sys.stdout.write(line + "\n")
-    sys.stdout.flush()
-    # writelog(">> "+line)
-
-
-def writelog(line):
-    f = open("/tmp/snmp.log", "a")
-    f.write(line+'\n')
-    f.close()
-
 
 def main():
     oid_prefix = "1.3.6.1.4.1.3495"
     s = VarnishStatus(oid_prefix)
 
-    try:
-        while True:
-            command = getline()
-            if (s.last_update+43) < time.time():
-                s.cache_service_status()
-
-            if command == "":
-                sys.exit(0)
-            elif command == "PING":
-                output("PONG")
-
-            elif command == "set":
-                oid = getline()
-                type_and_value = getline()
-                output("not-writable")
-
-            elif command == "get":
-                oid = getline()
-
-                # remove trailing zeroes from the oid
-                while len(oid) > 0 and oid[-2:] == ".0":
-                    oid = oid[: -2]
-
-                cl_oid = oid.lstrip(".")
-
-                res = s.get_oid(cl_oid)
-                if res:
-                    output(res[0])
-                    output(res[1])
-                    output(str(res[1]))
-                else:
-                    output("NONE")
-
-            elif command == "getnext":
-                oid = getline()
-                oid = oid.lstrip(".")
-
-                # remove trailing zeroes from the oid
-                while len(oid) > 0 and oid[-2:] == ".0":
-                    oid = oid[: -2]
-
-                # writelog('looking for oid:' + oid)
-                # does provided oid exist in the list?
-                found = False
-                ni = 0
-                for l in s.sorted_oids:
-                    ni += 1
-                    if oid == l[0]:
-                        # writelog("exact match, looking for the next")
-                        found = True  # exact match return next one unless this was the last one
-                        break
-                if found:
-                    if ni >= len(s.sorted_oids) - 1:
-                        output("NONE")
-                    else:
-                        output("." + str(s.sorted_oids[ni][0]))
-                        output(s.sorted_oids[ni][1])
-                        output(str(s.sorted_oids[ni][2]))
-                else:
-                    # writelog('not matched, try to find related')
-                    match = False
-                    for ex in s.sorted_oids:
-                        ex_k = ex[0]
-                        ex_v = ex[1:]
-                        if ex_k.startswith(oid):
-                            output("." + str(ex_k))
-                            output(ex_v[0])
-                            output(str(ex_v[1]))
-                            match = True
-                            break
-                    if not match:
-                        output("NONE")
-            else:
-                # command not recognized
-                pass
-
-    except Exception as ep:
-        f = open("/var/lib/snmp/varnish-status.err.log", "a")
-        f.write(ep)
-        f.close()
-        # print(ep.with_traceback)
+    for ex in s.sorted_oids:
+        ex_k = ex[0]
+        ex_v = ex[1:]
+        if ex_k.startswith(oid_prefix):
+            print("." + str(ex_k))
+            print(ex_v[0])
+            print(str(ex_v[1]))
 
 
 if __name__ == "__main__":
