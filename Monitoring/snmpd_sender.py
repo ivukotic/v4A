@@ -2,6 +2,19 @@
 import subprocess
 import os
 import sys
+import time
+
+
+def do_every(period, f):
+    def g_tick():
+        t = time.time()
+        while True:
+            t += period
+            yield max(t - time.time(), 0)
+    g = g_tick()
+    while True:
+        time.sleep(next(g))
+        f()
 
 
 def to_kB(vars):
@@ -190,6 +203,8 @@ def writelog(line):
 def main():
     oid_prefix = "1.3.6.1.4.1.3495"
     s = VarnishStatus(oid_prefix)
+
+    do_every(43, s.cache_service_status)
 
     try:
         while True:
