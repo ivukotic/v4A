@@ -5,18 +5,6 @@ import sys
 import time
 
 
-def do_every(period, f):
-    def g_tick():
-        t = time.time()
-        while True:
-            t += period
-            yield max(t - time.time(), 0)
-    g = g_tick()
-    while True:
-        time.sleep(next(g))
-        f()
-
-
 def to_kB(vars):
     inp = vars[0]
     return int(int(inp)/1024)
@@ -48,7 +36,7 @@ class VarnishStatus:
         g = 'gauge'
         t = 'timeticks'
         o = 'octet'
-
+        self.last_update = time.time()
         self.sq_oids = {
             '1.1.1': [i, 9, 'cacheSysVMsize',  to_kB, "SMA.s0.c_bytes"],
             '1.1.2': [i, 0, 'cacheSysStorage'],  # Storage Swap size in KB
@@ -204,11 +192,11 @@ def main():
     oid_prefix = "1.3.6.1.4.1.3495"
     s = VarnishStatus(oid_prefix)
 
-    do_every(43, s.cache_service_status)
-
     try:
         while True:
             command = getline()
+            if (s.last_update+43) < time.time():
+                s.cache_service_status()
 
             if command == "":
                 sys.exit(0)
