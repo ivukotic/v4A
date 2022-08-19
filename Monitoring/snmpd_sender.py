@@ -221,7 +221,7 @@ def main():
 
                 res = s.get_oid(cl_oid)
                 if res:
-                    output(res[0])
+                    output(res[0]+".0")
                     output(res[1])
                     output(str(res[1]))
                 else:
