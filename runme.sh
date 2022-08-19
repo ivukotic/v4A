@@ -2,7 +2,7 @@ echo "Starting Varnish on port $VARNISH_PORT with $VARNISH_MEM memory"
 
 if [ -n $MONITOR_SNMP ]
 then
-  if [ $MONITOR_SNMP == "true" ]
+  if [ $MONITOR_SNMP = "true" ]
   then
     # service snmpd start
     /usr/sbin/snmpd -LS 5 d -Lf /var/log/snmpd.log -p /var/run/snmpd.PID -a -d -V
