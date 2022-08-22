@@ -19,7 +19,7 @@ def get_instance(vars):
     return os.getenv("SITE", default="TestSite")+"_"+os.getenv("INSTANCE", default="Inst-01")
 
 
-def get_cpu_used():
+def get_cpu_used(vars):
     res = subprocess.check_output(
         ["ps -eo comm,time | grep cache | awk '{print $2}'"], shell=True).decode("UTF-8").strip()
     pidInfo = res.partition("-")
