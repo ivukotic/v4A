@@ -89,7 +89,7 @@ class VarnishStatus:
             '1.3.2.1.7': [c, 0, 'cacheIcpPktsRecv'],
             '1.3.2.1.8': [c, 0, 'cacheIcpKbSent'],
             '1.3.2.1.9': [c, 0, 'cacheIcpKbRecv'],
-            '1.3.2.1.10': [i, 'cacheServerRequests', "MAIN.backend_req"],
+            '1.3.2.1.10': [i, 0, 'cacheServerRequests', "MAIN.backend_req"],
             '1.3.2.1.11': [i, 0, 'cacheServerErrors'],
             '1.3.2.1.12': [c, 0, 'cacheServerInKb', self.get_beresp_kb],  # ?
             '1.3.2.1.13': [c, 0, 'cacheServerOutKb'],  # ?
