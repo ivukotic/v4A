@@ -214,18 +214,18 @@ def main():
 
                 cl_oid = oid.lstrip(".")
 
-                writelog('get for oid:' + cl_oid)
+                # writelog('get for oid:' + cl_oid)
 
                 res = None
                 for l in s.sorted_oids:
                     if l[0] == cl_oid:
                         res = l
 
-                writelog('returning res:' + str(res))
+                # writelog('returning res:' + str(res))
                 if res:
                     output(res[0]+".0")
                     output(res[1])
-                    output(str(res[1]))
+                    output(str(res[2]))
                 else:
                     output("NONE")
 
