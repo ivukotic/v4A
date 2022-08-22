@@ -220,6 +220,9 @@ def main():
                 cl_oid = oid.lstrip(".")
 
                 res = s.get_oid(cl_oid)
+
+                writelog('get for oid:' + cl_oid)
+                writelog('returning res:' + res)
                 if res:
                     output(res[0]+".0")
                     output(res[1])
