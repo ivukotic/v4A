@@ -137,11 +137,6 @@ class VarnishStatus:
 
         # print('sorted oids', self.sorted_oids)
 
-    def get_oid(self, oid):
-        for l in self.sorted_oids:
-            if l[0] == oid:
-                return l
-
     def cache_service_status(self):
 
         # Temporary data structure used to create sorted oid list later
@@ -219,10 +214,14 @@ def main():
 
                 cl_oid = oid.lstrip(".")
 
-                res = s.get_oid(cl_oid)
-
                 writelog('get for oid:' + cl_oid)
-                writelog('returning res:' + res)
+
+                res = None
+                for l in s.sorted_oids:
+                    if l[0] == cl_oid:
+                        res = l
+
+                writelog('returning res:' + str(res))
                 if res:
                     output(res[0]+".0")
                     output(res[1])
