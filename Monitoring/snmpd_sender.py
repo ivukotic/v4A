@@ -19,6 +19,23 @@ def get_instance(vars):
     return os.getenv("SITE", default="TestSite")+"_"+os.getenv("INSTANCE", default="Inst-01")
 
 
+def get_cpu_used():
+    res = subprocess.check_output(
+        ["ps -eo comm,time | grep cache | awk '{print $2}'"], shell=True).decode("UTF-8").strip()
+    pidInfo = res.partition("-")
+    rest = []
+    days = 0
+    if pidInfo[1] == '-':  # there is a day
+        days = int(pidInfo[0])
+        rest = pidInfo[2].split(":")
+    else:
+        rest = pidInfo[0].split(":")
+    hours = int(rest[0])
+    minutes = int(rest[1])
+    seconds = int(rest[2])
+    return days*24*3600 + hours*3600 + minutes*60 + seconds
+
+
 class VarnishStatus:
 
     def get_beresp_kb(self, vars):
@@ -53,7 +70,7 @@ class VarnishStatus:
             '1.3.1.1': [c, 0, 'cacheSysPageFaults'],  # ?
             '1.3.1.2': [c, 0, 'cacheSysNumReads'],  # ?
             '1.3.1.3': [i, 9, 'cacheMemUsage',  to_MB, "SMA.s0.c_bytes"],
-            '1.3.1.4': [i, 0, 'cacheCpuTime'],  # TODO accumulative CPU seconds
+            '1.3.1.4': [i, 0, 'cacheCpuTime', get_cpu_used],
             '1.3.1.5': [i, 0, 'cacheCpuUsage'],  # TODO percent usage
             '1.3.1.6': [i, 0, 'cacheMaxResSize'],  # ?
             '1.3.1.7': [g, 0, 'cacheNumObjCount', 'MAIN.n_object'],
@@ -72,7 +89,7 @@ class VarnishStatus:
             '1.3.2.1.7': [c, 0, 'cacheIcpPktsRecv'],
             '1.3.2.1.8': [c, 0, 'cacheIcpKbSent'],
             '1.3.2.1.9': [c, 0, 'cacheIcpKbRecv'],
-            '1.3.2.1.10': [i, 'cacheServerRequests', "MAIN.cache_hit"],
+            '1.3.2.1.10': [i, 'cacheServerRequests', "MAIN.backend_req"],
             '1.3.2.1.11': [i, 0, 'cacheServerErrors'],
             '1.3.2.1.12': [c, 0, 'cacheServerInKb', self.get_beresp_kb],  # ?
             '1.3.2.1.13': [c, 0, 'cacheServerOutKb'],  # ?
