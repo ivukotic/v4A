@@ -16,3 +16,4 @@ db-fnget
 ## TO DO
 
 * check how do we handle TTL
+* check memory limits
