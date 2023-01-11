@@ -1,6 +1,7 @@
 vcl 4.1;
 
 # import vmod_dynamic for better backend name resolution
+import std;
 import dynamic;
 import directors;
 
