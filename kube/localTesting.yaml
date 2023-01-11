@@ -1,0 +1,127 @@
+# this is to be used on any cluster.
+# creates varnish and uses configmap to set the default.vcl
+# change the configmap and recreate pod
+# use the same pod to try out curls
+# curl -XGET "http://localhost/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
+# curl -XGET "http://localhost/cvmfs/desdm.osgstorage.org/.cvmfspublished"
+# curl -XGET "http://s1bnl-cvmfs.openhtc.io/cvmfs/desdm.osgstorage.org/.cvmfspublished"
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: v4test
+data:
+  default.vcl: |-
+    vcl 4.1;
+    import std;
+    import dynamic;
+    import directors;
+
+    backend bnl_1 {
+        .host = "192.12.15.180";
+        .port = "8000";
+    }
+    backend fermilab_1 {
+        .host = "131.225.189.138";
+        .port = "8000";
+    }
+    backend bnl_2 {
+        .host = "192.12.15.179";
+        .port = "8000";
+    }
+    backend cern_1 {
+        .host = "128.142.194.109";
+        .port = "80";
+    }
+
+
+    sub vcl_recv {
+        if (req.method != "GET" && req.method != "HEAD") {
+            return (pipe);
+        }
+        if (req.restarts == 0) {
+            set req.backend_hint = bnl_1;
+        }
+        if (req.restarts == 1) {
+            set req.backend_hint = fermilab_1;
+        }
+        if (req.restarts == 2) {
+            set req.backend_hint = bnl_2;
+        }
+        if (req.restarts == 3) {
+            set req.backend_hint = cern_1;
+        }
+    }
+
+    sub vcl_backend_fetch {
+        # this is needed for BNL CERN and some other backends
+        unset bereq.http.host;
+    }
+
+    sub vcl_backend_response {
+        # Don't cache 404 responses
+        if ( beresp.status == 404 ) {
+            std.log(">>>>>>>>>>>>>>>> got 404 <<<<<<<<<<");
+            # std.log(bereq.retries);  this is always 0
+            # std.log(req.restarts); req not visible here
+            std.log("-----------------------------------");
+            if (bereq.retries < (4-1) ){
+                set beresp.uncacheable = true;
+                return (deliver);
+            } else {
+                std.log(">>>>>>>>>>>>>>>> CACHING 404 <<<<<<<<<<<<<<<<<<<<<<<");
+            }
+        }
+    }
+
+
+    sub vcl_deliver {
+        if (resp.status == 404) {
+            std.log(">> force retry <<<");
+            return(restart);
+        }
+    }
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v4test
+  labels:
+    k8s-app: v4test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: v4test
+  template:
+    metadata:
+      labels:
+        k8s-app: v4test
+    spec:
+      containers:
+        - name: v4test
+          image: ivukotic/v4a:latest
+          args: ["-t", "3600"]
+          env:
+            - name: VARNISH_SIZE
+              value: "512M"
+          # ports:
+          #   - containerPort: 3401
+          #     hostPort: 3401
+          #     protocol: UDP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/varnish/
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "2"
+              memory: "3Gi"
+
+      volumes:
+        - name: config-volume
+          configMap:
+            name: v4test
