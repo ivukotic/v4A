@@ -5,7 +5,7 @@
 # curl -XGET "http://localhost/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
 # curl -XGET "http://localhost/cvmfs/desdm.osgstorage.org/.cvmfspublished"
 # curl -XGET "http://s1bnl-cvmfs.openhtc.io/cvmfs/desdm.osgstorage.org/.cvmfspublished"
-
+# curl -XGET "http://klei.nikhef.nl:8000/cvmfs/desdm.osgstorage.org/.cvmfspublished"
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -64,21 +64,25 @@ data:
             std.log(">>>>>>>>>>>>>>>> got 404 <<<<<<<<<<");
             # std.log(bereq.retries);  this is always 0
             # std.log(req.restarts); req not visible here
+            std.log(bereq.backend);
             std.log("-----------------------------------");
-            if (bereq.retries < (4-1) ){
+            if (bereq.backend != cern_1 ){
                 set beresp.uncacheable = true;
                 return (deliver);
             } else {
+                set beresp.ttl = 3s;
                 std.log(">>>>>>>>>>>>>>>> CACHING 404 <<<<<<<<<<<<<<<<<<<<<<<");
             }
         }
     }
 
-
     sub vcl_deliver {
         if (resp.status == 404) {
-            std.log(">> force retry <<<");
-            return(restart);
+            std.log(obj.uncacheable);
+            if (obj.uncacheable){
+              std.log(">> force retry <<<");
+              return(restart);
+            }
         }
     }
 
