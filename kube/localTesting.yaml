@@ -108,7 +108,7 @@ spec:
           image: ivukotic/v4a:latest
           args: ["-t", "3600"]
           env:
-            - name: VARNISH_SIZE
+            - name: VARNISH_MEM
               value: "512M"
           # ports:
           #   - containerPort: 3401
