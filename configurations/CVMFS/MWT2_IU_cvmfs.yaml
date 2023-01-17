@@ -1,4 +1,5 @@
-varnish_size: "28G"
+varnish_mem: "28G"
+varnish_transient_mem: "2G"
 
 nodeSelector:
   varnish: cvmfs-slate
