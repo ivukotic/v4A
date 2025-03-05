@@ -37,7 +37,7 @@ here:
 
 ## Configuring it for Frontier access caching
 
-This is a [configuration](default_frontier.vcl) that you will need. It is very simple and it just loads cache misses from the two ATLAS Frontier servers.
+This is a [configuration](default.vcl) that you will need. It is very simple and it just loads cache misses from the two ATLAS Frontier servers.
 
 ## Configuring it for CVMFS traffic caching
 
