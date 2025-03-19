@@ -26,6 +26,13 @@ COPY Monitoring/SQUID-MIB.txt /usr/share/snmp/mibs/squid/
 COPY Monitoring/snmpd_sender.py /usr/local/bin/
 
 ENV MIBS=ALL
+
+ENV VARNISH_MEM=2000m
+ENV VARNISH_TRANSIENT_MEM=2000m
+ENV VARNISH_PORT=6082
+ENV MONITOR_SNMP=false
+ENV MONITOR_ES=true
+
 EXPOSE 3401/udp
 
 CMD [ "/usr/local/bin/runme.sh" ]
