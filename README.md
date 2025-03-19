@@ -7,18 +7,28 @@ Varnish for ATLAS
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
 Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM. Caching CVMFS accesses will benefit from even more RAM.
 
+We support use of Varnish for Frontier accesses and for CVMFS accesses. We don't want to serve both of them with the same Varnish instance. Varnish for Frontier should be listening on port 6082 and Varnish for CVMFS should listen on port 6081.
+
 ## Setting it up
 
 ### On a K8s cluster
 
 This is the easiest way to set it up. Simply download [this](kube/full_frontier_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
 
-```
+```bash
 kubectl create ns varnish
 kubectl create -f full_deployment.yaml
 ```
 
 This will create appropriate configuration config map and deployment. The default monitoring (in Kibana at UC) will be included.
+
+### In Docker
+
+Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<NODE\> and do:
+
+```bash
+docker compose start
+```
 
 ### On an VM, bare metal
 
@@ -38,6 +48,11 @@ here:
 ## Configuring it for Frontier access caching
 
 This is a [configuration](default.vcl) that you will need. It is very simple and it just loads cache misses from the two ATLAS Frontier servers.
+If it works correctly command like this should return 200:
+
+```bash
+curl -L -o /dev/null -s -w "%{http_code}" -H "Cache-Control: max-age=0" http://<HOSTNAME>:6082/atlr
+```
 
 ## Configuring it for CVMFS traffic caching
 
