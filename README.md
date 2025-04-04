@@ -127,8 +127,14 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 |  cvmfs-uc          | <http://v4cvmfs.mwt2.org:6081> | c034.af.uchicago.edu | cvmfs-slate |
 |  frontier-uc-01    | <http://v4a.mwt2.org:6081> | c035.af.uchicago.edu | frontier-slate  |
 
-## CloudFlare
+### Roma
+| **Instance** | **Address** | **Use** | 
+| ------------ | --------------- | ---- |
+|  v4f-1         | cmsrm-svc-02.roma1.infn.it:6082 | local use |
+|  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  |
 
+## CloudFlare
+We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
+Important Frontier Varnish instances are reachable at <http://v4a.hl.lhc.net:6082>. Health checks in CF are trying to access "/atlr" directory once per minute.
 All CVMFS Varnish instances are reachable at <http://varnish.hl-lhc.net:6081>.
-This is a CF loadbalancer that will redirect to the closest healthy instance.
-Health is checked every minute by trying to access: /cvmfs/atlas.cern.ch/.cvmfspublished
+Health is checked by trying to access: /cvmfs/atlas.cern.ch/.cvmfspublished
