@@ -131,7 +131,12 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 | **Instance** | **Address** | **Use** | 
 | ------------ | --------------- | ---- |
 |  v4f-1         | cmsrm-svc-02.roma1.infn.it:6082 | local use |
-|  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  |
+|  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  **eu-central** |
+
+### ES
+| **Instance** | **Address** | **Use** | 
+| ------------ | --------------- | ---- |
+|  frontier-01 | varnish.pic.es:6082 | CloudFlare **v4f-es** |
 
 ## CloudFlare
 We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
