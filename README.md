@@ -67,7 +67,7 @@ export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:6081/atlr)
 db-fnget
 ```
 
-## CREST settings
+## CRIC settings
 
 Only Varnish servers that serve Frontier should be mentioned in [CRIC](https://atlas-cric.cern.ch/).
 They are a CRIC Service, so you should click here to create a new one.
