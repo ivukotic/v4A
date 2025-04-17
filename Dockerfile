@@ -34,5 +34,5 @@ ENV MONITOR_SNMP=false
 ENV MONITOR_ES=true
 
 EXPOSE 3401/udp
-
+USER varnish
 CMD [ "/usr/local/bin/runme.sh" ]

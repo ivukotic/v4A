@@ -92,11 +92,11 @@ spec:
             failureThreshold: 3
           resources:
             requests:
-              cpu: "4"
-              memory: "33Gi"
+              cpu: "2"
+              memory: "24Gi"
             limits:
-              cpu: "20"
-              memory: "64Gi"
+              cpu: "6"
+              memory: "48Gi"
       nodeSelector:
         kubernetes.io/hostname: <NODE>
       volumes:
