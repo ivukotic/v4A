@@ -8,7 +8,6 @@ then
     # service snmpd start
     # /usr/sbin/snmpd -LS 5 d -Lf /var/log/snmpd.log -p /var/run/snmpd.PID -a -d -V
     /usr/sbin/snmpd -LS 5 d -Lf /tmp/snmpd.log -p /tmp/snmpd.PID -a -d
-    
   fi
 fi
 

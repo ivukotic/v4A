@@ -17,7 +17,7 @@ This is the easiest way to set it up. Simply download [this](kube/full_frontier_
 
 ```bash
 kubectl create ns varnish
-kubectl create -f full_deployment.yaml
+kubectl create -f full_frontier_deployment.yaml
 ```
 
 This will create appropriate configuration config map and deployment. The default monitoring (in Kibana at UC) will be included.
@@ -128,17 +128,20 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 |  frontier-uc-01    | <http://v4a.mwt2.org:6081> | c035.af.uchicago.edu | frontier-slate  |
 
 ### Roma
-| **Instance** | **Address** | **Use** | 
+
+| **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
 |  v4f-1         | cmsrm-svc-02.roma1.infn.it:6082 | local use |
 |  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  **eu-central** |
 
 ### ES
-| **Instance** | **Address** | **Use** | 
+
+| **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
 |  frontier-01 | varnish.pic.es:6082 | CloudFlare **v4f-es** |
 
 ## CloudFlare
+
 We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
 Important Frontier Varnish instances are reachable at <http://v4a.hl.lhc.net:6082>. Health checks in CF are trying to access "/atlr" directory once per minute.
 All CVMFS Varnish instances are reachable at <http://varnish.hl-lhc.net:6081>.
