@@ -86,8 +86,6 @@ spec:
             limits:
               cpu: "6"
               memory: "48Gi"
-      nodeSelector:
-        kubernetes.io/hostname: <NODE>
       volumes:
         - name: config-volume
           configMap:
