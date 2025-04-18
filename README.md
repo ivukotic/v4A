@@ -90,6 +90,16 @@ To add the created service to your site and change order of priority of caching 
 
 Clicking "Manage configuration" will allow to add/remove a caching proxy and reoder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
 
+## Local CVMFS configuration
+
+On each client machine, add the Varnish server to CVMFS_HTTP_PROXY in the CVMFS client configuration (typically in `/etc/cvmfs/default.local`). For instance:
+
+```
+CVMFS_HTTP_PROXY='http://varnish.hl-lhc.net:6081;DIRECT'
+```
+
+See the [CVMFS Client Configuration documentation](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#proxy-lists) for more information regarding proxy grouping.
+
 ## Monitoring
 
 There are two ways to centrally monitor varnishes:
