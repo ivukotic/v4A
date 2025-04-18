@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v4f
+  namespace: varnish
+  labels:
+    k8s-app: v4f
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: v4f
+  template:
+    metadata:
+      labels:
+        k8s-app: v4f
+    spec:
+      containers:
+        - name: v4f
+          image: ivukotic/v4a:frontier-no-snmp
+          env:
+            - name: SITE
+              value: "<SITENAME>"
+            - name: INSTANCE
+              value: "frontier-01"
+            - name: VARNISH_PORT
+              value: "8080"
+            - name: VARNISH_MEM
+              value: "32G"
+            - name: VARNISH_TRANSIENT_MEM
+              value: "2G"
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/varnish/
+          livenessProbe:
+            exec:
+              command:
+                - /usr/local/bin/sender.sh
+            initialDelaySeconds: 120
+            timeoutSeconds: 4
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "2"
+              memory: "24Gi"
+            limits:
+              cpu: "6"
+              memory: "48Gi"
+      nodeSelector:
+        kubernetes.io/hostname: <NODE>
+      volumes:
+        - name: config-volume
+          configMap:
+            name: v4f
+  strategy:
+    type: Recreate
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: v4f-service
+  namespace: varnish
+spec:
+  selector:
+    k8s-app: v4f
+  ports:
+    - protocol: TCP
+      port: 6082
+      targetPort: 8080

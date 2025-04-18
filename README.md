@@ -13,14 +13,25 @@ We support use of Varnish for Frontier accesses and for CVMFS accesses. We don't
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/full_frontier_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/k8s_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
-kubectl create -f full_frontier_deployment.yaml
+kubectl create -f k8s_deployment.yaml
 ```
 
-This will create appropriate configuration config map and deployment. The default monitoring (in Kibana at UC) will be included.
+This will create appropriate configuration config map and deployment.
+
+### On an OpenShift cluster
+
+This is the easiest way to set it up. Simply download [this](kube/open_shift_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
+
+```bash
+kubectl create ns varnish
+kubectl create -f open_shift_deployment.yaml
+```
+
+This will create appropriate configuration config map, deployment and service.
 
 ### In Docker
 
