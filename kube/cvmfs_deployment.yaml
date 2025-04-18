@@ -1,8 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: v4cvmfs
+  namespace: varnish
+  labels:
+    k8s-app: v4cvmfs
+data:
+  default.vcl: |-
     vcl 4.1;
     import std;
     import dynamic;
     import directors;
-    
+
     backend fermilab {
         .host = "cvmfs-srv.fnal.gov";
         .port = "8000";
@@ -68,3 +77,66 @@
             }
         }
     }
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v4cvmfs
+  namespace: varnish
+  labels:
+    k8s-app: v4cvmfs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: v4cvmfs
+  template:
+    metadata:
+      labels:
+        k8s-app: v4cvmfs
+    spec:
+      containers:
+        - name: v4cvmfs
+          image: ivukotic/v4cvmfs:cvmfs-no-snmp
+          env:
+            - name: SITE
+              value: "<SITENAME>"
+            - name: INSTANCE
+              value: "frontier-01"
+            - name: VARNISH_PORT
+              value: "8080"
+            - name: VARNISH_MEM
+              value: "32G"
+            - name: VARNISH_TRANSIENT_MEM
+              value: "2G"
+          ports:
+            - containerPort: 8080
+              hostPort: 6081
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/varnish/
+          livenessProbe:
+            exec:
+              command:
+                - /usr/local/bin/sender.sh
+            initialDelaySeconds: 120
+            timeoutSeconds: 4
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "2"
+              memory: "24Gi"
+            limits:
+              cpu: "6"
+              memory: "48Gi"
+      nodeSelector:
+        kubernetes.io/hostname: <NODE>
+      volumes:
+        - name: config-volume
+          configMap:
+            name: v4cvmfs
+  strategy:
+    type: Recreate

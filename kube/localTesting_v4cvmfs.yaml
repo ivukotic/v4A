@@ -105,7 +105,7 @@ spec:
     spec:
       containers:
         - name: v4test
-          image: ivukotic/v4a:latest
+          image: ivukotic/v4cvmfs:cvmfs-no-snmp
           args: ["-t", "3600"]
           env:
             - name: VARNISH_MEM

@@ -1,6 +1,6 @@
 services:
   v4f:
-    image: ivukotic/v4a:latest
+    image: ivukotic/v4cvmfs:cvmfs-no-snmp
     container_name: v4f
     environment:
       SITE: "<SITENAME>"
@@ -12,8 +12,7 @@ services:
       VARNISH_MEM: "32G"
       VARNISH_TRANSIENT_MEM: "2G"
     ports:
-      - "6082:8080"
-      - "3401:3401/udp"
+      - "6081:8080"
     volumes:
       - ./vcl/default.vcl:/etc/varnish/default.vcl:ro
     deploy:
