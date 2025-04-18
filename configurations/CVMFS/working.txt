@@ -1,9 +1,0 @@
-To test origin do so:
-
-curl -XGET "http://cvmfs-s1goc.opensciencegrid.org:8000/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
-
-To test through varnish from uct2-int do:
-curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
-
-curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/atlas-nightlies.cern.ch/.cvmfspublished"
- 

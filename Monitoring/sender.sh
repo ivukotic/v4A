@@ -1,16 +1,5 @@
 #!/bin/sh
 
-if [ -n $MONITOR_ES ]
-then
-  if [ $MONITOR_ES != "true" ]
-  then
-    echo "NO MONITOR OK"
-    exit 0
-  fi
-else
-  echo -e "MONITOR_ES not set.\n"
-  exit 0
-fi
 
 data=$(varnishstat -j -X "VBE*" -X "WAITER*" -X "LCK*" -X "MEM*" -X "SMA*" -X "MGT*")
 # the following line will simplify output but requires change in the logstash collector

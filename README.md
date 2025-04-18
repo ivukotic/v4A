@@ -2,7 +2,7 @@
 
 Varnish for ATLAS
 
-[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=main)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
+[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=frontier-no-snmp)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
 Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM. Caching CVMFS accesses will benefit from even more RAM.
@@ -92,15 +92,7 @@ Clicking "Manage configuration" will allow to add/remove a caching proxy and reo
 
 ## Monitoring
 
-There are two ways to centrally monitor varnishes:
-
-### Kibana at UC
-
 This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) gives most important data: requests rate, cached hit and miss rates, amount of data delivered and uptime.
-
-### Central Squid Monitoring
-
-If you have enabled SNMP monitoring and registered your Varnish is [OSG topology](https://github.com/opensciencegrid/topology), you should be able to see it in this [dashboard](http://wlcg-squid-monitor.cern.ch/snmpstats/mrtgatlas2/indexatlas2.html). Keep in mind that the last plot (file descriptor usage) will always be empty as Varnish does not use disk at all.
 
 ## Instances
 
@@ -146,3 +138,18 @@ We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
 Important Frontier Varnish instances are reachable at <http://v4a.hl.lhc.net:6082>. Health checks in CF are trying to access "/atlr" directory once per minute.
 All CVMFS Varnish instances are reachable at <http://varnish.hl-lhc.net:6081>.
 Health is checked by trying to access: /cvmfs/atlas.cern.ch/.cvmfspublished
+
+## Stress testing
+
+direct to origin:
+
+curl '<http://atlasfrontier1-ai.cern.ch:8000/atlr/Frontier/type=frontier_request:1:DEFAULT&encoding=BLOBzip5&p1=eNp1k8FuwyAMhl8FcZ6mKrcddvDANEgOIPC67cT7v0VpEwpJ2A1-32-LKCQhoWLhvMZstYAk5HaWbysNENFx7yqpCQcLNvuoqjHfRAF4braSmtCYVLSBrXct1MGas4kQTLffs642qRkXyDeMaTdoz1.zXGLbr7yB4gkSL15nDbz6HhRvPGmMdaB112foRFsywB950Cmg6qMdPmXLOmQdDuKbOXfgL0c0o47VtA41g3NIx306fMoOpu9N67D.xvBF.HoRA97SDNdhuue72dN-HUd3usOw6.ikMNEvQgKXr56V9.QNZbaE8l2WY5gul-x4MEmKY-0zY8T6G32K6eMOZZPoOQ>__' -H "X-frontier-id: varnish" -X GET
+
+through Squid:
+export http_proxy=<http://uct2-slate.mwt2.org:32200>
+
+siege:
+siege -c30 --reps=once  --header='X-frontier-id:siege' -f requests_frontier_origin.txt > /dev/null &  
+
+through Varnish:
+curl -X GET <http://v4a.mwt2.org:6081/atlr/Frontier/type=frontier_request:1:DEFAULT&encoding=BLOBzip5&p1=eNpdj0EKAjEMRa8SshYZxa2L0Ga02GmGJiKucv9bWLEzFHfvv3wSopw5GBSJ7CkCKWBnPIDRbZM-7K7Qwrv9hu6zhIerkT11Hw.utyJrqGm1JGVvDa619K2eilrqZ4aMMFdZAMkyqQeRLHP2GBSP2Gg9T5O3hYrwF193rrz9eYXT5QOWkUJt>
