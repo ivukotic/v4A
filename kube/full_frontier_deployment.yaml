@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
         - name: v4f
-          image: ivukotic/v4a:latest
+          image: ivukotic/v4a:frontier-no-snmp
           env:
             - name: SITE
               value: "<SITENAME>"
@@ -62,12 +62,6 @@ spec:
               value: "frontier-01"
             - name: VARNISH_PORT
               value: "8080"
-            - name: SNMP_PORT
-              value: "3401"
-            - name: MONITOR_ES
-              value: "true"
-            - name: MONITOR_SNMP
-              value: "false"
             - name: VARNISH_MEM
               value: "32G"
             - name: VARNISH_TRANSIENT_MEM
@@ -75,9 +69,6 @@ spec:
           ports:
             - containerPort: 8080
               hostPort: 6082
-            - containerPort: 3401
-              hostPort: 3401
-              protocol: UDP
           volumeMounts:
             - name: config-volume
               mountPath: /etc/varnish/
