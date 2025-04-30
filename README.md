@@ -126,6 +126,7 @@ configurations are in <https://github.com/maniaclab/NRP>.
 |   Frontier |  frontier-01   |  <http://sl-um-es2.slateci.io:6082>  | sl-um-es2.slateci.io  |
 |   Frontier |  NET2-2f | <http://storage-01.nrp.mghpcc.org:6082>  | storage-01.nrp.mghpcc.org |
 |   Frontier | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | fiona.offn.oscer.ou.edu |
+|   Frontier | ucsc-1f | <http://seaweed-dtn100-1.ucsc.edu:6082> | seaweed-dtn100-1.ucsc.edu |
 |   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
 |   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
 |   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
@@ -157,7 +158,7 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 
 | **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
-|  ??? | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-UK** |
+|  ??? | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
 
 ## CloudFlare
 
