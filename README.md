@@ -125,6 +125,7 @@ configurations are in <https://github.com/maniaclab/NRP>.
 |   Frontier |  Starlight-1f  |  <http://starlight.varnish.atlas-ml.org:6082>  | dtn108.sl.startap.net |
 |   Frontier |  frontier-01   |  <http://sl-um-es2.slateci.io:6082>  | sl-um-es2.slateci.io  |
 |   Frontier |  NET2-2f | <http://storage-01.nrp.mghpcc.org:6082>  | storage-01.nrp.mghpcc.org |
+|   Frontier | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | fiona.offn.oscer.ou.edu |
 |   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
 |   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
 |   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
@@ -139,11 +140,11 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 |  cvmfs-uc          | <http://v4cvmfs.mwt2.org:6081> | c034.af.uchicago.edu | cvmfs-slate |
 |  frontier-uc-01    | <http://v4a.mwt2.org:6081> | c035.af.uchicago.edu | frontier-slate  |
 
-### Roma
+### IT
 
 | **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
-|  v4f-1         | cmsrm-svc-02.roma1.infn.it:6082 | local use |
+|  v4f-1   | cmsrm-svc-02.roma1.infn.it:6082 | local use |
 |  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  **eu-central** |
 
 ### ES
@@ -151,6 +152,12 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 | **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
 |  frontier-01 | varnish.pic.es:6082 | CloudFlare **v4f-es** |
+
+### UK
+
+| **Instance** | **Address** | **Use** |
+| ------------ | --------------- | ---- |
+|  ??? | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-UK** |
 
 ## CloudFlare
 
