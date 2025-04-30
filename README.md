@@ -36,14 +36,16 @@ Any version you pick will work fine since we need only the basic functionality. 
 To start it you run this command
 
 ```bash
-varnishd -a :6081 -f /path/to/your.vcl -s malloc,6G
+varnishd -a :<port> -f /path/to/your.vcl -s malloc,6G
 ```
 
 here:
 
-* -a :6081: This binds Varnish to listen on port 6081.
+* -a :<port> This binds Varnish to a port to listen on. For Frontier Varnish port is 6082 and for CVMFS varnish ports is 6081.
 * -f /path/to/your.vcl: Specifies the VCL file (your.vcl) to use. Replace /path/to/your.vcl with the actual path to your VCL file.
-* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching.
+* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching. For Frontier accesses 12GB should be sufficient, for CVMFS accesses 32-64GB is optimal.
+
+To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
 ## Configuring it for Frontier access caching
 
