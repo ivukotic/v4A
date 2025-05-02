@@ -158,7 +158,7 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 
 | **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
-|  ??? | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
+|  FRONTIER-MAN | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
 
 ## CloudFlare
 
