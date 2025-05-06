@@ -160,6 +160,12 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 | ------------ | --------------- | ---- |
 |  FRONTIER-MAN | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
 
+### DE
+
+| **Instance** | **Address** | **Use** |
+| ------------ | --------------- | ---- |
+|  1 | lcg-lrz-ce3.grid.lrz.de:3128 | LRZ-LMU |
+
 ## CloudFlare
 
 We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
