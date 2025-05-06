@@ -47,14 +47,16 @@ Any version you pick will work fine since we need only the basic functionality. 
 To start it you run this command
 
 ```bash
-varnishd -a :6081 -f /path/to/your.vcl -s malloc,6G
+varnishd -a :6082 -f /path/to/your.vcl -s malloc,6G
 ```
 
 here:
 
-* -a :6081: This binds Varnish to listen on port 6081.
+* -a :6082: This binds Varnish to listen on port 6082.
 * -f /path/to/your.vcl: Specifies the VCL file (your.vcl) to use. Replace /path/to/your.vcl with the actual path to your VCL file.
-* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching.
+* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching. For Frontier accesses 12GB should be sufficient.
+
+To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
 ## Configuring it for Frontier access caching
 
@@ -63,19 +65,6 @@ If it works correctly command like this should return 200:
 
 ```bash
 curl -L -o /dev/null -s -w "%{http_code}" -H "Cache-Control: max-age=0" http://<HOSTNAME>:6082/atlr
-```
-
-## Configuring it for CVMFS traffic caching
-
-This is a [configuration](default_cvmfs.vcl) that you will need. It defines 4 backends (Fermilab, two at BNL, and CERN). This configuration is optimal for MWT2 and AGLT2, sites on US East coast would probably want to swap order of Fermilab and BNL. If the repo can't be found at the first backend, it will try the next one. If none of them have the file, request will fail.
-
-to test it do:
-
-```sh
-setupATLAS
-asetup 20.20.6.3,here
-export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:6081/atlr)
-db-fnget
 ```
 
 ## CRIC settings
@@ -116,6 +105,8 @@ configurations are in <https://github.com/maniaclab/NRP>.
 |   Frontier |  Starlight-1f  |  <http://starlight.varnish.atlas-ml.org:6082>  | dtn108.sl.startap.net |
 |   Frontier |  frontier-01   |  <http://sl-um-es2.slateci.io:6082>  | sl-um-es2.slateci.io  |
 |   Frontier |  NET2-2f | <http://storage-01.nrp.mghpcc.org:6082>  | storage-01.nrp.mghpcc.org |
+|   Frontier | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | fiona.offn.oscer.ou.edu |
+|   Frontier | ucsc-1f | <http://seaweed-dtn100-1.ucsc.edu:6082> | seaweed-dtn100-1.ucsc.edu |
 |   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
 |   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
 |   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
@@ -130,11 +121,11 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 |  cvmfs-uc          | <http://v4cvmfs.mwt2.org:6081> | c034.af.uchicago.edu | cvmfs-slate |
 |  frontier-uc-01    | <http://v4a.mwt2.org:6081> | c035.af.uchicago.edu | frontier-slate  |
 
-### Roma
+### IT
 
 | **Instance** | **Address** | **Use** |
 | ------------ | --------------- | ---- |
-|  v4f-1         | cmsrm-svc-02.roma1.infn.it:6082 | local use |
+|  v4f-1   | cmsrm-svc-02.roma1.infn.it:6082 | local use |
 |  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  **eu-central** |
 
 ### ES
@@ -143,12 +134,21 @@ configurations are in <https://github.com/maniaclab/flux_apps>.
 | ------------ | --------------- | ---- |
 |  frontier-01 | varnish.pic.es:6082 | CloudFlare **v4f-es** |
 
+### UK
+
+| **Instance** | **Address** | **Use** |
+| ------------ | --------------- | ---- |
+|  FRONTIER-MAN | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
+
+### DE
+
+| **Instance** | **Address** | **Use** |
+| ------------ | --------------- | ---- |
+|  1 | lcg-lrz-ce3.grid.lrz.de:3128 | LRZ-LMU |
+
 ## CloudFlare
 
-We have two CloudFlare DNS loadbalancers. One for Frontier and one for CVMFS.
-Important Frontier Varnish instances are reachable at <http://v4a.hl.lhc.net:6082>. Health checks in CF are trying to access "/atlr" directory once per minute.
-All CVMFS Varnish instances are reachable at <http://varnish.hl-lhc.net:6081>.
-Health is checked by trying to access: /cvmfs/atlas.cern.ch/.cvmfspublished
+We have a CloudFlare DNS loadbalancer that makes important Frontier Varnish instances reachable at <http://v4a.hl-lhc.net:6082>. Health checks in CF are trying to access "/atlr" directory once per minute.
 
 ## Stress testing
 
@@ -163,4 +163,4 @@ siege:
 siege -c30 --reps=once  --header='X-frontier-id:siege' -f requests_frontier_origin.txt > /dev/null &  
 
 through Varnish:
-curl -X GET <http://v4a.mwt2.org:6081/atlr/Frontier/type=frontier_request:1:DEFAULT&encoding=BLOBzip5&p1=eNpdj0EKAjEMRa8SshYZxa2L0Ga02GmGJiKucv9bWLEzFHfvv3wSopw5GBSJ7CkCKWBnPIDRbZM-7K7Qwrv9hu6zhIerkT11Hw.utyJrqGm1JGVvDa619K2eilrqZ4aMMFdZAMkyqQeRLHP2GBSP2Gg9T5O3hYrwF193rrz9eYXT5QOWkUJt>
+curl -X GET <http://v4a.hl-lhc.net:6082/atlr/Frontier/type=frontier_request:1:DEFAULT&encoding=BLOBzip5&p1=eNpdj0EKAjEMRa8SshYZxa2L0Ga02GmGJiKucv9bWLEzFHfvv3wSopw5GBSJ7CkCKWBnPIDRbZM-7K7Qwrv9hu6zhIerkT11Hw.utyJrqGm1JGVvDa619K2eilrqZ4aMMFdZAMkyqQeRLHP2GBSP2Gg9T5O3hYrwF193rrz9eYXT5QOWkUJt>
