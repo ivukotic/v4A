@@ -5,14 +5,14 @@ Varnish for ATLAS
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs-no-snmp)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM. Caching CVMFS accesses will benefit from even more RAM.
+Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM.
 Varnish for CVMFS should listen on port 6081.
 
 ## Setting it up
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\>  and do:
+This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -23,7 +23,7 @@ This will create appropriate configuration config map and deployment. The defaul
 
 ### In Docker
 
-Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<INSTANCE\> and do:
+Go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<INSTANCE\> and do:
 
 ```bash
 docker compose start
@@ -46,7 +46,7 @@ here:
 
 ## Configuring it for CVMFS traffic caching
 
-This is a [configuration](default.vcl) that you will need. It defines 4 backends (Fermilab, two at BNL, and CERN). This configuration is optimal for MWT2 and AGLT2, sites on US East coast would probably want to swap order of Fermilab and BNL. If the repo can't be found at the first backend, it will try the next one. If none of them have the file, request will fail.
+This is a [configuration](default.vcl) that you will need. It defines 4 backends (Fermilab, two at BNL, and CERN).If the repo can't be found at the first backend, it will try the next one. If none of them have the file, request will fail. This configuration is optimal for MWT2 and AGLT2, sites on US East coast would probably want to swap order of Fermilab and BNL. Sites in Europe will probably want order: CERN, BNL, Fermilab).
 
 to test it do:
 
@@ -69,7 +69,7 @@ through Squid:
 export http_proxy=http://uct2-slate.mwt2.org:32200
 ```
 
-To test through varnish from uct2-int do:
+To test through varnish do:
 
 ```bash
 curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
