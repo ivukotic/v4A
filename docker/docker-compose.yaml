@@ -4,7 +4,7 @@ services:
     container_name: v4f
     environment:
       SITE: "<SITENAME>"
-      INSTANCE: "frontier-01"
+      INSTANCE: "<INSTANCE>"
       VARNISH_PORT: "8080"
       VARNISH_MEM: "32G"
       VARNISH_TRANSIENT_MEM: "2G"
@@ -15,11 +15,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "12.0"
+          cpus: "6.0"
           memory: 64G
         reservations:
-          cpus: "4.0"
-          memory: 4G
+          cpus: "2.0"
+          memory: 12G
     healthcheck:
       test: ["CMD", "/usr/local/bin/sender.sh"]
       interval: 5s

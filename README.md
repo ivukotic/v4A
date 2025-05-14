@@ -13,7 +13,7 @@ We support use of Varnish for Frontier accesses and for CVMFS accesses. We don't
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/k8s_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/k8s_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -24,7 +24,7 @@ This will create appropriate configuration config map and deployment.
 
 ### On an OpenShift cluster
 
-This is the easiest way to set it up. Simply download [this](kube/open_shift_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/open_shift_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -35,7 +35,7 @@ This will create appropriate configuration config map, deployment and service.
 
 ### In Docker
 
-Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<NODE\> and do:
+Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<INSTANCE\>  and do:
 
 ```bash
 docker compose start
@@ -104,13 +104,13 @@ configurations are in <https://github.com/maniaclab/NRP>.
 | --------- | --- | --------------- | ------------- |
 |   Frontier |  Starlight-1f  |  <http://starlight.varnish.atlas-ml.org:6082>  | dtn108.sl.startap.net |
 |   Frontier |  frontier-01   |  <http://sl-um-es2.slateci.io:6082>  | sl-um-es2.slateci.io  |
-|   Frontier |  NET2-2f | <http://storage-01.nrp.mghpcc.org:6082>  | storage-01.nrp.mghpcc.org |
+|   Frontier |  NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  | gpu-13.nrp.mghpcc.org |
 |   Frontier | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | fiona.offn.oscer.ou.edu |
-|   Frontier | ucsc-1f | <http://seaweed-dtn100-1.ucsc.edu:6082> | seaweed-dtn100-1.ucsc.edu |
+|   Frontier | ucsc-1f | <http://fiona8.ucsc.edu:6082> | fiona8.ucsc.edu |
 |   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
 |   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
 |   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
-|   CVMFS | net2-1 | <http://storage-01.nrp.mghpcc.org:6081> | storage-01.nrp.mghpcc.org |
+|   CVMFS | net2-1 | <http://gpu-13.nrp.mghpcc.org:6081> | gpu-13.nrp.mghpcc.org |
 
 ### UC AF
 
