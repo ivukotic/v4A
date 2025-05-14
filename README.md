@@ -84,22 +84,13 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 
 ### NRP
 
-configurations are in <https://github.com/maniaclab/NRP>.
-
-| **Kind** | **Instance** | **Address** | **Node selector** |
-| --------- | --- | --------------- | ------------- |
-|   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
-|   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
-|   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
-|   CVMFS | net2-1 | <http://storage-01.nrp.mghpcc.org:6081> | storage-01.nrp.mghpcc.org |
-
-### UC AF
-
-configurations are in <https://github.com/maniaclab/flux_apps>.
-
-| **Instance** | **Address** | **Host** | **Node Label** |
-| ------------ | --------------- | ---- | ------ |
-|  cvmfs-uc          | <http://v4cvmfs.mwt2.org:6081> | c034.af.uchicago.edu | cvmfs-slate |
+| **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** |
+| --------------- | ----------- | -------- | ------------ | ----------- |
+| [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> |
+| [UC-AF](https://github.com/maniaclab/flux_apps) |  us-central     | MWT2 | cvmfs-uc | <http://v4cvmfs.mwt2.org:6081> |
+| NRP | us-east-aglt2    | AGLT2/UM  | cvmfs-02 | <http://sl-um-es3.slateci.io:6081> |
+| NRP | us-east-aglt2    | MSU | msu-cvmfs | <http://msu-nrp.aglt2.org:6081> |
+| NRP | us-east    | NET2 | frontier-uc-01 | <http://gpu-13.nrp.mghpcc.org:6081> |
 
 ## CloudFlare
 
