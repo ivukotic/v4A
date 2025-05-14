@@ -12,7 +12,7 @@ Varnish for CVMFS should listen on port 6081.
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the two values \<SITENAME\> and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\>  and do:
 
 ```bash
 kubectl create ns varnish
@@ -23,7 +23,7 @@ This will create appropriate configuration config map and deployment. The defaul
 
 ### In Docker
 
-Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<NODE\> and do:
+Simply go to docker directory and edit [docker-compose file](docker/docker-compose.yaml), change the two values \<SITENAME\> and \<INSTANCE\> and do:
 
 ```bash
 docker compose start

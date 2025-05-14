@@ -4,7 +4,7 @@ services:
     container_name: v4f
     environment:
       SITE: "<SITENAME>"
-      INSTANCE: "frontier-01"
+      INSTANCE: "<INSTANCE>"
       VARNISH_PORT: "8080"
       SNMP_PORT: "3401"
       MONITOR_ES: "true"
