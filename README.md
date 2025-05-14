@@ -5,15 +5,14 @@ Varnish for ATLAS
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=frontier-no-snmp)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM. Caching CVMFS accesses will benefit from even more RAM.
-
-We support use of Varnish for Frontier accesses and for CVMFS accesses. We don't want to serve both of them with the same Varnish instance. Varnish for Frontier should be listening on port 6082 and Varnish for CVMFS should listen on port 6081.
+Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM.
+Varnish for Frontier should be listening on port 6082.
 
 ## Setting it up
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/k8s_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/k8s_deployment.yaml) yaml file, change the values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -24,7 +23,7 @@ This will create appropriate configuration config map and deployment.
 
 ### On an OpenShift cluster
 
-This is the easiest way to set it up. Simply download [this](kube/open_shift_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
+Download [this](kube/open_shift_deployment.yaml) yaml file, change the values \<SITENAME\>, \<INSTANCE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -58,6 +57,8 @@ here:
 
 To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
+Ideally you want both of these (server and monitoring script), to be run in systemd.
+
 ## Configuring it for Frontier access caching
 
 This is a [configuration](default.vcl) that you will need. It is very simple and it just loads cache misses from the two ATLAS Frontier servers.
@@ -69,7 +70,7 @@ curl -L -o /dev/null -s -w "%{http_code}" -H "Cache-Control: max-age=0" http://<
 
 ## CRIC settings
 
-Only Varnish servers that serve Frontier should be mentioned in [CRIC](https://atlas-cric.cern.ch/).
+Varnish servers that serve Frontier should be mentioned in [CRIC](https://atlas-cric.cern.ch/).
 They are a CRIC Service, so you should click here to create a new one.
 <img src="Manual/CRIC_create_service.png" alt="create service" style="width:70%;margin: 10px;" />
 
@@ -78,7 +79,7 @@ There are only a few fields you should fill:
 | **Parameter**  | **Value**        |
 | -------------- | ---------------- |
 | Site           | \<SITENAME\>       |
-| Service Type   | Squid            |
+| Service Type   | Varnish            |
 | Object State   | Active           |
 | Endpoint       | \<ADDRESS:PORT\>   |
 | Flavour        | Frontier         |
@@ -96,55 +97,20 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 
 ## Instances
 
-### NRP
-
-configurations are in <https://github.com/maniaclab/NRP>.
-
-| **Kind** | **Instance** | **Address** | **Node selector** |
-| --------- | --- | --------------- | ------------- |
-|   Frontier |  Starlight-1f  |  <http://starlight.varnish.atlas-ml.org:6082>  | dtn108.sl.startap.net |
-|   Frontier |  frontier-01   |  <http://sl-um-es2.slateci.io:6082>  | sl-um-es2.slateci.io  |
-|   Frontier |  NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  | gpu-13.nrp.mghpcc.org |
-|   Frontier | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | fiona.offn.oscer.ou.edu |
-|   Frontier | ucsc-1f | <http://fiona8.ucsc.edu:6082> | fiona8.ucsc.edu |
-|   CVMFS | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> | dtn108.sl.startap.net |
-|   CVMFS | aglt2-1 | <http://sl-um-es3.slateci.io:6081> | sl-um-es3.slateci.io |
-|   CVMFS | msu-1 | <http://msu-nrp.aglt2.org:6081> | msu-nrp.aglt2.org |
-|   CVMFS | net2-1 | <http://gpu-13.nrp.mghpcc.org:6081> | gpu-13.nrp.mghpcc.org |
-
-### UC AF
-
-configurations are in <https://github.com/maniaclab/flux_apps>.
-
-| **Instance** | **Address** | **Host** | **Node Label** |
-| ------------ | --------------- | ---- | ------ |
-|  cvmfs-uc          | <http://v4cvmfs.mwt2.org:6081> | c034.af.uchicago.edu | cvmfs-slate |
-|  frontier-uc-01    | <http://v4a.mwt2.org:6081> | c035.af.uchicago.edu | frontier-slate  |
-
-### IT
-
-| **Instance** | **Address** | **Use** |
-| ------------ | --------------- | ---- |
-|  v4f-1   | cmsrm-svc-02.roma1.infn.it:6082 | local use |
-|  v4f-2   | cmsrm-svc-01.roma1.infn.it:6082 | CloudFlare  **eu-central** |
-
-### ES
-
-| **Instance** | **Address** | **Use** |
-| ------------ | --------------- | ---- |
-|  frontier-01 | varnish.pic.es:6082 | CloudFlare **v4f-es** |
-
-### UK
-
-| **Instance** | **Address** | **Use** |
-| ------------ | --------------- | ---- |
-|  FRONTIER-MAN | vm39.tier2.hep.manchester.ac.uk:6082 | CloudFlare **v4f-uk** |
-
-### DE
-
-| **Instance** | **Address** | **Use** |
-| ------------ | --------------- | ---- |
-|  1 | lcg-lrz-ce3.grid.lrz.de:3128 | LRZ-LMU |
+| **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** |
+| --------------- | ----------- | -------- | ------------ | ----------- |
+| [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1f | <http://starlight.varnish.atlas-ml.org:6082> |
+| NRP |            | AGLT2 | frontier-01 | <http://sl-um-es2.slateci.io:6082> |
+| NRP | us-east    | NET2/mghpcc | NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  |
+| NRP |            | OU/oscer | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> |
+| NRP | us-west    | WT2/ucsc | ucsc-1f | <http://fiona8.ucsc.edu:6082> |
+| [UC-AF](https://github.com/maniaclab/flux_apps) |          | MWT2 | frontier-uc-01 | <http://v4a.mwt2.org:6081> |
+| ROMA1 |  | INFN-ROMA1 | v4f-1   | <http://cmsrm-svc-02.roma1.infn.it:6082> |
+| ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> |
+| PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> |
+| Manchester | uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> |
+| LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |
+| CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> |
 
 ## CloudFlare
 
