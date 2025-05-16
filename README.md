@@ -76,6 +76,13 @@ curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/oasis.opensciencegrid.org/.cvmfsp
 curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/atlas-nightlies.cern.ch/.cvmfspublished"
 ```
 
+To configure your site to use it set this in all .local files
+
+```sh
+CVMFS_HTTP_PROXY='DIRECT'
+CVMFS_SERVER_URL='http://v4cvmfs.atlas-ml.org:6081/cvmfs/@fqrn@'
+```
+
 ## Monitoring
 
 This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) gives most important data: requests rate, cached hit and miss rates, amount of data delivered and uptime.
