@@ -100,7 +100,8 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** |
 | --------------- | ----------- | -------- | ------------ | ----------- |
 | [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1f | <http://starlight.varnish.atlas-ml.org:6082> |
-| NRP |            | AGLT2 | frontier-01 | <http://sl-um-es2.slateci.io:6082> |
+| NRP |            | AGLT2/UM | frontier-01 | <http://sl-um-es2.slateci.io:6082> |
+| NRP |            | AGLT2/MSU | frontier-01 | <http://msu-nrp.aglt2.org:6082> |
 | NRP | us-east    | NET2/mghpcc | NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  |
 | NRP |            | OU/oscer | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> |
 | NRP | us-west    | WT2/ucsc | ucsc-1f | <http://fiona8.ucsc.edu:6082> |
