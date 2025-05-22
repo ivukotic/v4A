@@ -110,10 +110,6 @@ spec:
           env:
             - name: VARNISH_MEM
               value: "512M"
-          # ports:
-          #   - containerPort: 3401
-          #     hostPort: 3401
-          #     protocol: UDP
           volumeMounts:
             - name: config-volume
               mountPath: /etc/varnish/
