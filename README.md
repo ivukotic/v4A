@@ -105,7 +105,7 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | NRP | us-east    | NET2/mghpcc | NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  |
 | NRP |            | OU/oscer | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> |
 | NRP | us-west    | WT2/ucsc | ucsc-1f | <http://fiona8.ucsc.edu:6082> |
-| [UC-AF](https://github.com/maniaclab/flux_apps) |          | MWT2 | frontier-uc-01 | <http://v4a.mwt2.org:6081> |
+| [UC-AF](https://github.com/maniaclab/flux_apps) |          | MWT2 | frontier-uc-01 | <http://v4a.mwt2.org:6082> |
 | ROMA1 |  | INFN-ROMA1 | v4f-1   | <http://cmsrm-svc-02.roma1.infn.it:6082> |
 | ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> |
 | PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> |
