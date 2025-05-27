@@ -2,19 +2,19 @@ vcl 4.1;
 import std;
 import directors;
 
-backend back01 {
+backend frontier_1 {
   .host = "atlasfrontier1-ai.cern.ch";
   .port = "8000";
 }
-backend back02 {
+backend frontier_2 {
   .host = "atlasfrontier2-ai.cern.ch";
   .port = "8000";
 }
 
 sub vcl_init {
   new vdir = directors.round_robin();
-  vdir.add_backend(back01);
-  vdir.add_backend(back02);
+  vdir.add_backend(frontier_1);
+  vdir.add_backend(frontier_2);
 }
 
 sub vcl_recv {
