@@ -10,7 +10,7 @@ fi
 while true; do
 
 
-    data=$(varnishstat -j -X "VBE*" -X "WAITER*" -X "LCK*" -X "MEM*" -X "SMA*" -X "MGT*")
+    data=$(varnishstat -j -X "WAITER*" -X "LCK*" -X "MEM*" -X "SMA*" -X "MGT*")
     # the following line will simplify output but requires change in the logstash collector
     # fdata=$(echo $data | jq '.counters |= with_entries(.value = .value["value"])')
     fdata=$(echo $data | jq 'del(.counters[].description, .counters[].flag, .counters[].format)')
