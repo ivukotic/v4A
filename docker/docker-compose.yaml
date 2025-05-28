@@ -1,6 +1,6 @@
 services:
   v4f:
-    image: ivukotic/v4a:frontier-no-snmp
+    image: ivukotic/v4a
     container_name: v4f
     environment:
       SITE: "<SITENAME>"

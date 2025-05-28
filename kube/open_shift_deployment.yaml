@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: v4f
-          image: ivukotic/v4a:frontier-no-snmp
+          image: ivukotic/v4a
           env:
             - name: SITE
               value: "<SITENAME>"
@@ -75,8 +75,8 @@ spec:
               command:
                 - /usr/local/bin/sender.sh
             initialDelaySeconds: 120
-            timeoutSeconds: 4
-            periodSeconds: 5
+            timeoutSeconds: 9
+            periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
           resources:
