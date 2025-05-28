@@ -20,8 +20,9 @@ while true; do
   --header 'content-type: application/json' \
   --data "$jsn"
 
-  acc=$(ss -tpr | grep -v Address | awk '{print $5}' | awk -F: '{print $1}' | cut -f2- -d'.' | sort | uniq -c )
-  cnt=$(echo "$acc" | awk '{print "{ \"client\" : \"" $2 "\", \"connections\":" $1 "}"}' | jq -s '.')
+
+  acc=$(ss -tpH | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c )
+  cnt=$(echo "$acc" | awk '{print "{ \"ip\" : \"" $2 "\", \"connections\":" $1 "}"}' | jq -s '.')
   ajs=$(echo "{\"kind\":\"frontier\",\"instance\":\"$INSTANCE\",\"site\":\"$SITE\"}" | jq | jq --argjson CNT "$cnt" '. +={ cnt: $CNT }')
 
   timeout 2 curl --request POST -L -k \
