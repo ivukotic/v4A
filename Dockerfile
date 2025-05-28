@@ -7,7 +7,7 @@ USER root
 # RUN apk add --no-cache --upgrade curl bash  jq
 
 # debian version
-RUN apt-get update; apt-get -y install curl jq vim python3 procps
+RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
 
 COPY default.vcl /etc/varnish/
 
