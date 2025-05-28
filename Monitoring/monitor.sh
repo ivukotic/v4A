@@ -29,8 +29,7 @@ while true; do
     --header 'content-type: application/json' \
     --data "$ajs"
 
-
-  sleep 5
+  sleep 2
     
 done
 

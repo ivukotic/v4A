@@ -16,7 +16,7 @@ cnt=$(echo "$acc" | awk '{print "{ \"client\" : \"" $2 "\", \"connections\":" $1
 ajs=$(echo "{\"kind\":\"frontier\",\"instance\":\"$INSTANCE\",\"site\":\"$SITE\"}" | jq | jq --argjson CNT "$cnt" '. +={ cnt: $CNT }')
 
 timeout 2 curl --request POST -L -k \
-  --url 'http://varnish.atlas-ml.org:80/' \
+  --url 'http://varnish-accesses.atlas-ml.org:80/' \
   --header 'content-type: application/json' \
   --data "$ajs"
 exit 0
