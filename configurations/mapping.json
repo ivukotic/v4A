@@ -3,8 +3,8 @@
     "file": "v1",
     "version": 1
   },
-  "MWT2": {
-    "frontier-uc-01": {
+  "TEST": {
+    "test-01": {
       "file": "neo_frontier",
       "version": 1
     }
