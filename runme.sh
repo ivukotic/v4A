@@ -18,9 +18,9 @@ done
 config=$(echo "$ma" | jq -r --arg site "$SITE" --arg instance "$INSTANCE" '.[$site][$instance]')
 
 # Check if the value exists
-if [ -z "$config" ]; then
+if [ -z "$config" ] || [ "$config" == null ]; then
     echo "No value found for $SITE.$INSTANCE, using default value"
-    config=$(echo "$ma" | jq -r '.default.file')
+    config=$(echo "$ma" | jq -r '.default')
     echo "Default value: $config"
     nfile=$(echo "$config" | jq -r '.file')
     version=$(echo "$config" | jq -r '.version')
