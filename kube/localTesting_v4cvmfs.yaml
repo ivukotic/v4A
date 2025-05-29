@@ -9,21 +9,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: v4test
+  name: v4cvmfs-test
   labels:
-    k8s-app: v4test
+    k8s-app: v4cvmfs-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: v4test
+      k8s-app: v4cvmfs-test
   template:
     metadata:
       labels:
-        k8s-app: v4test
+        k8s-app: v4cvmfs-test
     spec:
       containers:
-        - name: v4test
+        - name: v4cvmfs-test
           image: ivukotic/v4cvmfs
           imagePullPolicy: Always
           # args: ["-t", "3600"]
