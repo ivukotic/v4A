@@ -15,7 +15,6 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6.4
         with:
           image: ivukotic/v4a
-          # tags: frontier-no-snmp, latest, ${{ github.sha }}
           tags: autoconfig, ${{ github.sha }}
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
