@@ -2,7 +2,7 @@
 
 Varnish for ATLAS
 
-[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs-no-snmp)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
+[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
 Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM.
@@ -20,7 +20,7 @@ kubectl create ns varnish
 kubectl create -f cvmfs_deployment.yaml
 ```
 
-This will create appropriate configuration config map and deployment. The default monitoring (in Kibana at UC) will be included.
+The default monitoring (in Kibana at UC) will be included.
 
 ### In Docker
 
@@ -38,12 +38,6 @@ To start it you run this command
 ```bash
 varnishd -a :6081 -f /path/to/your.vcl -s malloc,64G
 ```
-
-here:
-
-* -a :6081: This binds Varnish to listen on port 6081.
-* -f /path/to/your.vcl: Specifies the VCL file (your.vcl) to use. Replace /path/to/your.vcl with the actual path to your VCL file.
-* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching.
 
 ## Configuring it for CVMFS traffic caching
 

@@ -9,8 +9,6 @@ USER root
 # debian version
 RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
 
-COPY default.vcl /etc/varnish/
-
 COPY runme.sh reconfiguration.sh Monitoring/sender.sh /usr/local/bin/
 
 ENV VARNISH_MEM=6000m
