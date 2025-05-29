@@ -18,6 +18,7 @@ spec:
       containers:
         - name: v4cvmfs
           image: ivukotic/v4cvmfs
+          imagePullPolicy: Always
           env:
             - name: SITE
               value: "<SITENAME>"

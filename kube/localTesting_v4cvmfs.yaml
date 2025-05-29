@@ -25,7 +25,8 @@ spec:
       containers:
         - name: v4test
           image: ivukotic/v4cvmfs
-          args: ["-t", "3600"]
+          imagePullPolicy: Always
+          # args: ["-t", "3600"]
           env:
             - name: SITE
               value: "LOCAL_TEST"
