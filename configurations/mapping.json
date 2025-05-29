@@ -1,0 +1,18 @@
+{
+  "default": {
+    "file": "v1",
+    "version": 1
+  },
+  "LOCAL_TEST": {
+    "test-01": {
+      "file": "debug",
+      "version": 1
+    }
+  },
+  "TEST": {
+    "test-01": {
+      "file": "europe",
+      "version": 1
+    }
+  }
+}

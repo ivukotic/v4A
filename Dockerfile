@@ -11,8 +11,7 @@ RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
 
 COPY default.vcl /etc/varnish/
 
-COPY runme.sh /usr/local/bin/
-COPY Monitoring/sender.sh /usr/local/bin/
+COPY runme.sh reconfiguration.sh Monitoring/sender.sh /usr/local/bin/
 
 ENV VARNISH_MEM=6000m
 ENV VARNISH_TRANSIENT_MEM=2000m
