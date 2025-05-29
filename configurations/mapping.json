@@ -1,6 +1,12 @@
 {
-  "default": "v1",
-  "mwt2": {
-    "frontier-uc-01": "neo_frontier"
+  "default": {
+    "file": "v1",
+    "version": 1
+  },
+  "MWT2": {
+    "frontier-uc-01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
