@@ -3,11 +3,11 @@ import std;
 import directors;
 
 backend neo_frontier_1 {
-  .host = "188.184.89.135:80";
+  .host = "188.184.89.135";
   .port = "80";
 }
 backend neo_frontier_2 {
-  .host = "188.184.89.135:80";
+  .host = "188.184.89.135";
   .port = "80";
 }
 
