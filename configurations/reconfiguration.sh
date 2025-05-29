@@ -39,16 +39,17 @@ while true; do
             echo "Value of $SITE.$INSTANCE: $config"
             nfile=$(echo "$config" | jq -r '.file')
             version=$(echo "$config" | jq -r '.version')
+        fi
 
         if [ "$1" == "$version" ]; then
             echo "Skipping this loop iteration as \$1 matches \$version..."
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
-            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier-autoconfig/configurations/$config.vcl" -o /tmp/$config.vcl
+            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier-autoconfig/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
             
             TIME=$(date +%s)
-            varnishadm vcl.load varnish_$TIME /tmp/$config.vcl
+            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl
             varnishadm vcl.use varnish_$TIME
         fi
 
