@@ -3,7 +3,7 @@ name: DockerPush
 on:
   push:
     branches:
-      - "frontier-autoconfig"
+      - "frontier"
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6.4
         with:
           image: ivukotic/v4a
-          tags: autoconfig, ${{ github.sha }}
+          tags: lastest, ${{ github.sha }}
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}

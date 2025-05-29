@@ -2,7 +2,7 @@
 
 Varnish for ATLAS
 
-[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=frontier-autoconfig)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
+[![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=frontier)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
 Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM.
@@ -51,7 +51,7 @@ export SITE=<SITE>
 export INSTANCE=<SITE>
 export VARNISH_TRANSIENT_MEM=1G
 export VARNISH_MEM=12G
-wget https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier-autoconfig/runme.sh
+wget https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier/runme.sh
 source runme.sh
 ```
 
