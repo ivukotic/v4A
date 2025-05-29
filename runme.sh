@@ -32,7 +32,7 @@ else
     version=$(echo "$config" | jq -r '.version')
 fi
 
-curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
 
 source /usr/local/bin/reconfiguration.sh $version &
 
