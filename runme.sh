@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
@@ -31,6 +33,8 @@ else
 fi
 
 curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier-autoconfig/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+
+echo $(ls /usr/local/bin/reconfiguration.sh)
 
 source /usr/local/bin/reconfiguration.sh $version &
 
