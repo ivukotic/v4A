@@ -11,7 +11,7 @@ while true; do
 
     # Check if the current minute matches x
     if [ "$current_minute" -eq "$x" ]; then
-        echo "Downloading file at minute $x..."
+        # echo "Downloading file at minute $x..."
         while true; do
             ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/mapping.json")
             
@@ -42,7 +42,7 @@ while true; do
         fi
 
         if [ "$1" == "$version" ]; then
-            echo "Skipping this loop iteration as $1 matches $version..."
+            # echo "Skipping this loop iteration as $1 matches $version..."
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
