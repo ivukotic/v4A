@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: v4f
-          image: ivukotic/v4a:autoconfig
+          image: ivukotic/v4a
           imagePullPolicy: Always
           env:
             - name: SITE
