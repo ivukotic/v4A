@@ -1,6 +1,6 @@
 services:
   v4f:
-    image: ivukotic/v4cvmfs:cvmfs-no-snmp
+    image: ivukotic/v4cvmfs
     container_name: v4f
     environment:
       SITE: "<SITENAME>"
@@ -14,7 +14,7 @@ services:
       resources:
         limits:
           cpus: "4.0"
-          memory: 64G
+          memory: 35G
         reservations:
           cpus: "1.0"
           memory: 34G

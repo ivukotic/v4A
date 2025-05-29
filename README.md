@@ -33,11 +33,20 @@ docker compose start
 ### On an VM, bare metal
 
 Any version you pick will work fine since we need only the basic functionality. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
-To start it you run this command
+To start it execute these commands:
 
 ```bash
-varnishd -a :6081 -f /path/to/your.vcl -s malloc,64G
+export SITE=<SITE>
+export INSTANCE=<SITE>
+export VARNISH_TRANSIENT_MEM=1G
+export VARNISH_MEM=32G
+wget https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/cvmfs/runme.sh
+source runme.sh
 ```
+
+To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
+
+Ideally you want both of these (server and monitoring script), to be run in systemd.
 
 ## Configuring it for CVMFS traffic caching
 
