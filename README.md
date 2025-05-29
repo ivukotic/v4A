@@ -20,7 +20,7 @@ kubectl create ns varnish
 kubectl create -f k8s_deployment.yaml
 ```
 
-This will create appropriate configuration config map and deployment.
+This deployment will autoconfigure.
 
 ### On an OpenShift cluster
 
@@ -31,7 +31,7 @@ kubectl create ns varnish
 kubectl create -f open_shift_deployment.yaml
 ```
 
-This will create appropriate configuration config map, deployment and service.
+This will create appropriate deployment and service.
 
 ### In Docker
 
@@ -44,25 +44,23 @@ docker compose start
 ### On an VM, bare metal
 
 Any version you pick will work fine since we need only the basic functionality. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
-To start it you run this command
+To start it execute these commands:
 
 ```bash
-varnishd -a :6082 -f /path/to/your.vcl -s malloc,6G
+export SITE=<SITE>
+export INSTANCE=<SITE>
+export VARNISH_TRANSIENT_MEM=1G
+export VARNISH_MEM=12G
+wget https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier-autoconfig/runme.sh
+source runme.sh
 ```
-
-here:
-
-* -a :6082: This binds Varnish to listen on port 6082.
-* -f /path/to/your.vcl: Specifies the VCL file (your.vcl) to use. Replace /path/to/your.vcl with the actual path to your VCL file.
-* -s malloc,6G: Configures the cache storage to use memory (malloc) and allocates 6GB of RAM for caching. For Frontier accesses 12GB should be sufficient.
 
 To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
 Ideally you want both of these (server and monitoring script), to be run in systemd.
 
-## Configuring it for Frontier access caching
+## Testing Frontier access caching
 
-This is a [configuration](default.vcl) that you will need. It is very simple and it just loads cache misses from the two ATLAS Frontier servers.
 If it works correctly command like this should return 200:
 
 ```bash

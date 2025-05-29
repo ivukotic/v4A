@@ -37,7 +37,7 @@ spec:
             exec:
               command:
                 - /usr/local/bin/sender.sh
-            initialDelaySeconds: 1000
+            initialDelaySeconds: 60
             timeoutSeconds: 9
             periodSeconds: 10
             successThreshold: 1
