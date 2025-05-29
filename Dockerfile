@@ -9,7 +9,6 @@ USER root
 # debian version
 RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
 
-
 COPY runme.sh /usr/local/bin/
 COPY Monitoring/sender.sh /usr/local/bin/
 COPY configurations/reconfiguration.sh /usr/local/bin/

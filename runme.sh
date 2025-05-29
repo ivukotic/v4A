@@ -4,7 +4,7 @@ echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
 while true; do
-    ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier-autoconfig/configurations/mapping.json")
+    ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/mapping.json")
     
     # Check if curl was successful
     if [ $? -eq 0 ] && [ -n "$ma" ]; then
@@ -32,7 +32,7 @@ else
     version=$(echo "$config" | jq -r '.version')
 fi
 
-curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier-autoconfig/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
 
 source /usr/local/bin/reconfiguration.sh $version &
 
