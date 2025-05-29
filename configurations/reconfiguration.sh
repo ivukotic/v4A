@@ -42,7 +42,7 @@ while true; do
         fi
 
         if [ "$1" == "$version" ]; then
-            echo "Skipping this loop iteration as \$1 matches \$version..."
+            echo "Skipping this loop iteration as $1 matches $version..."
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
