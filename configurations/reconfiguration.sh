@@ -29,14 +29,14 @@ while true; do
         config=$(echo "$ma" | jq -r --arg site "$SITE" --arg instance "$INSTANCE" '.[$site][$instance]')
 
         # Check if the value exists
-        if [ -n "$config" ]; then
-            echo "Value of $SITE.$INSTANCE: $config"
-            nfile=$(echo "$config" | jq -r '.file')
-            version=$(echo "$config" | jq -r '.version')
-        else
+        if [ -z "$config" ]; then
             echo "No value found for $SITE.$INSTANCE, using default value"
             config=$(echo "$ma" | jq -r '.default.file')
             echo "Default value: $config"
+            nfile=$(echo "$config" | jq -r '.file')
+            version=$(echo "$config" | jq -r '.version')
+        else
+            echo "Value of $SITE.$INSTANCE: $config"
             nfile=$(echo "$config" | jq -r '.file')
             version=$(echo "$config" | jq -r '.version')
         fi
