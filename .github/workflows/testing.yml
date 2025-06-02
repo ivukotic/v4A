@@ -1,0 +1,28 @@
+# .github/workflows/every-5-minutes.yml
+name: Run script every 5 minutes
+
+on:
+  schedule:
+    # GitHub interprets cron in **UTC** and the shortest
+    # supported interval is once every 5 minutes
+    - cron: '*/15 * * * *'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Bring down your code
+      - uses: actions/checkout@v4
+        with:
+          ref: frontier
+          fetch-depth: 0    
+
+      # 2) Make sure the script is executable (first run only)
+      #    If the file already has +x in the repo you can skip this step.
+      - name: Ensure execute bit
+        run: chmod +x ./Monitoring/tester.sh
+
+      # 3) Execute it
+      - name: Run the script
+        run: ./Monitoring/tester.sh
