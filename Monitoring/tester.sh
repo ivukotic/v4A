@@ -25,4 +25,6 @@ echo "Result: $result_string"
 curl -s -X POST \
      -H "Content-Type: text/plain" \
      --data-binary "$result_string" \
-     "http://v4a-testing.atlas-ml.org:5957"
+     "https://varnish-tests.atlas-ml.org"
+
+echo "Sent results to https://varnish-tests.atlas-ml.org"
