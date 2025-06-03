@@ -12,7 +12,7 @@ while IFS= read -r url || [[ -n $url ]]; do
     # Quiet curl: suppress body, just capture status (000 if network fails)
     status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr" || echo "000")
 
-    result_string="{\"${url}\": \"${status}\"}"
+    result_string="{\"address\":\"${url}\", \"status\": \"${status}\"}"
     curl -s -X POST \
         -H "Content-Type: text/plain" \
         --data-binary "$result_string" \
