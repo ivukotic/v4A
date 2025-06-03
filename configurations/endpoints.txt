@@ -5,3 +5,10 @@ cmsrm-svc-02.roma1.infn.it
 varnish.pic.es
 vm39.tier2.hep.manchester.ac.uk
 fiona8.ucsc.edu
+fiona.offn.oscer.ou.edu
+sl-um-es2.slateci.io
+msu-nrp.aglt2.org
+v4f.hl-lhc.net
+v4a.mwt2.org
+atlasfrontier-varnish01.cern.ch
+atlas-varnish.sdcc.bnl.gov
