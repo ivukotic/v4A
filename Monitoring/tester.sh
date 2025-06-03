@@ -8,17 +8,19 @@ INPUT="configurations/endpoints.txt"   # text file with URLs, one per line
 # Loop over every non-empty, non-comment line
 while IFS= read -r url || [[ -n $url ]]; do
     [[ -z "$url" || "$url" =~ ^# ]] && continue   # skip blanks / comments
-    echo "Testing $url"
+    echo "Testing $url "
     # Quiet curl: suppress body, just capture status (000 if network fails)
-    status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr" || echo "000")
+    status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr")
 
-    result_string="{\"address\":\"${url}\", \"status\": \"${status}\"}"
+    result_string="{\"address\":\"${url}\", \"status\": ${status}}"
+    echo "Result: $result_string "
+
     curl -s -X POST \
         -H "Content-Type: text/plain" \
         --data-binary "$result_string" \
         "https://varnish-tests.atlas-ml.org"
     
-    echo "Result: $result_string"
+    echo ""
 
 done < "$INPUT"
 
