@@ -10,7 +10,7 @@ while IFS= read -r url || [[ -n $url ]]; do
     [[ -z "$url" || "$url" =~ ^# ]] && continue   # skip blanks / comments
     echo "Testing $url "
     # Quiet curl: suppress body, just capture status (0 if network fails)
-    status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr") || status=0
+    status=$(timeout 2 curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr") || status=0
 
     result_string="{\"address\":\"${url}\", \"status\": ${status}}"
     echo "Result: $result_string "
