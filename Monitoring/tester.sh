@@ -5,26 +5,24 @@
 
 INPUT="configurations/endpoints.txt"   # text file with URLs, one per line
 
-result_string="{"
-
 # Loop over every non-empty, non-comment line
 while IFS= read -r url || [[ -n $url ]]; do
-  [[ -z "$url" || "$url" =~ ^# ]] && continue   # skip blanks / comments
-  echo "Testing $url"
-  # Quiet curl: suppress body, just capture status (000 if network fails)
-  status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr" || echo "000")
+    [[ -z "$url" || "$url" =~ ^# ]] && continue   # skip blanks / comments
+    echo "Testing $url"
+    # Quiet curl: suppress body, just capture status (000 if network fails)
+    status=$(curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr" || echo "000")
 
-result_string+="\"${url}\": \"${status}\","
+    result_string="{\"${url}\": \"${status}\"}"
+    curl -s -X POST \
+        -H "Content-Type: text/plain" \
+        --data-binary "$result_string" \
+        "https://varnish-tests.atlas-ml.org"
+    
+    echo "Result: $result_string"
 
 done < "$INPUT"
 
-# Remove trailing comma and close JSON object
-result_string="${result_string%,}}"
-echo "Result: $result_string"
 
-curl -s -X POST \
-     -H "Content-Type: text/plain" \
-     --data-binary "$result_string" \
-     "https://varnish-tests.atlas-ml.org"
+
 
 echo "Sent results to https://varnish-tests.atlas-ml.org"
