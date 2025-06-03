@@ -6,8 +6,16 @@ backend frontier_1 {
   .host = "atlasfrontier1-ai.cern.ch";
   .port = "8000";
 }
-backend frontier_2 {
+backend frontier_ {
   .host = "atlasfrontier2-ai.cern.ch";
+  .port = "8000";
+}
+backend frontier_3 {
+  .host = "atlasfrontier3-ai.cern.ch";
+  .port = "8000";
+}
+backend frontier_4 {
+  .host = "atlasfrontier4-ai.cern.ch";
   .port = "8000";
 }
 

@@ -1,7 +1,7 @@
 {
   "default": {
     "file": "v1",
-    "version": 1
+    "version": 2
   },
   "TEST": {
     "test-01": {
