@@ -23,6 +23,8 @@ sub vcl_init {
   new vdir = directors.round_robin();
   vdir.add_backend(frontier_1);
   vdir.add_backend(frontier_2);
+  vdir.add_backend(frontier_3);
+  vdir.add_backend(frontier_4);
 }
 
 sub vcl_recv {
