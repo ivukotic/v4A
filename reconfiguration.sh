@@ -49,8 +49,7 @@ while true; do
             curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
             
             TIME=$(date +%s)
-            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl
-            varnishadm vcl.use varnish_$TIME
+            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl && varnishadm vcl.use varnish_$TIME
         fi
 
 
