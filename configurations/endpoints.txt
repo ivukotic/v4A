@@ -10,5 +10,5 @@ sl-um-es2.slateci.io
 msu-nrp.aglt2.org
 v4f.hl-lhc.net
 v4a.mwt2.org
-atlasfrontier-varnish01.cern.ch
+# atlasfrontier-varnish01.cern.ch
 atlas-varnish.sdcc.bnl.gov
