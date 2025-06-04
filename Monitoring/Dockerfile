@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install curl
-RUN apk add --no-cache curl
+RUN apk add --no-cache bash curl
 
 # Copy the shell script into the container
 COPY tester.sh /tester.sh

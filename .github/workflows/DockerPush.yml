@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - "frontier"
+    paths-ignore:
+      - 'configurations/**'
+      - 'docker/**'
+      - 'kube/**'
+      - 'Manual/**'      
+      - 'README.md'
+
 jobs:
   docker:
     runs-on: ubuntu-latest
