@@ -4,6 +4,10 @@
 x=$((RANDOM % 60))
 echo "Random minute selected: $x"
 
+current_version="$1"
+
+echo "Current version: $current_version"
+
 # Infinite loop
 while true; do
     # Get the current minute
@@ -41,7 +45,7 @@ while true; do
             version=$(echo "$config" | jq -r '.version')
         fi
 
-        if [ "$1" == "$version" ]; then
+        if [ "$current_version" == "$version" ]; then
             # echo "Skipping this loop iteration as $1 matches $version..."
             sleep 60 
         else
@@ -49,7 +53,7 @@ while true; do
             curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
             
             TIME=$(date +%s)
-            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl && varnishadm vcl.use varnish_$TIME
+            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl && varnishadm vcl.use varnish_$TIME && current_version="$version"
         fi
 
 
