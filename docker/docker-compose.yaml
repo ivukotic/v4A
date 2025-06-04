@@ -18,3 +18,9 @@ services:
         reservations:
           cpus: "2.0"
           memory: 12G
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/sender.sh"]
+      interval: 9s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
