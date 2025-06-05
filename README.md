@@ -96,21 +96,22 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 
 ## Instances
 
-| **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** |
-| --------------- | ----------- | -------- | ------------ | ----------- |
-| [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1f | <http://starlight.varnish.atlas-ml.org:6082> |
-| NRP |            | AGLT2/UM | frontier-01 | <http://sl-um-es2.slateci.io:6082> |
-| NRP |            | AGLT2/MSU | frontier-01 | <http://msu-nrp.aglt2.org:6082> |
-| NRP | us-east    | NET2/mghpcc | NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  |
-| NRP |            | OU/oscer | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> |
-| NRP | us-west    | WT2/ucsc | ucsc-1f | <http://fiona8.ucsc.edu:6082> |
-| [UC-AF](https://github.com/maniaclab/flux_apps) |          | MWT2 | frontier-uc-01 | <http://v4a.mwt2.org:6082> |
-| ROMA1 |  | INFN-ROMA1 | v4f-1   | <http://cmsrm-svc-02.roma1.infn.it:6082> |
-| ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> |
-| PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> |
-| Manchester | uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> |
-| LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |
-| CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> |
+| **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** | **Local** |
+| --------------- | ----------- | -------- | ------------ | ----------- | --------- |
+| [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1f | <http://starlight.varnish.atlas-ml.org:6082> | No |
+| NRP |            | AGLT2/UM | frontier-01 | <http://sl-um-es2.slateci.io:6082> | No |
+| NRP |            | AGLT2/MSU | frontier-01 | <http://msu-nrp.aglt2.org:6082> | No |
+| NRP | us-east    | NET2/mghpcc | NET2-2f | <http://gpu-13.nrp.mghpcc.org:6082>  | No |
+| NRP |            | OU/oscer | ou-1f | <http://fiona.offn.oscer.ou.edu:6082> | No |
+| NRP | us-west    | WT2/ucsc | ucsc-1f | <http://fiona8.ucsc.edu:6082> | No |
+| [UC-AF](https://github.com/maniaclab/flux_apps) |          | MWT2 | frontier-uc-01 | <http://v4a.mwt2.org:6082> | No |
+| ROMA1 |  | INFN-ROMA1 | v4f-1   | <http://cmsrm-svc-02.roma1.infn.it:6082> | No |
+| ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> | No |
+| PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> | No |
+| Manchester | uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> | No |
+| LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |  No |
+| Wuppertal | | WUPPERTALPROD | buw-frontier-1 | <http://varnish.pleiades.uni-wuppertal.de:6082> | Yes |
+| CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> | Yes |
 
 ## CloudFlare
 
