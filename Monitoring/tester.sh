@@ -3,14 +3,14 @@
 # Reads endpoints.txt (one URL per line), curls each URL once,
 # and writes a JSON object mapping URL → HTTP status code.
 
-INPUT="configurations/endpoints.txt"   # text file with URLs, one per line
+endpoints=$(timeout 10 curl -s https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier/configurations/endpoints.txt)
 
 # Loop over every non-empty, non-comment line
 while IFS= read -r url || [[ -n $url ]]; do
     [[ -z "$url" || "$url" =~ ^# ]] && continue   # skip blanks / comments
     echo "Testing $url "
     # Quiet curl: suppress body, just capture status (0 if network fails)
-    status=$(timeout 2 curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr") || status=0
+    status=$(timeout 3 curl -L -s -o /dev/null -w '%{http_code}' "http://$url:6082/atlr") || status=0
 
     result_string="{\"address\":\"${url}\", \"status\": ${status}}"
     echo "Result: $result_string "
@@ -22,7 +22,8 @@ while IFS= read -r url || [[ -n $url ]]; do
     
     echo ""
 
-done < "$INPUT"
+done <<< "$endpoints"
+
 
 
 
