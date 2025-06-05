@@ -109,6 +109,7 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> | No |
 | PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> | No |
 | Manchester | uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> | No |
+| IN2P3-CC | fr | IN2P3-CC | xxx | <http://ccatlasvrn01.in2p3.fr:6082> | No |
 | LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |  No |
 | Wuppertal | | WUPPERTALPROD | buw-frontier-1 | <http://varnish.pleiades.uni-wuppertal.de:6082> | Yes |
 | CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> | Yes |

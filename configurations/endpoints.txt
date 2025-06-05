@@ -12,3 +12,4 @@ v4f.hl-lhc.net
 v4a.mwt2.org
 # atlasfrontier-varnish01.cern.ch
 atlas-varnish.sdcc.bnl.gov
+ccatlasvrn01.in2p3.fr
