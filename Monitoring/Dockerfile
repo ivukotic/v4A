@@ -1,11 +1,8 @@
-FROM alpine:latest
+FROM python:3.13-slim
 
-# Install curl
-RUN apk add --no-cache bash curl jq
+RUN python -m pip install --upgrade --no-cache-dir pip \
+    && pip install --no-cache-dir elasticsearch requests
 
-# Copy the shell script into the container
-COPY tester.sh /tester.sh
-RUN chmod +x /tester.sh
+COPY tester.py /tester.py
 
-# Set the entrypoint to run the shell script
-ENTRYPOINT ["/tester.sh"]
+CMD ["python","/tester.py"]
