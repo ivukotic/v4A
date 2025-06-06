@@ -1,0 +1,182 @@
+[
+    {
+        "url": "atlas-varnish.sdcc.bnl.gov",
+        "site": "xxx",
+        "instance": "xxx",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "John De Stefano",
+            "email": "jd@bnl.gov"
+        }
+    },
+    {
+        "url": "starlight.varnish.atlas-ml.org",
+        "site": "Starlight",
+        "instance": "Starlight-1f",
+        "active": false,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "gpu-13.nrp.mghpcc.org",
+        "site": "NET2",
+        "instance": "Net2-2f",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "cmsrm-svc-02.roma1.infn.it",
+        "site": "INFN-ROMA1",
+        "instance": "v4f-2",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Alessandro de Salvo",
+            "email": "alessandro.de.salvo@cern.ch"
+        }
+    },
+    {
+        "url": "varnish.pic.es",
+        "site": "PIC",
+        "instance": "frontier-01",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Andres Pacheco Pages",
+            "email": "pacheco@ifae.es"
+        }
+    },
+    {
+        "url": "vm39.tier2.hep.manchester.ac.uk",
+        "site": "UKI-NORTHGRID-MAN-HEP",
+        "instance": "MANCHESTER_VARNISH_FRONTIER",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Alessandra Forti",
+            "email": "alessandra.forti@cern.ch"
+        }
+    },
+    {
+        "url": "fiona8.ucsc.edu",
+        "site": "uscs",
+        "instance": "uscs-1f",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "fiona.offn.oscer.ou.edu",
+        "site": "OU",
+        "instance": "ou-1f",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "sl-um-es2.slateci.io",
+        "site": "AGLT2",
+        "instance": "frontier-01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "msu-nrp.aglt2.org",
+        "site": "msu",
+        "instance": "frontier-01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "v4f.hl-lhc.net",
+        "site": "CLOUDFLARE",
+        "instance": "GLOBAL",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "v4a.mwt2.org",
+        "site": "MWT2",
+        "instance": "frontier-uc-01",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "atlasfrontier-varnish01.cern.ch",
+        "site": "CERN",
+        "instance": "ATLAS-FRONTIER-1",
+        "active": false,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Chris Lee",
+            "email": "chris.lee@cern.ch"
+        }
+    },
+    {
+        "url": "ccatlasvrn01.in2p3.fr",
+        "site": "IN2P3-XX",
+        "instance": "XXX",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Martin HAMANT",
+            "email": "Martin.Hamant@cern.ch"
+        }
+    },
+    {
+        "url": "lcg-lrz-ce3.grid.lrz.de",
+        "site": "LRZ-LMU",
+        "instance": "1",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Rodney Walker",
+            "email": "rodney.walker@physik.uni-muenchen.de"
+        }
+    }
+]
