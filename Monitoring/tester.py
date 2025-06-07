@@ -1,7 +1,8 @@
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
+from elasticsearch import Elasticsearch, exceptions
 
 URL = "https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier/configurations/endpoints.json"
 
@@ -18,7 +19,6 @@ def load_endpoints(url: str = URL) -> list[dict]:
 # function that returns an elasticsearch client
 # login credentials are read from the environment variables ES_USER and ES_PASSWORD
 def get_es_client():
-    from elasticsearch import Elasticsearch
     es_user = os.getenv("ES_USER")
     es_password = os.getenv("ES_PASSWORD")
     if not es_user or not es_password:
@@ -48,7 +48,7 @@ if __name__ == "__main__":
             document={
                 "address": endpoint['url'],
                 "status": status,
-                "timestamp": datetime.utcnow(),
+                "timestamp": datetime.now(timezone.utc),
                 "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}"
             }
             print(document)
