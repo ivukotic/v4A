@@ -48,7 +48,7 @@ if __name__ == "__main__":
             document={
                 "address": endpoint['url'],
                 "status": status,
-                "timestamp": datetime.now(timezone.utc),
+                "@timestamp": datetime.now(timezone.utc),
                 "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}"
             }
             print(document)
