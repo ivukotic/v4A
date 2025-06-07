@@ -171,7 +171,7 @@
         "url": "lcg-lrz-ce3.grid.lrz.de",
         "site": "LRZ-LMU",
         "instance": "1",
-        "active": true,
+        "active": false,
         "local": false,
         "in_CDN": false,
         "responsible": {
