@@ -23,7 +23,7 @@ def get_es_client():
     es_password = os.getenv("ES_PASSWORD")
     if not es_user or not es_password:
         raise ValueError("ES_USER and ES_PASSWORD environment variables must be set")
-    es = Elasticsearch("https://atlas-kibana.mwt2.org:9200", http_auth=(es_user, es_password))
+    es = Elasticsearch("https://atlas-kibana.mwt2.org:9200", basic_auth=(es_user, es_password))
     return es
 
 # function to test individual endpoints
