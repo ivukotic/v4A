@@ -52,5 +52,17 @@ if __name__ == "__main__":
                 "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}"
             }
             print(document)
-            es.index(index="varnish_status", document=document)
+            
+            try:
+                response = es.index(index="varnish_status", document=document)
+                print("Indexing successful:", response)
+            except exceptions.ConnectionError as e:
+                print("Connection error:", e)
+            except exceptions.RequestError as e:
+                print("Request error:", e)
+            except exceptions.SerializationError as e:
+                print("Serialization error:", e)
+            except exceptions.ElasticsearchException as e:
+                print("General Elasticsearch error:", e)
+
     print("All active endpoints have been tested.")
