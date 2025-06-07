@@ -28,4 +28,4 @@ jobs:
           context: Monitoring/ 
           file: Monitoring/Dockerfile 
           push: true
-          tags: ivukotic/varnish-conditions-tester:python
+          tags: ivukotic/varnish-conditions-tester
