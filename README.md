@@ -86,7 +86,7 @@ There are only a few fields you should fill:
 <img src="Manual/CRIC_varnish_service.png" alt="varnish service" style="width:70%;margin: 10px;" />
 
 To add the created service to your site and change order of priority of caching services, first find your site [here](https://atlas-cric.cern.ch/core/experimentsite/list/). Looking at details you will see something like this:
-<img src="Manual/CRIC_squid_configuration.png" alt="squid configuration" style="width:90%;margin: 10px;" />
+<img src="Manual/CRIC_proxy_configuration.png" alt="proxy configuration" style="width:90%;margin: 10px;" />
 
 Clicking "Manage configuration" will allow to add/remove a caching proxy and reoder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
 
