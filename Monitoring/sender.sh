@@ -6,16 +6,16 @@ data=$(varnishstat -j -X "VBE.boot.*.happy" -X "WAITER*" -X "LCK*" -X "MEM*" -X 
 fdata=$(echo $data | jq 'del(.counters[].description, .counters[].flag, .counters[].format)')
 jsn=$(echo $fdata | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { kind: "frontier", instance: $INST, site: $SITE }')
 
-timeout 2 curl --request POST -q -L -k \
+timeout 2 curl --request POST -s -q -L -k \
   --url 'http://varnish.atlas-ml.org:80/' \
   --header 'content-type: application/json' \
   --data "$jsn"
 
-acc=$(ss -tpH | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c )
+acc=$(ss -tpH | awk '{print $5}' | awk -F ':' '{ if ($1 ~ /^\[/) { n = NF - 1;  s = $1; for (i = 2; i <= n; i++) s = s ":" $i; print s } else { print $1 } }' | sort | uniq -c )
 cnt=$(echo "$acc" | awk '{print "{ \"ip\" : \"" $2 "\", \"connections\":" $1 "}"}' | jq -s '.')
 ajs=$(echo "{\"kind\":\"frontier\",\"instance\":\"$INSTANCE\",\"site\":\"$SITE\"}" | jq | jq --argjson CNT "$cnt" '. +={ cnt: $CNT }')
 
-timeout 2 curl --request POST -q -L -k \
+timeout 2 curl --request POST -s -q -L -k \
   --url 'http://varnish-accesses.atlas-ml.org:80/' \
   --header 'content-type: application/json' \
   --data "$ajs"
