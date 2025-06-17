@@ -168,7 +168,8 @@
         }
     },
     {
-        "url": "lcg-lrz-ce3.grid.lrz.de",
+        "url": "lcg-lrz-ce0.grid.lrz.de",
+        "port": 3402,
         "site": "LRZ-LMU",
         "instance": "1",
         "active": false,
