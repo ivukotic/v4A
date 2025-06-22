@@ -10,6 +10,10 @@
     }
   },
   "NEO_FRONTIER": {
+    "neo-frontier-5p5jdjhrpr52-node-0": {
+      "file": "cern_frontier_varnish",
+      "version": 1
+    },
     "neo-frontier-5p5jdjhrpr52-node-1": {
       "file": "cern_frontier_varnish",
       "version": 1
