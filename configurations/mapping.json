@@ -9,7 +9,7 @@
       "version": 1
     }
   },
-  "NEO_FRONTIER": {
+  "NEO_FRONTIER-skip": {
     "neo-frontier-5p5jdjhrpr52-node-0": {
       "file": "cern_frontier_varnish",
       "version": 1
