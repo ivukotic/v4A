@@ -26,5 +26,23 @@
       "file": "cern_frontier_varnish",
       "version": 1
     }
+  },
+  "CERN-PROD": {
+    "neo-frontier-5p5jdjhrpr52-node-0": {
+      "file": "v1",
+      "version": 1
+    },
+    "neo-frontier-5p5jdjhrpr52-node-1": {
+      "file": "v1",
+      "version": 1
+    },
+    "neo-frontier-5p5jdjhrpr52-node-2": {
+      "file": "v1",
+      "version": 1
+    },
+    "neo-frontier-5p5jdjhrpr52-node-3": {
+      "file": "v1",
+      "version": 1
+    }
   }
 }
