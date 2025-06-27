@@ -179,5 +179,18 @@
             "name": "Rodney Walker",
             "email": "rodney.walker@physik.uni-muenchen.de"
         }
+    },
+    {
+        "url": "varnish1.icepp.jp",
+        "port": 6082,
+        "site": "TOKYO-LCG2",
+        "instance": "frontier-1",
+        "active": true,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Saito Masahiko",
+            "email": "masahiko.saito@cern.ch"
+        }
     }
 ]
