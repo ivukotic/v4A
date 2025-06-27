@@ -147,7 +147,7 @@
         "url": "atlasfrontier-varnish01.cern.ch",
         "site": "CERN",
         "instance": "ATLAS-FRONTIER-1",
-        "active": false,
+        "active": true,
         "local": true,
         "in_CDN": false,
         "responsible": {
@@ -157,8 +157,8 @@
     },
     {
         "url": "ccatlasvrn01.in2p3.fr",
-        "site": "IN2P3-XX",
-        "instance": "XXX",
+        "site": "IN2P3-CC",
+        "instance": "frontier-01",
         "active": true,
         "local": false,
         "in_CDN": true,
@@ -172,7 +172,7 @@
         "port": 3402,
         "site": "LRZ-LMU",
         "instance": "1",
-        "active": false,
+        "active": true,
         "local": false,
         "in_CDN": false,
         "responsible": {
@@ -182,7 +182,6 @@
     },
     {
         "url": "varnish1.icepp.jp",
-        "port": 6082,
         "site": "TOKYO-LCG2",
         "instance": "frontier-1",
         "active": true,
