@@ -1,10 +1,9 @@
 #!/bin/sh
 
 data=$(varnishstat -j -X "VBE.boot.*.happy" -X "WAITER*" -X "LCK*" -X "MEM*" -X "SMA.*c_*" -X "MGT*")
-# the following line will simplify output but requires change in the logstash collector
-# fdata=$(echo $data | jq '.counters |= with_entries(.value = .value["value"])')
-fdata=$(echo $data | jq 'del(.counters[].description, .counters[].flag, .counters[].format)')
-jsn=$(echo $fdata | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { kind: "frontier", instance: $INST, site: $SITE }')
+fdata=$(echo $data | jq '.counters |= with_entries(.value = .value["value"])')
+fdatb=$(echo $fdata | jq '.counters as $c | del(.counters) + $c')
+jsn=$(echo $fdatb | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { kind: "frontier", instance: $INST, site: $SITE }')
 
 timeout 2 curl --request POST -s -q -L -k \
   --url 'http://varnish.atlas-ml.org:80/' \
