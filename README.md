@@ -51,6 +51,7 @@ export SITE=<SITE>
 export INSTANCE=<SITE>
 export VARNISH_TRANSIENT_MEM=1G
 export VARNISH_MEM=12G
+export VARNISH_PORT=6082
 wget https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier/runme.sh
 source runme.sh
 ```
