@@ -191,5 +191,17 @@
             "name": "Saito Masahiko",
             "email": "masahiko.saito@cern.ch"
         }
+    },
+    {
+        "url": "lcgvr01.jinr.ru",
+        "site": "JINR-LCG2",
+        "instance": "JINR-LCG2",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Valery Mitsyn",
+            "email": "Valeri.Mitsyn@cern.ch"
+        }
     }
 ]
