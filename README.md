@@ -114,6 +114,8 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |  No |
 | Wuppertal | | WUPPERTALPROD | buw-frontier-1 | <http://varnish.pleiades.uni-wuppertal.de:6082> | Yes |
 | CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> | Yes |
+| TOKYO-LCG2 | | TOKYO-LCG2 | frontier-1 | <http://varnish1.icepp.jp:6082> | Yes |
+| JINR-LCG2 | | JINR-LCG2 | JINR-LCG2 | <http://lcgvr01.jinr.ru:6082> | No |
 
 ## CloudFlare
 
