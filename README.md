@@ -41,7 +41,7 @@ Simply go to docker directory and edit [docker-compose file](docker/docker-compo
 docker compose start
 ```
 
-### On an VM, bare metal
+### On a bare metal
 
 Any version you pick will work fine since we need only the basic functionality. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
 To start it execute these commands:
@@ -59,6 +59,10 @@ source runme.sh
 To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
 Ideally you want both of these (server and monitoring script), to be run in systemd.
+
+### On a VM
+
+Everything you need is in [VM directory](VM). The only things you want to change are [here](VM/etc/sysconfig/frontier-varnish).
 
 ## Testing Frontier access caching
 

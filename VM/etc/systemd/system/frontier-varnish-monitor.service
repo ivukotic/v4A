@@ -1,0 +1,12 @@
+[Unit]
+Description=Varnish for Frontier Monitoring
+After=frontier-varnish.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/frontier-varnish-monitor.sh
+NotifyAccess=all
+EnvironmentFile=-/etc/sysconfig/frontier-varnish
+
+[Install]
+WantedBy=multi-user.target
