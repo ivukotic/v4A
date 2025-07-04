@@ -1,0 +1,10 @@
+# varnish
+SITE=XXX
+INSTANCE=01
+VARNISH_TRANSIENT_MEM=1G
+VARNISH_MEM=12G
+VARNISH_PORT=6082
+FRONTIER_CONF=https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations
+# monitor
+URL_ML=http://varnish.atlas-ml.org:80/
+URL_ML_ACCESS=http://varnish-accesses.atlas-ml.org:80/

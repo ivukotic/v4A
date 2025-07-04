@@ -1,0 +1,12 @@
+[Unit]
+Description=Varnish for Frontier
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/frontier-varnish.sh
+NotifyAccess=all
+EnvironmentFile=-/etc/sysconfig/frontier-varnish
+
+[Install]
+WantedBy=multi-user.target
