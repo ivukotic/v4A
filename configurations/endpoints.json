@@ -72,6 +72,18 @@
         }
     },
     {
+        "url": "varnish01.gridpp.rl.ac.uk",
+        "site": "RAL-LCG2",
+        "instance": "varnish01.gridpp.rl.ac.uk",
+        "active": true,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Brij Kishor Jashal",
+            "email": "brij.kishor.jashal@cern.ch"
+        }
+    },
+    {
         "url": "fiona8.ucsc.edu",
         "site": "uscs",
         "instance": "uscs-1f",
@@ -147,6 +159,18 @@
         "url": "atlasfrontier-varnish01.cern.ch",
         "site": "CERN",
         "instance": "ATLAS-FRONTIER-1",
+        "active": true,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Chris Lee",
+            "email": "chris.lee@cern.ch"
+        }
+    },
+    {
+        "url": "atlasfrontier-varnish02.cern.ch",
+        "site": "CERN",
+        "instance": "atlasfrontier-varnish02",
         "active": true,
         "local": true,
         "in_CDN": false,
