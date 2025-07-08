@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bbafd55b52e5a70feb916686b34172ec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_bbafd55b52e5a70feb916686b34172ec" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bbafd55b52e5a70feb916686b34172ec = L.map(
+                "map_bbafd55b52e5a70feb916686b34172ec",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0e0d599f67ec9a17d0832487a45687a8 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0e0d599f67ec9a17d0832487a45687a8.addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var marker_f8e584222d6bd471c90aeef0e7d3148b = L.marker(
+                [42.205, -72.6276],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_e1c5a11cb2a9d82a1717837552c7896c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b02fcdbfbbd8908ea76133cbcda8ff0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0a1aef7286f48aa345dc51ed5e9fb40 = $(`<div id="html_e0a1aef7286f48aa345dc51ed5e9fb40" style="width: 100.0%; height: 100.0%;">gpu-13.nrp.mghpcc.org<BR>IN_CDN<BR>Holyoke, United States</div>`)[0];
+                popup_b02fcdbfbbd8908ea76133cbcda8ff0d.setContent(html_e0a1aef7286f48aa345dc51ed5e9fb40);
+            
+        
+
+        marker_f8e584222d6bd471c90aeef0e7d3148b.bindPopup(popup_b02fcdbfbbd8908ea76133cbcda8ff0d)
+        ;
+
+        
+    
+    
+                marker_f8e584222d6bd471c90aeef0e7d3148b.setIcon(icon_e1c5a11cb2a9d82a1717837552c7896c);
+            
+    
+            var marker_f25f502cb4d8d254f751f717c36c5cc9 = L.marker(
+                [44.5004, 11.3568],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_af6b4f5a0acb31bee6c96812ece2a8e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0c3a32d7a6005c65e27d398914525d49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d017a0a4dbec49c2337d7aa8d67ff8a5 = $(`<div id="html_d017a0a4dbec49c2337d7aa8d67ff8a5" style="width: 100.0%; height: 100.0%;">cmsrm-svc-02.roma1.infn.it<BR>IN_CDN<BR>Bologna, Italy</div>`)[0];
+                popup_0c3a32d7a6005c65e27d398914525d49.setContent(html_d017a0a4dbec49c2337d7aa8d67ff8a5);
+            
+        
+
+        marker_f25f502cb4d8d254f751f717c36c5cc9.bindPopup(popup_0c3a32d7a6005c65e27d398914525d49)
+        ;
+
+        
+    
+    
+                marker_f25f502cb4d8d254f751f717c36c5cc9.setIcon(icon_af6b4f5a0acb31bee6c96812ece2a8e6);
+            
+    
+            var marker_3bfe307731e543a5193a9200c756f324 = L.marker(
+                [41.502, 2.10469],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_2f6f12b8fb7784636e5669da1265e1fc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2cb82344ec9761263ef96f6106cb43c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c1793a5d0e37e01d1cffa19dfd42f0f = $(`<div id="html_6c1793a5d0e37e01d1cffa19dfd42f0f" style="width: 100.0%; height: 100.0%;">varnish.pic.es<BR>IN_CDN<BR>Bellaterra, Spain</div>`)[0];
+                popup_2cb82344ec9761263ef96f6106cb43c9.setContent(html_6c1793a5d0e37e01d1cffa19dfd42f0f);
+            
+        
+
+        marker_3bfe307731e543a5193a9200c756f324.bindPopup(popup_2cb82344ec9761263ef96f6106cb43c9)
+        ;
+
+        
+    
+    
+                marker_3bfe307731e543a5193a9200c756f324.setIcon(icon_2f6f12b8fb7784636e5669da1265e1fc);
+            
+    
+            var marker_cca0b4349e4313956652c62372d52b57 = L.marker(
+                [51.6471, -3.1324],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_948d0ad140c06c95bd9a009aba4e34f3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b39c6c54c6d0fa3276dae005d9ff6b35 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35919997b9480de0d4569de4e310b472 = $(`<div id="html_35919997b9480de0d4569de4e310b472" style="width: 100.0%; height: 100.0%;">vm39.tier2.hep.manchester.ac.uk<BR>IN_CDN<BR>Newport, United Kingdom</div>`)[0];
+                popup_b39c6c54c6d0fa3276dae005d9ff6b35.setContent(html_35919997b9480de0d4569de4e310b472);
+            
+        
+
+        marker_cca0b4349e4313956652c62372d52b57.bindPopup(popup_b39c6c54c6d0fa3276dae005d9ff6b35)
+        ;
+
+        
+    
+    
+                marker_cca0b4349e4313956652c62372d52b57.setIcon(icon_948d0ad140c06c95bd9a009aba4e34f3);
+            
+    
+            var marker_1c45ba68c86b868fa1a332bc449f6b00 = L.marker(
+                [37.0882, -122.0887],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_2e4e06444ec721a91d129ac6472ff8a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_14e134f965ee6d228f4de2ef6e163eff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65a9614e87e4d8eae7f4fe2838e8f59e = $(`<div id="html_65a9614e87e4d8eae7f4fe2838e8f59e" style="width: 100.0%; height: 100.0%;">fiona8.ucsc.edu<BR>IN_CDN<BR>Ben Lomond, United States</div>`)[0];
+                popup_14e134f965ee6d228f4de2ef6e163eff.setContent(html_65a9614e87e4d8eae7f4fe2838e8f59e);
+            
+        
+
+        marker_1c45ba68c86b868fa1a332bc449f6b00.bindPopup(popup_14e134f965ee6d228f4de2ef6e163eff)
+        ;
+
+        
+    
+    
+                marker_1c45ba68c86b868fa1a332bc449f6b00.setIcon(icon_2e4e06444ec721a91d129ac6472ff8a4);
+            
+    
+            var marker_a75b3314caaa01dbdd6b66cff17dbfa2 = L.marker(
+                [45.7826, 4.86519],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_cb6325765ac51f5bb206889ddeca6df3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e4da96999104f3d30f3754e0c66dca2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47d186053bdf2aa6f8bc8857e6ee44b3 = $(`<div id="html_47d186053bdf2aa6f8bc8857e6ee44b3" style="width: 100.0%; height: 100.0%;">ccatlasvrn01.in2p3.fr<BR>IN_CDN<BR>Villeurbanne, France</div>`)[0];
+                popup_3e4da96999104f3d30f3754e0c66dca2.setContent(html_47d186053bdf2aa6f8bc8857e6ee44b3);
+            
+        
+
+        marker_a75b3314caaa01dbdd6b66cff17dbfa2.bindPopup(popup_3e4da96999104f3d30f3754e0c66dca2)
+        ;
+
+        
+    
+    
+                marker_a75b3314caaa01dbdd6b66cff17dbfa2.setIcon(icon_cb6325765ac51f5bb206889ddeca6df3);
+            
+    
+            var marker_4f9c505913bd5bb1ff8fcbf23bdf6a90 = L.marker(
+                [41.7821, -87.6046],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_827891e0ed27a1bb4bb09d0527e9be54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c2c8cd9300578b467a448811d633854e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be4fd24801af8dac3b258f4777a5f6bb = $(`<div id="html_be4fd24801af8dac3b258f4777a5f6bb" style="width: 100.0%; height: 100.0%;">v4a.mwt2.org<BR>IN_CDN<BR>Chicago, United States</div>`)[0];
+                popup_c2c8cd9300578b467a448811d633854e.setContent(html_be4fd24801af8dac3b258f4777a5f6bb);
+            
+        
+
+        marker_4f9c505913bd5bb1ff8fcbf23bdf6a90.bindPopup(popup_c2c8cd9300578b467a448811d633854e)
+        ;
+
+        
+    
+    
+                marker_4f9c505913bd5bb1ff8fcbf23bdf6a90.setIcon(icon_827891e0ed27a1bb4bb09d0527e9be54);
+            
+    
+            var marker_9243d3860716cfc336b16f9862569edf = L.marker(
+                [45.7826, 4.86519],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_59630f879f08a6ee221683c40d40cdee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3a5e2c3378939d2df14ef87edee9390b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89d86453679aea854a86db5f0b67ff4f = $(`<div id="html_89d86453679aea854a86db5f0b67ff4f" style="width: 100.0%; height: 100.0%;">ccatlasvrn01.in2p3.fr<BR>IN_CDN<BR>Villeurbanne, France</div>`)[0];
+                popup_3a5e2c3378939d2df14ef87edee9390b.setContent(html_89d86453679aea854a86db5f0b67ff4f);
+            
+        
+
+        marker_9243d3860716cfc336b16f9862569edf.bindPopup(popup_3a5e2c3378939d2df14ef87edee9390b)
+        ;
+
+        
+    
+    
+                marker_9243d3860716cfc336b16f9862569edf.setIcon(icon_59630f879f08a6ee221683c40d40cdee);
+            
+    
+            var marker_15704e90402ec36e535a6a4c39b77b2b = L.marker(
+                [46.2052, 6.142],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_3da87e3fe5a5f990a1381ae8d227176c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1563ab8f871d11f605fb6debea7db42a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e125da6f3dc19667990c73e48b351527 = $(`<div id="html_e125da6f3dc19667990c73e48b351527" style="width: 100.0%; height: 100.0%;">atlasfrontier-varnish01.cern.ch<BR>LOCAL<BR>Geneva, Switzerland</div>`)[0];
+                popup_1563ab8f871d11f605fb6debea7db42a.setContent(html_e125da6f3dc19667990c73e48b351527);
+            
+        
+
+        marker_15704e90402ec36e535a6a4c39b77b2b.bindPopup(popup_1563ab8f871d11f605fb6debea7db42a)
+        ;
+
+        
+    
+    
+                marker_15704e90402ec36e535a6a4c39b77b2b.setIcon(icon_3da87e3fe5a5f990a1381ae8d227176c);
+            
+    
+            var marker_570504e8a890be103c00e6b2c07ac253 = L.marker(
+                [35.6837, 139.6805],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_2d1073837d2e4e6940e7a53f7e8da781 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_312ebf41dd47b540d8c1716661c137f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e296cc446499b49013a4515e97024e43 = $(`<div id="html_e296cc446499b49013a4515e97024e43" style="width: 100.0%; height: 100.0%;">varnish1.icepp.jp<BR>LOCAL<BR>Tokyo, Japan</div>`)[0];
+                popup_312ebf41dd47b540d8c1716661c137f3.setContent(html_e296cc446499b49013a4515e97024e43);
+            
+        
+
+        marker_570504e8a890be103c00e6b2c07ac253.bindPopup(popup_312ebf41dd47b540d8c1716661c137f3)
+        ;
+
+        
+    
+    
+                marker_570504e8a890be103c00e6b2c07ac253.setIcon(icon_2d1073837d2e4e6940e7a53f7e8da781);
+            
+    
+            var marker_8db12d51848fd88c56f80f2bf9d1153b = L.marker(
+                [40.906, -72.6297],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_12203cefb0103e9a5654b2eca1b670cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69f9d72cc1cb682facc4265329a0b3d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_374bec1910de3b5100051031394fc683 = $(`<div id="html_374bec1910de3b5100051031394fc683" style="width: 100.0%; height: 100.0%;">atlas-varnish.sdcc.bnl.gov<BR>OTHER<BR>Flanders, United States</div>`)[0];
+                popup_69f9d72cc1cb682facc4265329a0b3d6.setContent(html_374bec1910de3b5100051031394fc683);
+            
+        
+
+        marker_8db12d51848fd88c56f80f2bf9d1153b.bindPopup(popup_69f9d72cc1cb682facc4265329a0b3d6)
+        ;
+
+        
+    
+    
+                marker_8db12d51848fd88c56f80f2bf9d1153b.setIcon(icon_12203cefb0103e9a5654b2eca1b670cb);
+            
+    
+            var marker_c63087af5afaaa861717c61944bb4bdf = L.marker(
+                [41.8972, -87.6196],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_234cab6fae2a84bb67a83403497d8ea8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bfe9974945f34ab54cd776173b764b2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8ce0b2154361ac0e51b6919727ecc5c = $(`<div id="html_f8ce0b2154361ac0e51b6919727ecc5c" style="width: 100.0%; height: 100.0%;">starlight.varnish.atlas-ml.org<BR>OTHER<BR>Chicago, United States</div>`)[0];
+                popup_bfe9974945f34ab54cd776173b764b2b.setContent(html_f8ce0b2154361ac0e51b6919727ecc5c);
+            
+        
+
+        marker_c63087af5afaaa861717c61944bb4bdf.bindPopup(popup_bfe9974945f34ab54cd776173b764b2b)
+        ;
+
+        
+    
+    
+                marker_c63087af5afaaa861717c61944bb4bdf.setIcon(icon_234cab6fae2a84bb67a83403497d8ea8);
+            
+    
+            var marker_45b2b0326cae203f821eeaeb1486431e = L.marker(
+                [35.5144, -97.5865],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_bde3e070465f7a40584021227e780ced = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_24309a523d6dc024f22afd6f7134fb30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9463077583de7da6fb405621c49b009 = $(`<div id="html_c9463077583de7da6fb405621c49b009" style="width: 100.0%; height: 100.0%;">fiona.offn.oscer.ou.edu<BR>OTHER<BR>Oklahoma City, United States</div>`)[0];
+                popup_24309a523d6dc024f22afd6f7134fb30.setContent(html_c9463077583de7da6fb405621c49b009);
+            
+        
+
+        marker_45b2b0326cae203f821eeaeb1486431e.bindPopup(popup_24309a523d6dc024f22afd6f7134fb30)
+        ;
+
+        
+    
+    
+                marker_45b2b0326cae203f821eeaeb1486431e.setIcon(icon_bde3e070465f7a40584021227e780ced);
+            
+    
+            var marker_c910d657934bece3b96e065d9cd6ec62 = L.marker(
+                [42.2804, -83.7325],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_15ec40989a0edf18dd33868061038519 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0684e13d480767e09d08b1519240d071 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fae01ee04af2299cd77dcf7774467233 = $(`<div id="html_fae01ee04af2299cd77dcf7774467233" style="width: 100.0%; height: 100.0%;">sl-um-es2.slateci.io<BR>OTHER<BR>Ann Arbor, United States</div>`)[0];
+                popup_0684e13d480767e09d08b1519240d071.setContent(html_fae01ee04af2299cd77dcf7774467233);
+            
+        
+
+        marker_c910d657934bece3b96e065d9cd6ec62.bindPopup(popup_0684e13d480767e09d08b1519240d071)
+        ;
+
+        
+    
+    
+                marker_c910d657934bece3b96e065d9cd6ec62.setIcon(icon_15ec40989a0edf18dd33868061038519);
+            
+    
+            var marker_219fdb9cfc4009ba77c1a4d84798bd52 = L.marker(
+                [42.7307, -84.4853],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_8be1c4942cda5803137f4ed03cbf253f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6533ea327309841c58dec688231c4853 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70aa4b227c3ec9d2909b6b6f4cd00cbb = $(`<div id="html_70aa4b227c3ec9d2909b6b6f4cd00cbb" style="width: 100.0%; height: 100.0%;">msu-nrp.aglt2.org<BR>OTHER<BR>East Lansing, United States</div>`)[0];
+                popup_6533ea327309841c58dec688231c4853.setContent(html_70aa4b227c3ec9d2909b6b6f4cd00cbb);
+            
+        
+
+        marker_219fdb9cfc4009ba77c1a4d84798bd52.bindPopup(popup_6533ea327309841c58dec688231c4853)
+        ;
+
+        
+    
+    
+                marker_219fdb9cfc4009ba77c1a4d84798bd52.setIcon(icon_8be1c4942cda5803137f4ed03cbf253f);
+            
+    
+            var marker_0bdb6b07c4fbe042e6381df272850562 = L.marker(
+                [48.1778, 11.5198],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_b08b01e9ea8680b9471544d5894a8eb0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b8285ccba7bebb72d46dc59257af47f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d24a1c55a0baec56df5ddba2d6a301a7 = $(`<div id="html_d24a1c55a0baec56df5ddba2d6a301a7" style="width: 100.0%; height: 100.0%;">lcg-lrz-ce0.grid.lrz.de<BR>OTHER<BR>Munich, Germany</div>`)[0];
+                popup_7b8285ccba7bebb72d46dc59257af47f.setContent(html_d24a1c55a0baec56df5ddba2d6a301a7);
+            
+        
+
+        marker_0bdb6b07c4fbe042e6381df272850562.bindPopup(popup_7b8285ccba7bebb72d46dc59257af47f)
+        ;
+
+        
+    
+    
+                marker_0bdb6b07c4fbe042e6381df272850562.setIcon(icon_b08b01e9ea8680b9471544d5894a8eb0);
+            
+    
+            var marker_ff4d0b92ee7d500667e068369508d65d = L.marker(
+                [56.7464, 37.197],
+                {
+}
+            ).addTo(map_bbafd55b52e5a70feb916686b34172ec);
+        
+    
+            var icon_5eeea338a4def130182b14997d81ef22 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ebbed2136b39aac0625fff6f8dd4bd15 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_142348fc14c23ed241aad78a610a9e91 = $(`<div id="html_142348fc14c23ed241aad78a610a9e91" style="width: 100.0%; height: 100.0%;">lcgvr01.jinr.ru<BR>OTHER<BR>Dubna, Russia</div>`)[0];
+                popup_ebbed2136b39aac0625fff6f8dd4bd15.setContent(html_142348fc14c23ed241aad78a610a9e91);
+            
+        
+
+        marker_ff4d0b92ee7d500667e068369508d65d.bindPopup(popup_ebbed2136b39aac0625fff6f8dd4bd15)
+        ;
+
+        
+    
+    
+                marker_ff4d0b92ee7d500667e068369508d65d.setIcon(icon_5eeea338a4def130182b14997d81ef22);
+            
+</script>
+</html>
