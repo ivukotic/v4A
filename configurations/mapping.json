@@ -10,19 +10,19 @@
     }
   },
   "NEO_FRONTIER": {
-    "neo-frontier-5p5jdjhrpr52-node-0": {
+    "nfrontier-xwyad2vwiecr-node-0": {
       "file": "cern_frontier_varnish",
       "version": 1
     },
-    "neo-frontier-5p5jdjhrpr52-node-1": {
+    "nfrontier-xwyad2vwiecr-node-1": {
       "file": "cern_frontier_varnish",
       "version": 1
     },
-    "neo-frontier-5p5jdjhrpr52-node-2": {
+    "nfrontier-xwyad2vwiecr-node-2": {
       "file": "cern_frontier_varnish",
       "version": 1
     },
-    "neo-frontier-5p5jdjhrpr52-node-3": {
+    "nfrontier-xwyad2vwiecr-node-3": {
       "file": "cern_frontier_varnish",
       "version": 1
     }

@@ -158,7 +158,7 @@
     {
         "url": "atlasfrontier-varnish01.cern.ch",
         "site": "CERN",
-        "instance": "ATLAS-FRONTIER-1",
+        "instance": "atlasfrontier-varnish01",
         "active": true,
         "local": true,
         "in_CDN": false,
@@ -177,6 +177,19 @@
         "responsible": {
             "name": "Chris Lee",
             "email": "chris.lee@cern.ch"
+        }
+    },
+    {
+        "url": "v4f.cern.ch",
+        "port": 80,
+        "site": "CERN-PROD",
+        "instance": "nfrontier-xwyad2vwiecr-node-0",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
         }
     },
     {
