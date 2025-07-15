@@ -3,12 +3,6 @@
     "file": "v1",
     "version": 3
   },
-  "TEST": {
-    "test-01": {
-      "file": "neo_frontier",
-      "version": 1
-    }
-  },
   "NEO_FRONTIER": {
     "nfrontier-xwyad2vwiecr-node-0": {
       "file": "cern_frontier_varnish",
@@ -27,21 +21,15 @@
       "version": 1
     }
   },
-  "CERN-PROD": {
-    "neo-frontier-5p5jdjhrpr52-node-0": {
-      "file": "v1",
+  "TECHNION-HEP": {
+    "01": {
+      "file": "neo_frontier",
       "version": 1
-    },
-    "neo-frontier-5p5jdjhrpr52-node-1": {
-      "file": "v1",
-      "version": 1
-    },
-    "neo-frontier-5p5jdjhrpr52-node-2": {
-      "file": "v1",
-      "version": 1
-    },
-    "neo-frontier-5p5jdjhrpr52-node-3": {
-      "file": "v1",
+    }
+  },
+  "AGLT2": {
+    "frontier-01": {
+      "file": "neo_frontier",
       "version": 1
     }
   }
