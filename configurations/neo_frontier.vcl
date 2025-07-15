@@ -5,6 +5,10 @@ backend default {
     .port = "80";
 }
 
+sub vcl_backend_fetch {
+    set bereq.http.Host = "v4f.cern.ch";
+}
+
 sub vcl_recv {
   set req.backend_hint = default;        
   set req.http.X-frontier-id = "varnish";
