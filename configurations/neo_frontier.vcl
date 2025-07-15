@@ -4,19 +4,13 @@ import directors;
 
 
 backend neo_frontier_1 {
-  .host = "188.184.89.135";
+  .host = "v4f.cern.ch";
   .port = "80";
 }
-backend neo_frontier_2 {
-  .host = "188.184.89.135";
-  .port = "80";
-}
-
 
 sub vcl_init {
   new vdir = directors.round_robin();
   vdir.add_backend(neo_frontier_1);
-  vdir.add_backend(neo_frontier_2);
 }
 
 sub vcl_recv {
