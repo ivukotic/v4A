@@ -240,5 +240,17 @@
             "name": "Valery Mitsyn",
             "email": "Valeri.Mitsyn@cern.ch"
         }
+    },
+    {
+        "url": "tech-vrn.hep.technion.ac.il",
+        "site": "TECHNION-HEP",
+        "instance": "01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "David Cohen",
+            "email": "David.Cohen@cern.ch"
+        }
     }
 ]
