@@ -1,8 +1,8 @@
 # varnish
 SITE=XXX
 INSTANCE=01
-VARNISH_TRANSIENT_MEM=1G
-VARNISH_MEM=12G
+VARNISH_TRANSIENT_MEM=500M
+VARNISH_MEM=8G
 VARNISH_PORT=6082
 FRONTIER_CONF=https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations
 # monitor
