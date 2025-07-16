@@ -6,15 +6,15 @@ services:
       SITE: "<SITENAME>"
       INSTANCE: "<INSTANCE>"
       VARNISH_PORT: "8080"
-      VARNISH_MEM: "32G"
-      VARNISH_TRANSIENT_MEM: "2G"
+      VARNISH_MEM: "8G"
+      VARNISH_TRANSIENT_MEM: "500M"
     ports:
       - "6082:8080"
     deploy:
       resources:
         limits:
-          cpus: "6.0"
-          memory: 64G
+          cpus: "4.0"
+          memory: 24G
         reservations:
           cpus: "2.0"
           memory: 12G
