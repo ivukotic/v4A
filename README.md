@@ -120,6 +120,7 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> | Yes |
 | TOKYO-LCG2 | | TOKYO-LCG2 | frontier-1 | <http://varnish1.icepp.jp:6082> | Yes |
 | JINR-LCG2 | | JINR-LCG2 | JINR-LCG2 | <http://lcgvr01.jinr.ru:6082> | No |
+| TECHNION-HEP | | TECHNION-HEP | 01 | <http://tech-vrn.hep.technion.ac.il:6082> | No |
 
 ## CloudFlare
 
