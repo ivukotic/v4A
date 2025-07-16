@@ -43,7 +43,7 @@ docker compose start
 
 ### On a bare metal
 
-Any version you pick will work fine since we need only the basic functionality. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
+Prefered version is 7.7. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
 To start it execute these commands:
 
 ```bash
