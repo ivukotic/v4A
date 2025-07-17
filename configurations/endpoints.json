@@ -252,5 +252,17 @@
             "name": "David Cohen",
             "email": "David.Cohen@cern.ch"
         }
+    },
+    {
+        "url": "gvmsw02.ft.uam.es",
+        "site": "UAM-LCG2",
+        "instance": "01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Pablo Collado",
+            "email": "pablo.collado@uam.es"
+        }
     }
 ]
