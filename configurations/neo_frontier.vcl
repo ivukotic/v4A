@@ -10,6 +10,11 @@ sub vcl_backend_fetch {
 }
 
 sub vcl_recv {
+
+  if (!req.http.X-frontier-id) {
+      return (synth(403, "Forbidden: Missing required header"));
+   }
+
   set req.backend_hint = default;        
   set req.http.X-frontier-id = "varnish";
   if (req.method != "GET" && req.method != "HEAD") {

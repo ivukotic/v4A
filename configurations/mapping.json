@@ -38,5 +38,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "BNL": {
+    "atlas-varnish": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
