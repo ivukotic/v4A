@@ -1,8 +1,8 @@
 [
     {
         "url": "atlas-varnish.sdcc.bnl.gov",
-        "site": "xxx",
-        "instance": "xxx",
+        "site": "BNL",
+        "instance": "atlas-varnish",
         "active": true,
         "local": false,
         "in_CDN": false,
