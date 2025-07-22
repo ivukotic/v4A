@@ -264,5 +264,17 @@
             "name": "Pablo Collado",
             "email": "pablo.collado@uam.es"
         }
+    },
+    {
+        "url": "gk02.atlas-swt2.org",
+        "site": "SWT2_CPB",
+        "instance": "01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Zachary Booth",
+            "email": "zachary.booth@uta.edu"
+        }
     }
 ]
