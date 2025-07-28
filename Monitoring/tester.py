@@ -1,3 +1,4 @@
+from calendar import c
 import requests
 import json
 import os
@@ -5,6 +6,13 @@ from datetime import datetime, timezone
 from elasticsearch import Elasticsearch, exceptions
 
 URL = "https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/frontier/configurations/endpoints.json"
+
+es_user = os.getenv("ES_USER")
+es_password = os.getenv("ES_PASSWORD")
+no_ES = False
+if not es_user or not es_password:
+    print("to store data ES_USER and ES_PASSWORD environment variables must be set.")
+    no_ES = True
 
 def load_endpoints(url: str = URL) -> list[dict]:
     """Download the endpoints file and return it as a Python list."""
@@ -19,17 +27,18 @@ def load_endpoints(url: str = URL) -> list[dict]:
 # function that returns an elasticsearch client
 # login credentials are read from the environment variables ES_USER and ES_PASSWORD
 def get_es_client():
-    es_user = os.getenv("ES_USER")
-    es_password = os.getenv("ES_PASSWORD")
-    if not es_user or not es_password:
-        raise ValueError("ES_USER and ES_PASSWORD environment variables must be set")
     es = Elasticsearch("https://atlas-kibana.mwt2.org:9200", basic_auth=(es_user, es_password))
     return es
+
+headers = {
+    "X-frontier-id": "varnihs-tester",
+    "Cache-Control": "max-age=0"
+}
 
 # function to test individual endpoints
 def test_endpoint(endpoint) -> bool:
     try:
-        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/atlr', timeout=10)
+        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/atlr', timeout=10, headers=headers)
         return response.status_code
     except requests.RequestException as e:
         print(f"Error testing endpoint {endpoint['url']}: {e}")
@@ -38,7 +47,8 @@ def test_endpoint(endpoint) -> bool:
 
 if __name__ == "__main__":
     endpoints = load_endpoints()
-    es = get_es_client()
+    if not no_ES:
+        es = get_es_client()
     print(f"Loaded {len(endpoints)} endpoint definitions")
 
     # loop over endpoints and test ones that have active: true
@@ -55,8 +65,10 @@ if __name__ == "__main__":
             print(document)
             
             try:
+                if no_ES:
+                    continue
                 response = es.index(index="varnish_status", document=document)
-                print("Indexing successful:", response)
+                # print("Indexing successful:", response)
             except exceptions.ConnectionError as e:
                 print("Connection error:", e)
             except exceptions.RequestError as e:
