@@ -15,7 +15,5 @@ ENV VARNISH_MEM=6000m
 ENV VARNISH_TRANSIENT_MEM=2000m
 ENV VARNISH_PORT=6081
 
-HEALTHCHECK --interval=10s --timeout=9s --retries=3 --start-period=60s CMD /usr/local/bin/sender.sh
-
 USER varnish
 CMD [ "/usr/local/bin/runme.sh" ]
