@@ -44,5 +44,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "MWT2": {
+    "frontier-uc-01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
