@@ -51,6 +51,12 @@
       "version": 1
     }
   },
+  "AGLT2": {
+    "frontier-01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
   "SWT2_CPB": {
     "01": {
       "file": "neo_frontier",
