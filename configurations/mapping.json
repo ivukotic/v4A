@@ -68,5 +68,23 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "INFN-ROMA1": {
+    "v4f-0": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "v4f-1": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "v4f-2": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "v4f-3": {
+      "file": "neo_frontier",
+      "version": 1
+    },
   }
 }
