@@ -62,5 +62,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "OU": {
+    "ou-1f": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
