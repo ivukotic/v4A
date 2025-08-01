@@ -36,9 +36,9 @@
         }
     },
     {
-        "url": "cmsrm-svc-02.roma1.infn.it",
+        "url": "cmsrm-svc-03.roma1.infn.it",
         "site": "INFN-ROMA1",
-        "instance": "v4f-2",
+        "instance": "v4f-3",
         "active": true,
         "local": false,
         "in_CDN": true,
@@ -201,7 +201,7 @@
         "in_CDN": true,
         "responsible": {
             "name": "Martin HAMANT",
-            "email": "Martin.Hamant@cern.ch"
+            "email": "Martin.Hamant@cc.in2p3.fr"
         }
     },
     {
