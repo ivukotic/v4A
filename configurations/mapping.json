@@ -92,5 +92,17 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "UAM-LCG2": {
+    "01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
+  "JINR_LCG2": {
+    "JINR_LCG2": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
