@@ -276,5 +276,17 @@
             "name": "Zachary Booth",
             "email": "zachary.booth@uta.edu"
         }
+    },
+    {
+        "url": "atlasvarnish.ihep.ac.cn",
+        "site": "BEIJING-LCG2",
+        "instance": "01",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Xiaofei Yang",
+            "email": "xiaofei.yang@cern.ch"
+        }
     }
 ]
