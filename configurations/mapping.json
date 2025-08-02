@@ -104,5 +104,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "BEIJING-LCG2": {
+    "01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
