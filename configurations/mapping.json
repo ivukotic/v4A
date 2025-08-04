@@ -110,5 +110,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "FZK-LCG2": {
+    "varnish-atlas-01": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
