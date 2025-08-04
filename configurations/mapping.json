@@ -116,5 +116,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "UKI-NORTHGRID-MAN-HEP": {
+    "MANCHESTER_VARNISH_FRONTIER": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
