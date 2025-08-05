@@ -285,8 +285,20 @@
         "local": false,
         "in_CDN": false,
         "responsible": {
-            "name": "Xiaofei Yang",
-            "email": "xiaofei.yang@cern.ch"
+            "name": "Xiaofei Yan",
+            "email": "yanxiaofei@ihep.ac.cn"
+        }
+    },
+    {
+        "url": "varnish-atlas-01.gridka.de",
+        "site": "FZK-LCG2",
+        "instance": "varnish-atlas-01",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Matthias Schnepf",
+            "email": "matthias.schnepf@kit.edu"
         }
     }
 ]
