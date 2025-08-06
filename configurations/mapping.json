@@ -123,6 +123,18 @@
       "version": 1
     }
   },
+  "LRZ-LMU": {
+    "1": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
+  "TOKYO-LCG2": {
+    "frontier-1": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
   "UKI-NORTHGRID-MAN-HEP": {
     "MANCHESTER_VARNISH_FRONTIER": {
       "file": "neo_frontier",
