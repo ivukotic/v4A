@@ -140,5 +140,11 @@
       "file": "neo_frontier",
       "version": 1
     }
+  },
+  "PIC": {
+    "varnish.pic.es": {
+      "file": "neo_frontier",
+      "version": 1
+    }
   }
 }
