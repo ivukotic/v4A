@@ -69,7 +69,7 @@ Everything you need is in [VM directory](VM). The only things you want to change
 If it works correctly command like this should return 200:
 
 ```bash
-curl -L -o /dev/null -s -w "%{http_code}" -H "Cache-Control: max-age=0" http://<HOSTNAME>:6082/atlr
+curl -L -o /dev/null -s -w "%{http_code}" -H "X-frontier-id: test" -H "Cache-Control: max-age=0" http://<HOSTNAME>:6082/atlr
 ```
 
 ## CRIC settings
@@ -113,14 +113,19 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | ROMA1 |  | INFN-ROMA1 | v4f-1   | <http://cmsrm-svc-02.roma1.infn.it:6082> | No |
 | ROMA1 | it | INFN-ROMA1 | v4f-2   | <http://cmsrm-svc-01.roma1.infn.it:6082> | No |
 | PIC | es | PIC | frontier-01 | <http://varnish.pic.es:6082> | No |
-| Manchester | uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> | No |
-| IN2P3-CC | fr | IN2P3-CC | xxx | <http://ccatlasvrn01.in2p3.fr:6082> | No |
+| UAM-LCG2 |  | UAM-LCG2 | 01 | <http://gvmsw02.ft.uam.es:6082> | No |
+| Manchester | v4f-uk | UKI-NORTHGRID-MAN-HEP| FRONTIER-MAN | <http://vm39.tier2.hep.manchester.ac.uk:6082> | No |
+| IN2P3-CC | v4f-fr | IN2P3-CC | xxx | <http://ccatlasvrn01.in2p3.fr:6082> | No |
 | LRZ-LMU | | LRZ-LMU | 1 | <http://lcg-lrz-ce3.grid.lrz.de:3128> |  No |
 | Wuppertal | | WUPPERTALPROD | buw-frontier-1 | <http://varnish.pleiades.uni-wuppertal.de:6082> | Yes |
 | CERN | | CERN | ATLAS-FRONTIER-1 | <http://atlasfrontier-varnish01.cern.ch:6082> | Yes |
 | TOKYO-LCG2 | | TOKYO-LCG2 | frontier-1 | <http://varnish1.icepp.jp:6082> | Yes |
 | JINR-LCG2 | | JINR-LCG2 | JINR-LCG2 | <http://lcgvr01.jinr.ru:6082> | No |
 | TECHNION-HEP | | TECHNION-HEP | 01 | <http://tech-vrn.hep.technion.ac.il:6082> | No |
+| FZK-LCG2 | v4f-de |FZK-LCG2 | varnish-atlas-01 | <http://varnish-atlas-01.gridka.de:6082>| No |
+| RAL-LCG2 | | RAL-LCG2 | varnish01.gridpp.rl.ac.uk | <http://varnish01.gridpp.rl.ac.uk:6082> | Yes |
+| RAL-LCG2 | | RAL-LCG2 | varnish02.gridpp.rl.ac.uk | <http://varnish02.gridpp.rl.ac.uk:6082> | No |
+| SWT2_CPB | | SWT2_CPB | 01 | <http://gk02.atlas-swt2.org:6082> | No |
 
 ## CloudFlare
 
