@@ -84,6 +84,18 @@
         }
     },
     {
+        "url": "varnish02.gridpp.rl.ac.uk",
+        "site": "RAL-LCG2",
+        "instance": "varnish02.gridpp.rl.ac.uk",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Brij Kishor Jashal",
+            "email": "brij.kishor.jashal@cern.ch"
+        }
+    },
+    {
         "url": "fiona8.ucsc.edu",
         "site": "uscs",
         "instance": "uscs-1f",

@@ -141,6 +141,16 @@
       "version": 1
     }
   },
+  "RAL-LCG2": {
+    "varnish01.gridpp.rl.ac.uk": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "varnish02.gridpp.rl.ac.uk": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
   "PIC": {
     "varnish.pic.es": {
       "file": "neo_frontier",
