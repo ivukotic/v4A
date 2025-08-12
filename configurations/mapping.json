@@ -21,6 +21,16 @@
       "version": 1
     }
   },
+  "SiGNET": {
+    "01": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "02": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
   "TECHNION-HEP": {
     "01": {
       "file": "neo_frontier",
