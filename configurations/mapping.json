@@ -3,6 +3,16 @@
     "file": "v1",
     "version": 3
   },
+  "CERN": {
+    "atlasfrontier-varnish01": {
+      "file": "neo_frontier",
+      "version": 1
+    },
+    "atlasfrontier-varnish02": {
+      "file": "neo_frontier",
+      "version": 1
+    }
+  },
   "NEO_FRONTIER": {
     "nfrontier-xwyad2vwiecr-node-0": {
       "file": "cern_frontier_varnish",
