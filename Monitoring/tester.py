@@ -58,7 +58,8 @@ if __name__ == "__main__":
                 "address": endpoint['url'],
                 "status": status,
                 "@timestamp": datetime.now(timezone.utc),
-                "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}"
+                "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}",
+                "kind": "cvmfs"
             }
             print(document)
             
