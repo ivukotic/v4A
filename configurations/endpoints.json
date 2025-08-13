@@ -49,7 +49,7 @@
     },
     {
         "url": "varnish.hl-lhc.net",
-        "site": "CLOUDFLARE",
+        "site": "CF CVMFS",
         "instance": "GLOBAL",
         "active": true,
         "local": false,
