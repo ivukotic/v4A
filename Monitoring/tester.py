@@ -30,15 +30,13 @@ def get_es_client():
     es = Elasticsearch("https://atlas-kibana.mwt2.org:9200", basic_auth=(es_user, es_password))
     return es
 
-headers = {
-    "X-frontier-id": "varnish-tester",
-    "Cache-Control": "max-age=0"
-}
 
 # function to test individual endpoints
 def test_endpoint(endpoint) -> bool:
     try:
-        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/cvmfs/atlas.cern.ch/.cvmfs', timeout=10, headers=headers)
+        full_path='http://'+endpoint['url']+':'+endpoint['port']+'/cvmfs/atlas.cern.ch/.cvmfspublished'
+        # print(full_path)
+        response = requests.get(full_path, timeout=10)
         return response.status_code
     except requests.RequestException as e:
         print(f"Error testing endpoint {endpoint['url']}: {e}")

@@ -99,7 +99,7 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | --------------- | ----------- | -------- | ------------ | ----------- |
 | [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> |
 | [UC-AF](https://github.com/maniaclab/flux_apps) |  us-central     | MWT2 | cvmfs-uc | <http://v4cvmfs.mwt2.org:6081> |
-| NRP | us-east-aglt2    | AGLT2/UM  | cvmfs-02 | <http://sl-um-es3.slateci.io:6081> |
+| NRP | us-east-aglt2    | AGLT2/UM  | cvmfs-02 | <http://sl-um-esw.slateci.io:6081> |
 | NRP | us-east-aglt2    | MSU | msu-cvmfs | <http://msu-nrp.aglt2.org:6081> |
 | NRP | us-east    | NET2 | frontier-uc-01 | <http://gpu-13.nrp.mghpcc.org:6081> |
 
