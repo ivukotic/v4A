@@ -1,0 +1,81 @@
+from calendar import c
+import requests
+import json
+import os
+from datetime import datetime, timezone
+from elasticsearch import Elasticsearch, exceptions
+
+URL = "https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/cvmfs/configurations/endpoints.json"
+
+es_user = os.getenv("ES_USER")
+es_password = os.getenv("ES_PASSWORD")
+no_ES = False
+if not es_user or not es_password:
+    print("to store data ES_USER and ES_PASSWORD environment variables must be set.")
+    no_ES = True
+
+def load_endpoints(url: str = URL) -> list[dict]:
+    """Download the endpoints file and return it as a Python list."""
+    resp = requests.get(url, timeout=15)
+    resp.raise_for_status()          # fail fast if the download didn’t work
+    data = json.loads(resp.text)     # or: resp.json()
+
+    if not isinstance(data, list):
+        raise ValueError("Expected a top-level JSON array, got something else!")
+    return data
+
+# function that returns an elasticsearch client
+# login credentials are read from the environment variables ES_USER and ES_PASSWORD
+def get_es_client():
+    es = Elasticsearch("https://atlas-kibana.mwt2.org:9200", basic_auth=(es_user, es_password))
+    return es
+
+headers = {
+    "X-frontier-id": "varnish-tester",
+    "Cache-Control": "max-age=0"
+}
+
+# function to test individual endpoints
+def test_endpoint(endpoint) -> bool:
+    try:
+        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/atlr', timeout=10, headers=headers)
+        return response.status_code
+    except requests.RequestException as e:
+        print(f"Error testing endpoint {endpoint['url']}: {e}")
+        return 0
+
+
+if __name__ == "__main__":
+    endpoints = load_endpoints()
+    if not no_ES:
+        es = get_es_client()
+    print(f"Loaded {len(endpoints)} endpoint definitions")
+
+    # loop over endpoints and test ones that have active: true
+    for endpoint in endpoints:
+        if endpoint.get('active', False) and endpoint.get('local', False)==False:
+            endpoint['port']= str(endpoint.get('port',6082))  # Ensure port is a string
+            status = test_endpoint(endpoint)
+            document={
+                "address": endpoint['url'],
+                "status": status,
+                "@timestamp": datetime.now(timezone.utc),
+                "label": f"{endpoint['site']} {endpoint['instance']}\n{endpoint['responsible']['email']}"
+            }
+            print(document)
+            
+            try:
+                if no_ES:
+                    continue
+                response = es.index(index="varnish_status", document=document)
+                # print("Indexing successful:", response)
+            except exceptions.ConnectionError as e:
+                print("Connection error:", e)
+            except exceptions.RequestError as e:
+                print("Request error:", e)
+            except exceptions.SerializationError as e:
+                print("Serialization error:", e)
+            except exceptions.ElasticsearchException as e:
+                print("General Elasticsearch error:", e)
+
+    print("All active endpoints have been tested.")
