@@ -38,7 +38,7 @@ headers = {
 # function to test individual endpoints
 def test_endpoint(endpoint) -> bool:
     try:
-        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/atlr', timeout=10, headers=headers)
+        response = requests.get('http://'+endpoint['url']+':'+endpoint['port']+'/cvmfs/atlas.cern.ch/.cvmfs', timeout=10, headers=headers)
         return response.status_code
     except requests.RequestException as e:
         print(f"Error testing endpoint {endpoint['url']}: {e}")
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     # loop over endpoints and test ones that have active: true
     for endpoint in endpoints:
         if endpoint.get('active', False) and endpoint.get('local', False)==False:
-            endpoint['port']= str(endpoint.get('port',6082))  # Ensure port is a string
+            endpoint['port']= str(endpoint.get('port',6081))  # Ensure port is a string
             status = test_endpoint(endpoint)
             document={
                 "address": endpoint['url'],
