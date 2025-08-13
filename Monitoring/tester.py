@@ -31,7 +31,7 @@ def get_es_client():
     return es
 
 headers = {
-    "X-frontier-id": "varnihs-tester",
+    "X-frontier-id": "varnish-tester",
     "Cache-Control": "max-age=0"
 }
 
