@@ -1,0 +1,74 @@
+[
+    {
+        "url": "starlight.varnish.atlas-ml.org",
+        "site": "Starlight",
+        "instance": "Starlight-1f",
+        "active": false,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "gpu-13.nrp.mghpcc.org",
+        "site": "NET2",
+        "instance": "NET2-1",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "sl-um-es2.slateci.io",
+        "site": "AGLT2",
+        "instance": "cvmfs-02",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "msu-nrp.aglt2.org",
+        "site": "msu",
+        "instance": "msu-cvmfs",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "varnish.hl-lhc.net",
+        "site": "CLOUDFLARE",
+        "instance": "GLOBAL",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "v4cvmfs.mwt2.org",
+        "site": "MWT2",
+        "instance": "cvmfs-uc",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    }
+]
