@@ -52,28 +52,13 @@ Ideally you want both of these (server and monitoring script), to be run in syst
 
 This is a [configuration](default.vcl) that you will need. It defines 4 backends (Fermilab, two at BNL, and CERN).If the repo can't be found at the first backend, it will try the next one. If none of them have the file, request will fail. This configuration is optimal for MWT2 and AGLT2, sites on US East coast would probably want to swap order of Fermilab and BNL. Sites in Europe will probably want order: CERN, BNL, Fermilab).
 
-to test it do:
-
-```sh
-setupATLAS
-asetup 20.20.6.3,here
-export FRONTIER_SERVER=(serverurl=http://v4a.atlas-ml.org:6081/atlr)
-db-fnget
-```
-
 To test origin do:
 
 ```bash
 curl -XGET "http://cvmfs-s1goc.opensciencegrid.org:8000/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
 ```
 
-through Squid:
-
-```bash
-export http_proxy=http://uct2-slate.mwt2.org:32200
-```
-
-To test through varnish do:
+To test varnish do:
 
 ```bash
 curl -XGET "http://v4cvmfs.mwt2.org:6081/cvmfs/oasis.opensciencegrid.org/.cvmfspublished"
