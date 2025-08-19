@@ -23,9 +23,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: Monitoring/ 
           file: Monitoring/Dockerfile 
           push: true
           tags: ivukotic/varnish-conditions-tester
+          platforms: linux/amd64,linux/arm64
