@@ -29,4 +29,3 @@ jobs:
           file: Monitoring/Dockerfile 
           push: true
           tags: ivukotic/varnish-conditions-tester
-          platforms: linux/amd64,linux/arm64
