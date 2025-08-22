@@ -217,19 +217,6 @@
         }
     },
     {
-        "url": "lcg-lrz-ce0.grid.lrz.de",
-        "port": 3402,
-        "site": "LRZ-LMU",
-        "instance": "1",
-        "active": true,
-        "local": false,
-        "in_CDN": false,
-        "responsible": {
-            "name": "Rodney Walker",
-            "email": "rodney.walker@physik.uni-muenchen.de"
-        }
-    },
-    {
         "url": "varnish1.icepp.jp",
         "site": "TOKYO-LCG2",
         "instance": "frontier-1",
