@@ -5,11 +5,11 @@
   },
   "CERN": {
     "atlasfrontier-varnish01": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     },
     "atlasfrontier-varnish02": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
@@ -49,49 +49,49 @@
   },
   "msu": {
     "frontier-01": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "ucsc": {
     "ucsc-1f": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "NET2": {
     "NET2-2f": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "BNL": {
     "atlas-varnish": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "MWT2": {
     "frontier-uc-01": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "AGLT2": {
     "frontier-01": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "SWT2_CPB": {
     "01": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
   "OU": {
     "ou-1f": {
-      "file": "neo_frontier_streaming",
+      "file": "neo_frontier",
       "version": 1
     }
   },
