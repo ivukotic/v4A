@@ -34,4 +34,7 @@ sub vcl_synth {
 
 sub vcl_backend_response {
     set beresp.do_stream = true;
+    if (std.integer(beresp.http.Content-Length, 0) > 1000000) {
+        set beresp.storage = storage.Transient;
+    }
 }
