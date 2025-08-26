@@ -73,7 +73,7 @@
   },
   "MWT2": {
     "frontier-uc-01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_streaming",
       "version": 1
     }
   },
