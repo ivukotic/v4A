@@ -31,3 +31,7 @@ sub vcl_synth {
         return (deliver);
     }
 }
+
+sub vcl_backend_response {
+    set beresp.do_stream = true;
+}
