@@ -27,6 +27,15 @@ backend neo_2 {
     }
 }
 
+sub vcl_backend_fetch {
+    if (bereq.backend == neo_1) {
+        set bereq.http.Host = "v4f.cern.ch";
+    } else if (bereq.backend == neo_2) {
+        set bereq.http.Host = "v4fb.cern.ch";
+    }
+}
+
+
 sub vcl_recv {
 
   if (!req.http.X-frontier-id) {
