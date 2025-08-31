@@ -42,19 +42,10 @@ sub vcl_recv {
     return (pipe);
   }
 
-    # Manual hash-based routing
-    if (std.integer(req.url, 0) % 2 == 0) {
-        if (std.healthy(neo_1)) {
-            set req.backend_hint = neo_1;
-        } else {
-            set req.backend_hint = neo_2;
-        }
-    } else {
-        if (std.healthy(neo_2)) {
-            set req.backend_hint = neo_2;
-        } else {
-            set req.backend_hint = neo_1;
-        }
-    }
+  if (std.healthy(neo_1)) {
+      set req.backend_hint = neo_1;
+  } else {
+      set req.backend_hint = neo_2;
+  }
 
 }
