@@ -11,7 +11,6 @@ backend neo_1 {
         .window = 5;
         .threshold = 3;    
         .expected_response = 302;
-        .host_header = "v4f.cern.ch";
     }
 }
 
@@ -25,10 +24,16 @@ backend neo_2 {
         .window = 5;
         .threshold = 3;
         .expected_response = 302;
-        .host_header = "v4fb.cern.ch";
     }
 }
 
+sub vcl_backend_fetch {
+    if (bereq.backend == neo_1) {
+        set bereq.http.Host = "v4f.cern.ch";
+    } else if (bereq.backend == neo_2) {
+        set bereq.http.Host = "v4fb.cern.ch";
+    }
+}
 
 sub vcl_recv {
 
