@@ -27,12 +27,6 @@ backend neo_2 {
     }
 }
 
-sub vcl_init {
-    new origin_hash = directors.hash();
-    origin_hash.add_backend(neo_1);
-    origin_hash.add_backend(neo_2);
-}
-
 sub vcl_recv {
 
   if (!req.http.X-frontier-id) {
