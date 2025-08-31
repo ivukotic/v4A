@@ -9,9 +9,9 @@ backend neo_1 {
         .interval = 5s;
         .timeout = 2s;
         .window = 5;
-        .threshold = 3;
+        .threshold = 3;    
+        .expected_response = 302;
     }
-
 }
 
 backend neo_2 {
@@ -23,6 +23,7 @@ backend neo_2 {
         .timeout = 2s;
         .window = 5;
         .threshold = 3;
+        .expected_response = 302;
     }
 }
 
