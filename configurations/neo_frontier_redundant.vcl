@@ -1,5 +1,5 @@
 vcl 4.1;
-
+import directors;
 backend neo_1 {
     .host = "v4f.cern.ch";
     .port = "80";    
