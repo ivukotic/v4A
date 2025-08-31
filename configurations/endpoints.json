@@ -205,6 +205,19 @@
         }
     },
     {
+        "url": "v4fb.cern.ch",
+        "port": 80,
+        "site": "FRONTIER-B",
+        "instance": "frontier-b-fjx4brc2livw-node-0",
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
         "url": "ccatlasvrn01.in2p3.fr",
         "site": "IN2P3-CC",
         "instance": "frontier-01",
