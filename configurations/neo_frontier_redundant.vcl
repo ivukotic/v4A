@@ -39,7 +39,7 @@ sub vcl_recv {
   }
 
     # Manual hash-based routing
-    if (std.integer(req.url, 0, 4) % 2 == 0) {
+    if (std.integer(req.url, 0) % 2 == 0) {
         if (neo_1.healthy) {
             set req.backend_hint = neo_1;
         } else {
