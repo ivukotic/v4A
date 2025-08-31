@@ -1,5 +1,4 @@
 vcl 4.1;
-# import directors;
 import std;
 
 backend neo_1 {
