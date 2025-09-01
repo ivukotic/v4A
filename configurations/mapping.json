@@ -13,6 +13,20 @@
       "version": 1
     }
   },
+  "FRONTIER-B": {
+    "frontier-b-fjx4brc2livw-node-0": {
+      "file": "cern_frontier_varnish",
+      "version": 1
+    },
+    "frontier-b-fjx4brc2livw-node-1": {
+      "file": "cern_frontier_varnish",
+      "version": 1
+    },
+    "frontier-b-fjx4brc2livw-node-2": {
+      "file": "cern_frontier_varnish",
+      "version": 1
+    }
+  },
   "NEO_FRONTIER": {
     "nfrontier-xwyad2vwiecr-node-0": {
       "file": "cern_frontier_varnish",
