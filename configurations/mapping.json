@@ -9,7 +9,7 @@
       "version": 1
     },
     "atlasfrontier-varnish02": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
@@ -75,13 +75,13 @@
   },
   "NET2": {
     "NET2-2f": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
   "BNL": {
     "atlas-varnish": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     }
   },
@@ -93,7 +93,7 @@
   },
   "AGLT2": {
     "frontier-01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
