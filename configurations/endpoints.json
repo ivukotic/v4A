@@ -12,7 +12,7 @@
         }
     },
     {
-        "url": "gpu-13.nrp.mghpcc.org",
+        "url": "net2.hl-lhc.net",
         "site": "NET2",
         "instance": "NET2-1",
         "active": true,
