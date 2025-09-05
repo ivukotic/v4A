@@ -111,19 +111,19 @@
   },
   "INFN-ROMA1": {
     "v4f-0": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     },
     "v4f-1": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     },
     "v4f-2": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     },
     "v4f-3": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
@@ -135,7 +135,7 @@
   },
   "UAM-LCG2": {
     "01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     }
   },
