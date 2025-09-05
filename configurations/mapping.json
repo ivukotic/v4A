@@ -181,7 +181,7 @@
   },
   "PIC": {
     "varnish.pic.es": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   }
