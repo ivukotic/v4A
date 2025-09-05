@@ -12,19 +12,7 @@
         }
     },
     {
-        "url": "starlight.varnish.atlas-ml.org",
-        "site": "Starlight",
-        "instance": "Starlight-1f",
-        "active": false,
-        "local": false,
-        "in_CDN": false,
-        "responsible": {
-            "name": "Ilija Vukotic",
-            "email": "ivukotic@uchicago.edu"
-        }
-    },
-    {
-        "url": "gpu-13.nrp.mghpcc.org",
+        "url": "net2.hl-lhc.net",
         "site": "NET2",
         "instance": "Net2-2f",
         "active": true,
