@@ -5,7 +5,7 @@
   },
   "CERN": {
     "atlasfrontier-varnish01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     },
     "atlasfrontier-varnish02": {
@@ -141,13 +141,13 @@
   },
   "JINR_LCG2": {
     "JINR_LCG2": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     }
   },
   "BEIJING-LCG2": {
     "01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
@@ -159,7 +159,7 @@
   },
   "TOKYO-LCG2": {
     "frontier-1": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
