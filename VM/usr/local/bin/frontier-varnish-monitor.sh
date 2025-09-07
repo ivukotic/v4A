@@ -19,16 +19,20 @@ while true; do
   --header 'content-type: application/json' \
   --data "$jsn"
 
-
-  acc=$(ss -tpH | awk '{print $5}' | awk -F ':' '{ if ($1 ~ /^\[/) { n = NF - 1;  s = $1; for (i = 2; i <= n; i++) s = s ":" $i; print s } else { print $1 } }' | sort | uniq -c )
-  cnt=$(echo "$acc" | awk '{print "{ \"ip\" : \"" $2 "\", \"connections\":" $1 "}"}' | jq -s '.')
-  ajs=$(echo "{\"kind\":\"frontier\",\"instance\":\"$INSTANCE\",\"site\":\"$SITE\"}" | jq | jq --argjson CNT "$cnt" '. +={ cnt: $CNT }')
-
-  timeout 2 curl --request POST -s -q -L -k -o /dev/null \
-    --url "$URL_ML_ACCESS" \
-    --header 'content-type: application/json' \
-    --data "$ajs"
-
+  {
+    acc=$(ss -tpH | awk '{print $5}' | awk -F ':' '{ if ($1 ~ /^\[/) { n = NF - 1;  s = $1; for (i = 2; i <= n; i++) s = s ":" $i; print s } else { print $1 } }' | sort | uniq -c )
+    cnt=$(echo "$acc" | awk '{print "{ \"ip\" : \"" $2 "\", \"connections\":" $1 "}"}' | jq -s '.')
+    ajs=$(echo "{\"kind\":\"frontier\",\"instance\":\"$INSTANCE\",\"site\":\"$SITE\"}" | jq | jq --argjson CNT "$cnt" '. +={ cnt: $CNT }')
+  } && {
+    timeout 2 curl --request POST -s -q -L -k -o /dev/null \
+      --url "$URL_ML_ACCESS" \
+      --header 'content-type: application/json' \
+      --data "$ajs"
+  } || {
+    echo "Error getting access data"
+    echo "acc: $acc"
+    echo "cnt: $cnt"
+  }
   sleep 2
     
 done

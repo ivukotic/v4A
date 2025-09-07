@@ -87,7 +87,7 @@
   },
   "MWT2": {
     "frontier-uc-01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
@@ -99,7 +99,7 @@
   },
   "SWT2_CPB": {
     "01": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
@@ -171,11 +171,11 @@
   },
   "RAL-LCG2": {
     "varnish01.gridpp.rl.ac.uk": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F1",
       "version": 1
     },
     "varnish02.gridpp.rl.ac.uk": {
-      "file": "neo_frontier",
+      "file": "neo_frontier_F2",
       "version": 1
     }
   },
