@@ -77,6 +77,10 @@
     "NET2-2f": {
       "file": "neo_frontier_F2",
       "version": 1
+    },
+    "net2-frontier-prod-01": {
+      "file": "neo_frontier_F2",
+      "version": 1
     }
   },
   "BNL": {
