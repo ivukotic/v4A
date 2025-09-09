@@ -4,7 +4,7 @@ echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
 while true; do
-    ma=$(curl -s "$FRONTIER_CONF/mapping.json")
+    ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/mapping.json")
     
     # Check if curl was successful
     if [ $? -eq 0 ] && [ -n "$ma" ]; then
@@ -25,18 +25,16 @@ if [ -z "$config" ] || [ "$config" == null ]; then
     config=$(echo "$ma" | jq -r '.default')
     echo "Default value: $config"
     nfile=$(echo "$config" | jq -r '.file')
-    version=$(echo "$config" | jq -r '.version')
 else
     echo "Value of $SITE.$INSTANCE: $config"
     nfile=$(echo "$config" | jq -r '.file')
-    version=$(echo "$config" | jq -r '.version')
 fi
 
-curl -s "$FRONTIER_CONF/$nfile.vcl" -o /tmp/$nfile.vcl
+curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
 
-source /usr/local/bin/reconfiguration.sh $version &
+source /usr/local/bin/reconfiguration.sh $nfile &
 
 echo "Starting Varnish on port $VARNISH_PORT"
-echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl version $version"
+echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl"
 
 /usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -a proxy=:8443,PROXY -p feature=+http2 -p max_restarts=8 -p nuke_limit=1000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM

@@ -38,25 +38,20 @@ while true; do
             config=$(echo "$ma" | jq -r '.default')
             echo "Default value: $config"
             nfile=$(echo "$config" | jq -r '.file')
-            version=$(echo "$config" | jq -r '.version')
         else
             echo "Value of $SITE.$INSTANCE: $config"
             nfile=$(echo "$config" | jq -r '.file')
-            version=$(echo "$config" | jq -r '.version')
         fi
 
-        if [ "$current_version" == "$version" ]; then
-            # echo "Skipping this loop iteration as $1 matches $version..."
+        if [ "$current_version" == "$nfile" ]; then
+            # echo "Skipping this loop iteration as $current_version matches $nfile..."
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
             curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
-            
-            TIME=$(date +%s)
-            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl && varnishadm vcl.use varnish_$TIME && current_version="$version"
+
+            varnishadm vcl.load $nfile /tmp/$nfile.vcl && varnishadm vcl.use $nfile && current_version="$nfile"
         fi
-
-
 
     fi
 
