@@ -17,7 +17,7 @@ while true; do
     if [ "$current_minute" -eq "$x" ]; then
         # echo "Downloading file at minute $x..."
         while true; do
-            ma=$(curl -s "$FRONTIER_CONF/mapping.json")
+            ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/mapping.json")
             
             # Check if curl was successful
             if [ $? -eq 0 ] && [ -n "$ma" ]; then
@@ -38,25 +38,20 @@ while true; do
             config=$(echo "$ma" | jq -r '.default')
             echo "Default value: $config"
             nfile=$(echo "$config" | jq -r '.file')
-            version=$(echo "$config" | jq -r '.version')
         else
             echo "Value of $SITE.$INSTANCE: $config"
             nfile=$(echo "$config" | jq -r '.file')
-            version=$(echo "$config" | jq -r '.version')
         fi
 
-        if [ "$current_version" == "$version" ]; then
-            # echo "Skipping this loop iteration as $1 matches $version..."
+        if [ "$current_version" == "$nfile" ]; then
+            # echo "Skipping this loop iteration as $current_version matches $nfile..."
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
-            curl "$FRONTIER_CONF/$nfile.vcl" -o /tmp/$nfile.vcl
-            
-            TIME=$(date +%s)
-            varnishadm vcl.load varnish_$TIME /tmp/$nfile.vcl && varnishadm vcl.use varnish_$TIME && current_version="$version"
+            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+
+            varnishadm vcl.load $nfile /tmp/$nfile.vcl && varnishadm vcl.use $nfile && current_version="$nfile"
         fi
-
-
 
     fi
 
