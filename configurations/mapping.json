@@ -88,6 +88,9 @@
   "MWT2": {
     "frontier-uc-01": {
       "file": "neo_frontier_F2"
+    },
+    "dev": {
+      "file": "dev"
     }
   },
   "AGLT2": {
