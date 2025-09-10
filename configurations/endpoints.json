@@ -24,6 +24,19 @@
         }
     },
     {
+        "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
+        "site": "NET2",
+        "instance": "net2-frontier-prod-01",
+        "port": 30682,
+        "active": true,
+        "local": false,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
         "url": "cmsrm-svc-03.roma1.infn.it",
         "site": "INFN-ROMA1",
         "instance": "v4f-3",
