@@ -59,7 +59,7 @@
             }
         } else {
             # if the response is too big don't cache it
-            if (beresp.body_bytes > 512 * 1024 * 1024) {
+            if (beresp.http.Content-Length && std.atoi(beresp.http.Content-Length) > 512 * 1024 * 1024) {
                 set beresp.ttl = 0s;
                 return (pass);
             }
