@@ -58,6 +58,9 @@
                 set beresp.ttl = 180s;
             }
         }
+        if (beresp.ttl > 60m) {
+            set beresp.ttl = 60m;
+        }
     }
 
     sub vcl_deliver {
