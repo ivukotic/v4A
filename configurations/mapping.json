@@ -4,7 +4,15 @@
     "version": 1
   },
   "AGLT2": {
+    "cvmfs-01": {
+      "file": "AM_ttl_3h"
+    },
     "cvmfs-02": {
+      "file": "AM_ttl_3h"
+    }
+  },
+  "msu": {
+    "msu-cvmfs": {
       "file": "AM_ttl_3h"
     }
   },
@@ -16,8 +24,7 @@
   },
   "TEST": {
     "test-01": {
-      "file": "debug",
-      "version": 1
+      "file": "debug"
     }
   }
 }
