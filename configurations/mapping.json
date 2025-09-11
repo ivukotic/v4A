@@ -3,6 +3,11 @@
     "file": "v1",
     "version": 1
   },
+  "AGLT2": {
+    "cvmfs-02": {
+      "file": "AM_ttl_3h"
+    }
+  },
   "ROMA1": {
     "test-01": {
       "file": "europe",
