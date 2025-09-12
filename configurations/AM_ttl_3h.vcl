@@ -58,8 +58,8 @@
                 set beresp.ttl = 180s;
             }
         }
-        if (beresp.ttl > 180m) {
-            set beresp.ttl = 180m;
+        if (beresp.ttl > 600m) {
+            set beresp.ttl = 600m;
         }
     }
 
