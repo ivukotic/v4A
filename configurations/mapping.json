@@ -1,25 +1,23 @@
 {
   "default": {
-    "file": "v1",
-    "version": 1
+    "file": "america"
   },
   "AGLT2": {
     "cvmfs-01": {
-      "file": "AM_ttl_3h"
+      "file": "america"
     },
     "cvmfs-02": {
-      "file": "AM_ttl_3h"
+      "file": "america"
     }
   },
   "msu": {
     "msu-cvmfs": {
-      "file": "AM_ttl_3h"
+      "file": "america"
     }
   },
   "ROMA1": {
     "test-01": {
-      "file": "europe",
-      "version": 1
+      "file": "europe"
     }
   },
   "TEST": {

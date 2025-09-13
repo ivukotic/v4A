@@ -12,7 +12,7 @@ RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
 COPY runme.sh reconfiguration.sh Monitoring/sender.sh /usr/local/bin/
 
 ENV VARNISH_MEM=6000m
-ENV VARNISH_TRANSIENT_MEM=2000m
+ENV VARNISH_TRANSIENT_MEM=200m
 ENV VARNISH_PORT=6081
 
 USER varnish
