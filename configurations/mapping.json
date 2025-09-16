@@ -159,8 +159,7 @@
   },
   "TOKYO-LCG2": {
     "frontier-1": {
-      "file": "neo_frontier_F2",
-      "version": 1
+      "file": "neo_frontier_F2"
     }
   },
   "UKI-NORTHGRID-MAN-HEP": {
@@ -189,6 +188,11 @@
     "buw-frontier-1": {
       "file": "neo_frontier_F2",
       "version": 1
+    }
+  },
+  "MPPMU": {
+    "varnish-frontier.t2.hpccloud.mpg.de": {
+      "file": "neo_frontier_F1"
     }
   }
 }
