@@ -48,7 +48,7 @@ while true; do
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
-            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o "/tmp/$nfile.vcl"
 
             varnishadm vcl.load $nfile /tmp/$nfile.vcl && varnishadm vcl.use $nfile && current_version="$nfile"
         fi
