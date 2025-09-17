@@ -43,7 +43,7 @@ docker compose start
 
 ### On a bare metal
 
-Prefered version is 7.7. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
+Preferred version is 7.7. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
 To start it execute these commands:
 
 ```bash
@@ -93,7 +93,7 @@ There are only a few fields you should fill:
 To add the created service to your site and change order of priority of caching services, first find your site [here](https://atlas-cric.cern.ch/core/experimentsite/list/). Looking at details you will see something like this:
 <img src="Manual/CRIC_proxy_configuration.png" alt="proxy configuration" style="width:90%;margin: 10px;" />
 
-Clicking "Manage configuration" will allow to add/remove a caching proxy and reoder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
+Clicking "Manage configuration" will allow to add/remove a caching proxy and reorder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
 
 ## Monitoring
 
