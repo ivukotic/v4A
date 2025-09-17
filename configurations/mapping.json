@@ -191,7 +191,7 @@
     }
   },
   "MPPMU": {
-    "varnish-frontier.t2.hpccloud.mpg.de": {
+    "varnish-frontier.tier2.hpccloud.mpg.de": {
       "file": "neo_frontier_F1"
     }
   }
