@@ -30,9 +30,9 @@ else
     nfile=$(echo "$config" | jq -r '.file')
 fi
 
-curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o "/tmp/$nfile.vcl"
 
-source /usr/local/bin/reconfiguration.sh $nfile &
+source /usr/local/bin/reconfiguration.sh "$nfile" &
 
 echo "Starting Varnish on port $VARNISH_PORT"
 echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl"

@@ -5,7 +5,7 @@ Varnish for ATLAS
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=frontier)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 32GB RAM.
+Even a half of a core and 3 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 1 core and 8GB RAM.
 Varnish for Frontier should be listening on port 6082.
 If your Varnish will serve only local nodes, there is no need to open any ports for access from outside. If your instance will be added to the CloudFlare DNS loadbalancer, port 6082 TCP should be accessible from outside.
 
@@ -43,7 +43,7 @@ docker compose start
 
 ### On a bare metal
 
-Prefered version is 7.7. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
+Preferred version is 7.7. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
 To start it execute these commands:
 
 ```bash
@@ -93,7 +93,7 @@ There are only a few fields you should fill:
 To add the created service to your site and change order of priority of caching services, first find your site [here](https://atlas-cric.cern.ch/core/experimentsite/list/). Looking at details you will see something like this:
 <img src="Manual/CRIC_proxy_configuration.png" alt="proxy configuration" style="width:90%;margin: 10px;" />
 
-Clicking "Manage configuration" will allow to add/remove a caching proxy and reoder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
+Clicking "Manage configuration" will allow to add/remove a caching proxy and reorder them. Feel free to add a varnish from a nearby site as a backup with the lowest priority.
 
 ## Monitoring
 

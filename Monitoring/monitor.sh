@@ -10,9 +10,9 @@ fi
 while true; do
 
   data=$(varnishstat -j -X "VBE.*.happy" -X "WAITER*" -X "LCK*" -X "MEM*" -X "SMA.*c_*" -X "MGT*")
-  fdata=$(echo $data | jq '.counters |= with_entries(.value = .value["value"])')
-  fdatb=$(echo $fdata | jq '.counters as $c | del(.counters) + $c')
-  jsn=$(echo $fdatb | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { kind: "frontier", instance: $INST, site: $SITE }')
+  fdata=$(echo "$data" | jq '.counters |= with_entries(.value = .value["value"])')
+  fdatb=$(echo "$fdata" | jq '.counters as $c | del(.counters) + $c')
+  jsn=$(echo "$fdatb" | jq --arg INST "$INSTANCE" --arg SITE "$SITE" '. += { kind: "frontier", instance: $INST, site: $SITE }')
 
   timeout 2 curl --request POST -s -q -L -k \
   --url http://varnish.atlas-ml.org:80/ \
