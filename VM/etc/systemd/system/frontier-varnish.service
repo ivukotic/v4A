@@ -1,0 +1,12 @@
+[Unit]
+Description=Varnish for CVMFS
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cvmfs-varnish.sh
+NotifyAccess=all
+EnvironmentFile=-/etc/sysconfig/cvmfs-varnish
+
+[Install]
+WantedBy=multi-user.target

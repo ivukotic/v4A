@@ -1,0 +1,10 @@
+# varnish
+SITE=XXX
+INSTANCE=cvmfs-01
+VARNISH_TRANSIENT_MEM=1G
+VARNISH_MEM=32G
+VARNISH_PORT=6081
+FRONTIER_CONF=https://raw.githubusercontent.com/ivukotic/v4A/cvmfs/configurations
+# monitor
+URL_ML=http://varnish.atlas-ml.org:80/
+URL_ML_ACCESS=http://varnish-accesses.atlas-ml.org:80/
