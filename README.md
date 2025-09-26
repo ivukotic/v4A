@@ -46,7 +46,7 @@ source runme.sh
 
 To configure monitoring on bare metal just run [monitor.sh](Monitoring/monitor.sh).
 
-Ideally you want both of these (server and monitoring script), to be run in systemd.
+Ideally you want both of these (server and monitoring script), to be run in systemd. If you want that everything you need is in [VM directory](VM). The only things you want to change are [here](VM/etc/sysconfig/cvmfs-varnish).
 
 ## Configuring it for CVMFS traffic caching
 
