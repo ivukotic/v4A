@@ -1,21 +1,20 @@
 services:
-  v4f:
+  v4cvmfs:
     image: ivukotic/v4cvmfs
-    container_name: v4f
+    container_name: v4cvmfs
     environment:
       SITE: "<SITENAME>"
       INSTANCE: "<INSTANCE>"
       VARNISH_PORT: "8080"
       VARNISH_MEM: "32G"
-      VARNISH_TRANSIENT_MEM: "2G"
+      VARNISH_TRANSIENT_MEM: "1G"
     ports:
       - "6081:8080"
     deploy:
       resources:
         limits:
-          cpus: "4.0"
-          memory: 35G
+          cpus: "2.0"
+          memory: 34G
         reservations:
           cpus: "1.0"
-          memory: 34G
-
+          memory: 33G

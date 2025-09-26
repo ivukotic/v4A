@@ -1,11 +1,11 @@
 # v4CVMFS
 
-Varnish for ATLAS
+Varnish for CVMFS
 
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM.
+Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 2 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM.
 Varnish for CVMFS should listen on port 6081.
 If your Varnish will serve only local nodes, there is no need to open any ports for access from outside. If your instance will be added to the CloudFlare DNS loadbalancer, port 6081 TCP should be accessible from outside.
 
@@ -13,7 +13,7 @@ If your Varnish will serve only local nodes, there is no need to open any ports 
 
 ### On a K8s cluster
 
-This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the two values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
+This is the easiest way to set it up. Simply download [this](kube/cvmfs_deployment.yaml) yaml file, change the three values \<SITENAME\>, \<INSTANCE\>, and \<NODE\> and do:
 
 ```bash
 kubectl create ns varnish
@@ -50,7 +50,7 @@ Ideally you want both of these (server and monitoring script), to be run in syst
 
 ## Configuring it for CVMFS traffic caching
 
-This is a [configuration](default.vcl) that you will need. It defines 4 backends (Fermilab, two at BNL, and CERN).If the repo can't be found at the first backend, it will try the next one. If none of them have the file, request will fail. This configuration is optimal for MWT2 and AGLT2, sites on US East coast would probably want to swap order of Fermilab and BNL. Sites in Europe will probably want order: CERN, BNL, Fermilab).
+At startup, [runme.sh](runme.sh) script will load appropriate configuration as defined in a [mapping file](configurations/mapping.json). If your site is in Europe or need a special configuration, let Ilija Vukotic <mailto:ivukotic@uchicago.edu> know your \<SITENAME\> and \<INSTANCE\> and he can do it for you. Alternatively, create a PR and he'll review/accept it.
 
 To test origin do:
 

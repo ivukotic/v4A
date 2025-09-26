@@ -29,7 +29,7 @@ spec:
             - name: VARNISH_MEM
               value: "32G"
             - name: VARNISH_TRANSIENT_MEM
-              value: "2G"
+              value: "1G"
           ports:
             - containerPort: 8080
               hostPort: 6081
@@ -45,9 +45,9 @@ spec:
           resources:
             requests:
               cpu: "1"
-              memory: "34Gi"
+              memory: "33Gi"
             limits:
-              cpu: "6"
+              cpu: "2"
               memory: "48Gi"
       nodeSelector:
         kubernetes.io/hostname: <NODE>
