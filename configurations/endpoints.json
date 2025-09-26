@@ -283,7 +283,7 @@
         "site": "SWT2_CPB",
         "instance": "01",
         "active": true,
-        "local": true,
+        "local": false,
         "in_CDN": false,
         "responsible": {
             "name": "Zachary Booth",
