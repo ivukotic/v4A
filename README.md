@@ -97,9 +97,9 @@ Clicking "Manage configuration" will allow to add/remove a caching proxy and reo
 
 ## Monitoring
 
-This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) gives most important data: requests rate, cached hit and miss rates, amount of data delivered and uptime.
+This [dashboard](https://atlas-kibana.mwt2.org/s/varnish/app/r/s/gol0t) gives most important data: requests rate, cached hit and miss rates, amount of data delivered and uptime.
 
-Panda jobs report time it took to access conditions data (dbtime), and the amount of data accessed (dbsize). Rate at which data has been delivered can be seen on this [visualization](https://atlas-kibana.mwt2.org:5601/s/dpa/app/lens#/edit/0ba229fd-5a38-447a-9e42-e5d452b25e93?_g=(filters:!(),refreshInterval:(pause:!t,value:1000),time:(from:now-7d/d,to:now))). To select an individual site add filter eg. computingsite : "BNL".
+Panda jobs report time it took to access conditions data (dbtime), and the amount of data accessed (dbsize). Rate at which data has been delivered can be seen on this [visualization](https://atlas-kibana.mwt2.org/s/dpa/app/lens#/edit/0ba229fd-5a38-447a-9e42-e5d452b25e93?_g=(filters:!(),refreshInterval:(pause:!t,value:1000),time:(from:now-7d/d,to:now))). To select an individual site add filter eg. computingsite : "BNL".
 
 ## Instances
 
