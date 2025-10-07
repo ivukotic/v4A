@@ -36,6 +36,18 @@
         }
     },
     {
+        "url": "sl-um-es3.slateci.io",
+        "site": "AGLT2",
+        "instance": "cvmfs-01",
+        "active": true,
+        "local": false,
+        "in_CDN": true,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
         "url": "msu-nrp.aglt2.org",
         "site": "msu",
         "instance": "msu-cvmfs",
