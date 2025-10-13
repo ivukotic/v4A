@@ -57,8 +57,7 @@
   },
   "TECHNION-HEP": {
     "01": {
-      "file": "neo_frontier",
-      "version": 1
+      "file": "neo_frontier_F2"
     }
   },
   "msu": {
@@ -147,8 +146,7 @@
   },
   "BEIJING-LCG2": {
     "01": {
-      "file": "neo_frontier_F2",
-      "version": 1
+      "file": "neo_frontier_F2"
     }
   },
   "FZK-LCG2": {
@@ -164,8 +162,7 @@
   },
   "UKI-NORTHGRID-MAN-HEP": {
     "MANCHESTER_VARNISH_FRONTIER": {
-      "file": "neo_frontier_F2",
-      "version": 1
+      "file": "neo_frontier_F2"
     }
   },
   "RAL-LCG2": {
