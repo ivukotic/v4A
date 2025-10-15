@@ -27,22 +27,15 @@
       "version": 1
     }
   },
-  "NEO_FRONTIER": {
-    "nfrontier-xwyad2vwiecr-node-0": {
-      "file": "cern_frontier_varnish",
-      "version": 1
+  "FRONTIER-A": {
+    "frontier-a-bvemqp26frsz-node-0": {
+      "file": "cern_frontier_varnish"
     },
-    "nfrontier-xwyad2vwiecr-node-1": {
-      "file": "cern_frontier_varnish",
-      "version": 1
+    "frontier-a-bvemqp26frsz-node-1": {
+      "file": "cern_frontier_varnish"
     },
-    "nfrontier-xwyad2vwiecr-node-2": {
-      "file": "cern_frontier_varnish",
-      "version": 1
-    },
-    "nfrontier-xwyad2vwiecr-node-3": {
-      "file": "cern_frontier_varnish",
-      "version": 1
+    "frontier-a-bvemqp26frsz-node-2": {
+      "file": "cern_frontier_varnish"
     }
   },
   "SiGNET": {
