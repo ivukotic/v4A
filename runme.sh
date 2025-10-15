@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "released on 2024-06-12"
+echo "released on 2025-10-15"
 echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
