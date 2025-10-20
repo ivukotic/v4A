@@ -12,7 +12,7 @@ while true; do
         break
     else
         echo "Retrying..."
-        sleep 5  # Wait for 5 seconds before retrying
+        sleep 10  # Wait for 5 seconds before retrying
     fi
 done
 
@@ -30,7 +30,14 @@ else
     nfile=$(echo "$config" | jq -r '.file')
 fi
 
-curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o "/tmp/$nfile.vcl"
+curl --fail --show-error --location --silent \
+  "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" \
+  -o "/tmp/$nfile.vcl"
+
+if [ $? -ne 0 ] || [ ! -s "/tmp/$nfile.vcl" ]; then
+    echo "Failed to download configuration file $nfile.vcl"
+    exit 1
+fi
 
 source /usr/local/bin/reconfiguration.sh "$nfile" &
 

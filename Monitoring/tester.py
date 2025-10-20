@@ -1,4 +1,3 @@
-from calendar import c
 import requests
 import json
 import os
