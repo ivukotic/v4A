@@ -1,6 +1,8 @@
 [Unit]
 Description=Varnish for Frontier
 After=network-online.target
+Documentation=Requires: curl jq
+
 
 [Service]
 Type=simple

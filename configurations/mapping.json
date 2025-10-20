@@ -1,12 +1,11 @@
 {
   "default": {
-    "file": "v1",
-    "version": 3
+    "file": "neo_frontier_F1",
+    "version": 1
   },
   "CERN": {
     "atlasfrontier-varnish01": {
-      "file": "neo_frontier_F1",
-      "version": 1
+      "file": "neo_frontier_F1"
     },
     "atlasfrontier-varnish02": {
       "file": "neo_frontier_F2",

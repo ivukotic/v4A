@@ -1,6 +1,7 @@
 [Unit]
 Description=Varnish for Frontier Monitoring
 After=frontier-varnish.service
+Documentation=Requires: curl jq python3 procps iproute2
 
 [Service]
 Type=simple

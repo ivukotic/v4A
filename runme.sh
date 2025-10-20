@@ -12,7 +12,7 @@ while true; do
         break
     else
         echo "Retrying..."
-        sleep 10  # Wait for 5 seconds before retrying
+        sleep 10  # Wait for 10 seconds before retrying
     fi
 done
 
