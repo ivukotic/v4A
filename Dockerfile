@@ -7,7 +7,9 @@ USER root
 # RUN apk add --no-cache --upgrade curl bash  jq
 
 # debian version
-RUN apt-get update; apt-get -y install curl jq vim python3 procps iproute2
+RUN apt-get update \
+    && apt-get -y install curl jq vim python3 procps iproute2 \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY runme.sh reconfiguration.sh Monitoring/sender.sh /usr/local/bin/
 
