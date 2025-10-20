@@ -48,7 +48,14 @@ while true; do
             sleep 60 
         else
             echo "Version mismatch, proceeding with reconfiguration..."
-            curl "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
+            curl --fail --show-error --location --silent \
+              "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" \
+              -o "/tmp/$nfile.vcl"
+
+            if [ $? -ne 0 ] || [ ! -s "/tmp/$nfile.vcl" ]; then
+                echo "Failed to download configuration file $nfile.vcl"
+                continue
+            fi
 
             varnishadm vcl.load $nfile /tmp/$nfile.vcl && varnishadm vcl.use $nfile && current_version="$nfile"
         fi
