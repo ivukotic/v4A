@@ -198,7 +198,7 @@
         "instance": "varnish01",
         "port": 80,
         "active": true,
-        "local": true,
+        "local": false,
         "in_CDN": false,
         "responsible": {
             "name": "Ilija Vukotic",
