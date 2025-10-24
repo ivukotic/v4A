@@ -193,6 +193,19 @@
         }
     },
     {
+        "url": "local-v4fa.cern.ch",
+        "site": "CERN",
+        "instance": "varnish01",
+        "port": 80,
+        "active": true,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
         "url": "v4f.cern.ch",
         "port": 80,
         "site": "FRONTIER-A",
