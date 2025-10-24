@@ -10,6 +10,15 @@
     "atlasfrontier-varnish02": {
       "file": "neo_frontier_F2",
       "version": 1
+    },
+    "frontier-a-bvemqp26frsz-node-0": {
+      "file": "neo_frontier_F1"
+    },
+    "frontier-a-bvemqp26frsz-node-1": {
+      "file": "neo_frontier_F2"
+    },
+    "frontier-a-bvemqp26frsz-node-2": {
+      "file": "neo_frontier_F2"
     }
   },
   "FRONTIER-B": {
