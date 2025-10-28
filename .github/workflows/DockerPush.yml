@@ -3,13 +3,13 @@ name: DockerPush
 on:
   push:
     branches:
-      - "frontier"
+      - "frontier_no_https"
     paths-ignore:
-      - 'configurations/**'
-      - 'docker/**'
-      - 'kube/**'
-      - 'Manual/**'      
-      - 'README.md'
+      - "configurations/**"
+      - "docker/**"
+      - "kube/**"
+      - "Manual/**"
+      - "README.md"
 
 jobs:
   docker:
@@ -22,7 +22,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6.4
         with:
           image: ivukotic/v4a
-          tags: latest, ${{ github.sha }}
+          tags: frontier_no_https
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
