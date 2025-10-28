@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "released on 2025-10-15"
+echo "released on 2025-10-28"
 echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
@@ -37,4 +37,4 @@ source /usr/local/bin/reconfiguration.sh "$nfile" &
 echo "Starting Varnish on port $VARNISH_PORT"
 echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl"
 
-/usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -a proxy=:8443,PROXY -p feature=+http2 -p max_restarts=8 -p nuke_limit=1000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM
+/usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -p feature=+http2 -p max_restarts=8 -p nuke_limit=1000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM
