@@ -47,7 +47,7 @@ sub vcl_recv {
    }
 
   set req.backend_hint = default;        
-  set req.http.X-frontier-id = "varnish";
+#   set req.http.X-frontier-id = "varnish";
   if (req.method != "GET" && req.method != "HEAD") {
     return (pipe);
   }
