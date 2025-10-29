@@ -33,6 +33,11 @@ sub vcl_backend_fetch {
     } else if (bereq.backend == neo_2) {
         set bereq.http.Host = "v4fb.cern.ch";
     }
+    if (bereq.http.X-Frontier-Id ~ "\[([^\]]+)\]") {
+      set bereq.http.X-Frontier-Id = regsub(bereq.http.X-Frontier-Id, ".*\[(.*?)\].*", "\1");
+    } else {
+      set bereq.http.X-Frontier-Id = "varnish"; 
+    }
 }
 
 sub vcl_recv {
@@ -42,7 +47,6 @@ sub vcl_recv {
    }
 
   set req.backend_hint = default;        
-  set req.http.X-frontier-id = "varnish";
   if (req.method != "GET" && req.method != "HEAD") {
     return (pipe);
   }
