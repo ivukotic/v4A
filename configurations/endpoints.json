@@ -193,12 +193,23 @@
         }
     },
     {
-        "url": "local-v4fa.cern.ch",
+        "url": "frontier-a-bvemqp26frsz-node-0.cern.ch",
         "site": "CERN",
-        "instance": "varnish01",
-        "port": 80,
+        "instance": "frontier-a-bvemqp26frsz-node-0",
         "active": true,
-        "local": false,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Ilija Vukotic",
+            "email": "ivukotic@uchicago.edu"
+        }
+    },
+    {
+        "url": "frontier-a-bvemqp26frsz-node-1.cern.ch",
+        "site": "CERN",
+        "instance": "frontier-a-bvemqp26frsz-node-1",
+        "active": true,
+        "local": true,
         "in_CDN": false,
         "responsible": {
             "name": "Ilija Vukotic",
