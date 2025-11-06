@@ -304,6 +304,18 @@
         }
     },
     {
+        "url": "t2-varnish.grid.sinica.edu.tw",
+        "site": "TW-FFT",
+        "instance": "TW-FTT",
+        "active": true,
+        "local": true,
+        "in_CDN": false,
+        "responsible": {
+            "name": "Xiaofei Yan",
+            "email": "yanxiaofei@ihep.ac.cn"
+        }
+    },
+    {
         "url": "varnish-atlas-01.gridka.de",
         "site": "FZK-LCG2",
         "instance": "varnish-atlas-01",
