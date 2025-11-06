@@ -192,5 +192,10 @@
     "varnish-frontier.tier2.hpccloud.mpg.de": {
       "file": "neo_frontier_F1"
     }
+  },
+  "TW-FTT": {
+    "TW-FTT": {
+      "file": "neo_frontier_F1"
+    }
   }
 }
