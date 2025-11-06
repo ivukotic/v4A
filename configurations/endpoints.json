@@ -169,18 +169,6 @@
         }
     },
     {
-        "url": "atlasfrontier-varnish01.cern.ch",
-        "site": "CERN",
-        "instance": "atlasfrontier-varnish01",
-        "active": true,
-        "local": true,
-        "in_CDN": false,
-        "responsible": {
-            "name": "Chris Lee",
-            "email": "chris.lee@cern.ch"
-        }
-    },
-    {
         "url": "atlasfrontier-varnish02.cern.ch",
         "site": "CERN",
         "instance": "atlasfrontier-varnish02",
@@ -193,23 +181,12 @@
         }
     },
     {
-        "url": "frontier-a-bvemqp26frsz-node-0.cern.ch",
+        "url": "v4a-local.cern.ch",
+        "port": 80,
         "site": "CERN",
-        "instance": "frontier-a-bvemqp26frsz-node-0",
+        "instance": "local-hln73adtstre-node-0",
         "active": true,
-        "local": true,
-        "in_CDN": false,
-        "responsible": {
-            "name": "Ilija Vukotic",
-            "email": "ivukotic@uchicago.edu"
-        }
-    },
-    {
-        "url": "frontier-a-bvemqp26frsz-node-1.cern.ch",
-        "site": "CERN",
-        "instance": "frontier-a-bvemqp26frsz-node-1",
-        "active": true,
-        "local": true,
+        "local": false,
         "in_CDN": false,
         "responsible": {
             "name": "Ilija Vukotic",
