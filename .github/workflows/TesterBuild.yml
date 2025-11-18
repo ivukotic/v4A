@@ -5,13 +5,13 @@ on:
     branches:
       - "frontier"
     paths:
-      - 'Monitoring/**' 
+      - "Monitoring/**"
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -25,7 +25,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: Monitoring/ 
-          file: Monitoring/Dockerfile 
+          context: Monitoring/
+          file: Monitoring/Dockerfile
           push: true
           tags: ivukotic/varnish-conditions-tester
