@@ -11,13 +11,10 @@
       "file": "neo_frontier_F2",
       "version": 1
     },
-    "frontier-a-bvemqp26frsz-node-0": {
+    "local-hln73adtstre-node-0": {
       "file": "neo_frontier_F1"
     },
-    "frontier-a-bvemqp26frsz-node-1": {
-      "file": "neo_frontier_F2"
-    },
-    "frontier-a-bvemqp26frsz-node-2": {
+    "local-hln73adtstre-node-1": {
       "file": "neo_frontier_F2"
     }
   },
