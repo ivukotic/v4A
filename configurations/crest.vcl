@@ -3,7 +3,7 @@ vcl 4.1;
     import directors;
 
     backend crest {
-        .host = "crest-service";
+        .host = "crest";
         .port = "80";
     }
 
