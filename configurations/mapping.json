@@ -4,11 +4,40 @@
   "active": true,
   "local": true,
   "in_CDN": false,
+  "type": "frontier",
   "default": {
     "file": "neo_frontier_F1",
     "version": 1
   },
   "sites": [
+    {
+      "name": "CREST-A",
+      "url": "atlas-crest-a.cern.ch",
+      "port": 443,
+      "active": true,
+      "local": true,
+      "in_CDN": false,
+      "type": "crest",
+      "file": "crest",
+      "responsible": {
+        "name": "Ilija Vukotic",
+        "email": "ivukotic@uchicago.edu"
+      }
+    },
+    {
+      "name": "CREST-B",
+      "url": "atlas-crest-b.cern.ch",
+      "port": 443,
+      "active": true,
+      "local": true,
+      "in_CDN": false,
+      "type": "crest",
+      "file": "crest",
+      "responsible": {
+        "name": "Ilija Vukotic",
+        "email": "ivukotic@uchicago.edu"
+      }
+    },
     {
       "name": "CERN",
       "url": "v4a-local.cern.ch",
