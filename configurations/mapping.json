@@ -3,6 +3,28 @@
     "file": "neo_frontier_F1",
     "version": 1
   },
+  "CREST-A": {
+    "crest-a-27nc3pcsmh2y-node-0": {
+      "file": "crest"
+    },
+    "crest-a-27nc3pcsmh2y-node-1": {
+      "file": "crest"
+    },
+    "crest-a-27nc3pcsmh2y-node-2": {
+      "file": "crest"
+    }
+  },
+  "CREST-B": {
+    "crest-b-gjc5ctwq7sz5-node-0": {
+      "file": "crest"
+    },
+    "crest-b-gjc5ctwq7sz5-node-1": {
+      "file": "crest"
+    },
+    "crest-b-gjc5ctwq7sz5-node-2": {
+      "file": "crest"
+    }
+  },
   "CERN": {
     "atlasfrontier-varnish01": {
       "file": "neo_frontier_F1"
