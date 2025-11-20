@@ -199,7 +199,7 @@
             "file": "neo_frontier_F1",
             "instances": [
                 {
-                    "name": "frontier-01",
+                    "name": "frontier-01"
                 }
             ]
         },
@@ -233,7 +233,7 @@
             "file": "neo_frontier_F2",
             "instances": [
                 {
-                    "name": "NET2-2f",
+                    "name": "NET2-2f"
                 },
                 {
                     "name": "net2-frontier-prod-01",
