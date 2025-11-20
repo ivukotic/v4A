@@ -1,0 +1,592 @@
+{
+    "port": 6082,
+    "file": "neo_frontier_F1",
+    "active": true,
+    "local": true,
+    "in_CDN": false,
+    "type": "frontier",
+    "sites": [
+        {
+            "name": "CREST-A",
+            "url": "atlas-crest-a.cern.ch",
+            "port": 443,
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "type": "crest",
+            "file": "crest",
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "crest-a-27nc3pcsmh2y-node-0"
+                },
+                {
+                    "name": "crest-a-27nc3pcsmh2y-node-1"
+                },
+                {
+                    "name": "crest-a-27nc3pcsmh2y-node-2"
+                }
+            ]
+        },
+        {
+            "name": "CREST-B",
+            "url": "atlas-crest-b.cern.ch",
+            "port": 443,
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "type": "crest",
+            "file": "crest",
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "crest-b-gjc5ctwq7sz5-node-0"
+                },
+                {
+                    "name": "crest-b-gjc5ctwq7sz5-node-1"
+                },
+                {
+                    "name": "crest-b-gjc5ctwq7sz5-node-2"
+                }
+            ]
+        },
+        {
+            "name": "CERN",
+            "url": "v4a-local.cern.ch",
+            "port": 80,
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "atlasfrontier-varnish01",
+                    "file": "neo_frontier_F1",
+                    "url": "atlasfrontier-varnish01.cern.ch",
+                    "port": 6082,
+                    "responsible": {
+                        "name": "Chris Lee",
+                        "email": "chris.lee@cern.ch"
+                    }
+                },
+                {
+                    "name": "atlasfrontier-varnish02",
+                    "file": "neo_frontier_F2",
+                    "url": "atlasfrontier-varnish02.cern.ch",
+                    "port": 6082,
+                    "responsible": {
+                        "name": "Chris Lee",
+                        "email": "chris.lee@cern.ch"
+                    }
+                },
+                {
+                    "name": "local-hln73adtstre-node-0",
+                    "file": "neo_frontier_F1"
+                },
+                {
+                    "name": "local-hln73adtstre-node-1",
+                    "file": "neo_frontier_F2"
+                }
+            ]
+        },
+        {
+            "name": "FRONTIER-B",
+            "url": "v4fb.cern.ch",
+            "port": 80,
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "file": "cern_frontier_varnish",
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "frontier-b-fjx4brc2livw-node-0"
+                },
+                {
+                    "name": "frontier-b-fjx4brc2livw-node-1"
+                },
+                {
+                    "name": "frontier-b-fjx4brc2livw-node-2"
+                }
+            ]
+        },
+        {
+            "name": "FRONTIER-A",
+            "url": "v4f.cern.ch",
+            "port": 80,
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "frontier-a-bvemqp26frsz-node-0",
+                    "file": "cern_frontier_varnish"
+                },
+                {
+                    "name": "frontier-a-bvemqp26frsz-node-1",
+                    "file": "cern_frontier_varnish"
+                },
+                {
+                    "name": "frontier-a-bvemqp26frsz-node-2",
+                    "file": "cern_frontier_varnish"
+                }
+            ]
+        },
+        {
+            "name": "SiGNET",
+            "url": "frontier-vc.vega.pri",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Andrej Filipcic",
+                "email": "andrej.filipcic@ijs.si"
+            },
+            "instances": [
+                {
+                    "name": "01",
+                    "file": "neo_frontier_F1"
+                },
+                {
+                    "name": "02",
+                    "file": "neo_frontier_F2"
+                }
+            ]
+        },
+        {
+            "name": "TECHNION-HEP",
+            "url": "tech-vrn.hep.technion.ac.il",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "David Cohen",
+                "email": "David.Cohen@cern.ch"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "01"
+                }
+            ]
+        },
+        {
+            "name": "msu",
+            "url": "msu-nrp.aglt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "frontier-01",
+                }
+            ]
+        },
+        {
+            "name": "ucsc",
+            "url": "fiona8.ucsc.edu",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "ucsc-1f"
+                }
+            ]
+        },
+        {
+            "name": "NET2",
+            "url": "net2.hl-lhc.net",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "NET2-2f",
+                },
+                {
+                    "name": "net2-frontier-prod-01",
+                    "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
+                    "port": 30682,
+                    "in_CDN": false,
+                    "responsible": {
+                        "name": "Eduardo Bach",
+                        "email": "eduardobach@umass.edu"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "BNL",
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "John De Stefano",
+                "email": "jd@bnl.gov"
+            },
+            "active": false,
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "bnl-varnish-atlas"
+                }
+            ]
+        },
+        {
+            "name": "MWT2",
+            "url": "v4a.mwt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": [
+                {
+                    "name": "frontier-uc-01",
+                    "file": "neo_frontier_F1"
+                },
+                {
+                    "name": "dev",
+                    "file": "dev",
+                    "active": false,
+                    "local": true,
+                    "in_CDN": false
+                }
+            ]
+        },
+        {
+            "name": "AGLT2",
+            "url": "sl-um-es2.slateci.io",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "frontier-01"
+                }
+            ]
+        },
+        {
+            "name": "SWT2_CPB",
+            "url": "gk02.atlas-swt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Zachary Booth",
+                "email": "zachary.booth@uta.edu"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "01"
+                }
+            ]
+        },
+        {
+            "name": "OU",
+            "url": "fiona.offn.oscer.ou.edu",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "ou-1f"
+                }
+            ]
+        },
+        {
+            "name": "INFN-ROMA1",
+            "url": "cmsrm-svc-03.roma1.infn.it",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Alessandro de Salvo",
+                "email": "alessandro.de.salvo@cern.ch"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "v4f-0"
+                },
+                {
+                    "name": "v4f-1",
+                    "file": "neo_frontier_F2"
+                },
+                {
+                    "name": "v4f-2"
+                },
+                {
+                    "name": "v4f-3",
+                    "file": "neo_frontier_F2"
+                }
+            ]
+        },
+        {
+            "name": "IN2P3-CC",
+            "url": "ccatlasvrn01.in2p3.fr",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Martin HAMANT",
+                "email": "Martin.Hamant@cc.in2p3.fr"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "frontier-01"
+                }
+            ]
+        },
+        {
+            "name": "UAM-LCG2",
+            "url": "gvmsw02.ft.uam.es",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Pablo Collado",
+                "email": "pablo.collado@uam.es"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "01"
+                }
+            ]
+        },
+        {
+            "name": "JINR_LCG2",
+            "url": "lcgvr01.jinr.ru",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Valery Mitsyn",
+                "email": "Valeri.Mitsyn@cern.ch"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "JINR_LCG2"
+                }
+            ]
+        },
+        {
+            "name": "BEIJING-LCG2",
+            "url": "atlasvarnish.ihep.ac.cn",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Xiaofei Yan",
+                "email": "yanxiaofei@ihep.ac.cn"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "01"
+                }
+            ]
+        },
+        {
+            "name": "FZK-LCG2",
+            "url": "varnish-atlas-01.gridka.de",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Matthias Schnepf",
+                "email": "matthias.schnepf@kit.edu"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "varnish-atlas-01"
+                }
+            ]
+        },
+        {
+            "name": "TOKYO-LCG2",
+            "url": "varnish1.icepp.jp",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Saito Masahiko",
+                "email": "masahiko.saito@cern.ch"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "frontier-1"
+                }
+            ]
+        },
+        {
+            "name": "UKI-NORTHGRID-MAN-HEP",
+            "url": "vm39.tier2.hep.manchester.ac.uk",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Alessandra Forti",
+                "email": "alessandra.forti@cern.ch"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "MANCHESTER_VARNISH_FRONTIER"
+                }
+            ]
+        },
+        {
+            "name": "RAL-LCG2",
+            "url": "varnish01.gridpp.rl.ac.uk",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Brij Kishor Jashal",
+                "email": "brij.kishor.jashal@cern.ch"
+            },
+            "instances": [
+                {
+                    "name": "varnish01.gridpp.rl.ac.uk",
+                    "file": "neo_frontier_F1"
+                },
+                {
+                    "name": "varnish02.gridpp.rl.ac.uk",
+                    "file": "neo_frontier_F2",
+                    "local": false,
+                    "in_CDN": true
+                }
+            ]
+        },
+        {
+            "name": "PIC",
+            "url": "varnish.pic.es",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Andres Pacheco Pages",
+                "email": "pacheco@ifae.es"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "varnish.pic.es"
+                }
+            ]
+        },
+        {
+            "name": "WUPPERTALPROD",
+            "url": "varnish.pleiades.uni-wuppertal.de",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Torsten Harenberg",
+                "email": "harenberg@physik.uni-wuppertal.de"
+            },
+            "file": "neo_frontier_F2",
+            "instances": [
+                {
+                    "name": "buw-frontier-1"
+                }
+            ]
+        },
+        {
+            "name": "MPPMU",
+            "url": "varnish-frontier.tier2.hpccloud.mpg.de",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Torsten Harenberg",
+                "email": "harenberg@physik.uni-wuppertal.de"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "varnish-frontier.tier2.hpccloud.mpg.de"
+                }
+            ]
+        },
+        {
+            "name": "TW-FTT",
+            "url": "t2-varnish.grid.sinica.edu.tw",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Xiaofei Yan",
+                "email": "yanxiaofei@ihep.ac.cn"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "TW-FTT"
+                }
+            ]
+        },
+        {
+            "name": "CLOUDFLARE",
+            "url": "v4f.hl-lhc.net",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "responsible": {
+                "name": "Ilija Vukotic",
+                "email": "ivukotic@uchicago.edu"
+            },
+            "instances": []
+        }
+    ]
+}
