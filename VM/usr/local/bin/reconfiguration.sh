@@ -29,7 +29,7 @@ while true; do
             fi
         done
 
-        config=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
+        nfile=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
         '  . as $root
         | (
             $root.sites
@@ -44,8 +44,7 @@ while true; do
             )
         ' )
 
-        echo "Value of $SITE.$INSTANCE: $config"
-        nfile=$(echo "$config" | jq -r '.file')
+        echo "Value of $SITE.$INSTANCE: $nfile"
 
         if [ "$current_version" == "$nfile" ]; then
             # echo "Skipping this loop iteration as $current_version matches $nfile..."
