@@ -1,0 +1,122 @@
+{
+    "port": 6081,
+    "file": "america",
+    "active": true,
+    "local": true,
+    "in_CDN": false,
+    "type": "cvmfs",
+    "responsible": {
+        "name": "Ilija Vukotic",
+        "email": "ivukotic@uchicago.edu"
+    },
+    "sites": [
+        {
+            "name": "AGLT2",
+            "active": true,
+            "local": false,
+            "instances": [
+                {
+                    "name": "cvmfs-01",
+                    "url": "sl-um-es3.slateci.io",
+                    "in_CDN": true
+                },
+                {
+                    "name": "cvmfs-02",
+                    "url": "sl-um-es2.slateci.io",
+                    "in_CDN": false
+                }
+            ]
+        },
+        {
+            "name": "NET2",
+            "url": "net2.hl-lhc.net",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "instances": [
+                {
+                    "name": "NET2-1"
+                }
+            ]
+        },
+        {
+            "name": "msu",
+            "url": "msu-nrp.aglt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "instances": [
+                {
+                    "name": "msu-cvmfs"
+                }
+            ]
+        },
+        {
+            "name": "ROMA1",
+            "url": "xxx",
+            "local": true,
+            "in_CDN": false,
+            "file": "europe",
+            "responsible": {
+                "name": "Alessandro de Salvo",
+                "email": "alessandro.de.salvo@cern.ch"
+            },
+            "instances": [
+                {
+                    "name": "test-01"
+                }
+            ]
+        },
+        {
+            "name": "TEST",
+            "url": "v4fb.cern.ch",
+            "port": 80,
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "file": "debug",
+            "instances": [
+                {
+                    "name": "test-01"
+                }
+            ]
+        },
+        {
+            "name": "TW-FTT",
+            "url": "t2-varnish.grid.sinica.edu.tw",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Xiaofei Yan",
+                "email": "yanxiaofei@ihep.ac.cn"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
+                {
+                    "name": "TW-FTT"
+                }
+            ]
+        },
+        {
+            "name": "CF CVMFS",
+            "url": "varnish.hl-lhc.net",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "instances": []
+        },
+        {
+            "name": "MWT2",
+            "url": "v4cvmfs.mwt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": true,
+            "instances": [
+                {
+                    "name": "cvmfs-uc"
+                }
+            ]
+        }
+    ]
+}
