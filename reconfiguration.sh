@@ -17,7 +17,7 @@ while true; do
     if [ "$current_minute" -eq "$x" ]; then
         # echo "Downloading file at minute $x..."
         while true; do
-            ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/mapping.json")
+            ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/configurations.json")
             
             # Check if curl was successful
             if [ $? -eq 0 ] && [ -n "$ma" ]; then
@@ -29,19 +29,23 @@ while true; do
             fi
         done
 
-        # get value of SITE.INSTANCE 
-        config=$(echo "$ma" | jq -r --arg site "$SITE" --arg instance "$INSTANCE" '.[$site][$instance]')
+        config=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
+        '  . as $root
+        | (
+            $root.sites
+            | map(select(.name == $site))
+            | .[0] as $siteObj
+            | if $siteObj then
+                ($siteObj.instances // [] | map(select(.name == $instance)) | .[0]) as $instObj
+                | ($instObj.file // $siteObj.file // $root.file)
+                else
+                $root.file
+                end
+            )
+        ' )
 
-        # Check if the value exists
-        if [ -z "$config" ] || [ "$config" == null ]; then
-            echo "No value found for $SITE.$INSTANCE, using default value"
-            config=$(echo "$ma" | jq -r '.default')
-            echo "Default value: $config"
-            nfile=$(echo "$config" | jq -r '.file')
-        else
-            echo "Value of $SITE.$INSTANCE: $config"
-            nfile=$(echo "$config" | jq -r '.file')
-        fi
+        echo "Value of $SITE.$INSTANCE: $config"
+        nfile=$(echo "$config" | jq -r '.file')
 
         if [ "$current_version" == "$nfile" ]; then
             # echo "Skipping this loop iteration as $current_version matches $nfile..."
@@ -59,7 +63,6 @@ while true; do
 
             varnishadm vcl.load $nfile /tmp/$nfile.vcl && varnishadm vcl.use $nfile && current_version="$nfile"
         fi
-
     fi
 
     # Sleep for 1 minute

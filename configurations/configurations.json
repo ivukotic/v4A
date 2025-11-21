@@ -5,6 +5,10 @@
     "local": true,
     "in_CDN": false,
     "type": "frontier",
+    "responsible": {
+        "name": "Ilija Vukotic",
+        "email": "ivukotic@uchicago.edu"
+    },
     "sites": [
         {
             "name": "CREST-A",
@@ -15,10 +19,6 @@
             "in_CDN": false,
             "type": "crest",
             "file": "crest",
-            "responsible": {
-                "name": "Ilija Vukotic",
-                "email": "ivukotic@uchicago.edu"
-            },
             "instances": [
                 {
                     "name": "crest-a-27nc3pcsmh2y-node-0"
@@ -40,10 +40,6 @@
             "in_CDN": false,
             "type": "crest",
             "file": "crest",
-            "responsible": {
-                "name": "Ilija Vukotic",
-                "email": "ivukotic@uchicago.edu"
-            },
             "instances": [
                 {
                     "name": "crest-b-gjc5ctwq7sz5-node-0"
@@ -60,40 +56,15 @@
             "name": "CERN",
             "url": "v4a-local.cern.ch",
             "port": 80,
-            "active": true,
-            "local": true,
+            "local": false,
             "in_CDN": false,
-            "responsible": {
-                "name": "Ilija Vukotic",
-                "email": "ivukotic@uchicago.edu"
-            },
             "instances": [
                 {
-                    "name": "atlasfrontier-varnish01",
-                    "file": "neo_frontier_F1",
-                    "url": "atlasfrontier-varnish01.cern.ch",
-                    "port": 6082,
-                    "responsible": {
-                        "name": "Chris Lee",
-                        "email": "chris.lee@cern.ch"
-                    }
-                },
-                {
-                    "name": "atlasfrontier-varnish02",
-                    "file": "neo_frontier_F2",
-                    "url": "atlasfrontier-varnish02.cern.ch",
-                    "port": 6082,
-                    "responsible": {
-                        "name": "Chris Lee",
-                        "email": "chris.lee@cern.ch"
-                    }
-                },
-                {
-                    "name": "local-hln73adtstre-node-0",
+                    "name": "local-7hz2oky6gff2-node-0",
                     "file": "neo_frontier_F1"
                 },
                 {
-                    "name": "local-hln73adtstre-node-1",
+                    "name": "local-7hz2oky6gff2-node-1",
                     "file": "neo_frontier_F2"
                 }
             ]
