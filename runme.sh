@@ -17,7 +17,7 @@ while true; do
 done
 
 # get value of file for a given SITE and INSTANCE 
-config=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
+nfile=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
 '  . as $root
   | (
       $root.sites
@@ -32,8 +32,7 @@ config=$(echo "$ma" | jq -r --arg site $SITE --arg instance $INSTANCE \
     )
 ' )
 
-echo "Value of $SITE.$INSTANCE: $config"
-nfile=$(echo "$config" | jq -r '.file')
+echo "Value of $SITE.$INSTANCE: $nfile"
 
 curl --fail --show-error --location --silent \
   "https://raw.githubusercontent.com/ivukotic/v4A/frontier/configurations/$nfile.vcl" \
