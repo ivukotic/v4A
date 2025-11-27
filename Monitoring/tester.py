@@ -25,7 +25,7 @@ def denormalize_configurations(d):
             add_missing_defaults(site, instance)
     return d
 
-def load_configurations() -> list[dict]:
+def load_configurations():
     resp = requests.get(URL, timeout=15)
     resp.raise_for_status()          # fail fast if the download didn’t work
     data = json.loads(resp.text)     # or: resp.json()
