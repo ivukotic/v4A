@@ -558,6 +558,23 @@
                 "email": "ivukotic@uchicago.edu"
             },
             "instances": []
+        },
+        {
+            "name": "BNL",
+            "url": "varnish01.sdcc.bnl.gov",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "John S. De Stefano Jr",
+                "email": "jd@bnl.gov"
+            },
+            "instances": [
+                {
+                    "name": "bnl-varnish-atlas",
+                    "file": "neo_frontier_F2"
+                }
+            ]
         }
     ]
 }
