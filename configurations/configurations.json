@@ -11,6 +11,27 @@
     },
     "sites": [
         {
+            "name": "CREST-DEV",
+            "url": "atlas-crest-dev.cern.ch",
+            "port": 443,
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "type": "crest",
+            "file": "crest-dev",
+            "instances": [
+                {
+                    "name": "crest-dev-wrfx5rxekb3m-node-0"
+                },
+                {
+                    "name": "crest-dev-wrfx5rxekb3m-node-1"
+                },
+                {
+                    "name": "crest-dev-wrfx5rxekb3m-node-2"
+                }
+            ]
+        },
+        {
             "name": "CREST-A",
             "url": "atlas-crest-a.cern.ch",
             "port": 443,
