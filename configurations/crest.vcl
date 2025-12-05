@@ -14,6 +14,11 @@ vcl 4.1;
 
     sub vcl_recv {
 
+        # Rewrite api-v5.0 paths to api-v6.0
+        if (req.url ~ "^/api-v5\.0/") {
+            set req.url = regsub(req.url, "^/api-v5\.0/", "/api-v6.0/");
+        }
+
         if (req.url == "/") {
           return (synth(301,"https://cern.ch/"));
         }
