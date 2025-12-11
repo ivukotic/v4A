@@ -596,6 +596,23 @@
                     "file": "neo_frontier_F2"
                 }
             ]
+        },
+        {
+            "name": "CA-SFU-T2",
+            "url": "lcg-adm3.sfu.computecanada.ca",
+            "active": true,
+            "local": true,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Sergey Chelsky",
+                "email": "chech@sfu.ca"
+            },
+            "instances": [
+                {
+                    "name": "CA-SFU-T2",
+                    "file": "neo_frontier_F2"
+                }
+            ]
         }
     ]
 }
