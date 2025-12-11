@@ -601,7 +601,7 @@
             "name": "CA-SFU-T2",
             "url": "lcg-adm3.sfu.computecanada.ca",
             "active": true,
-            "local": true,
+            "local": false,
             "in_CDN": false,
             "responsible": {
                 "name": "Sergey Chelsky",
