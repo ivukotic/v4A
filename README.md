@@ -32,7 +32,7 @@ docker compose start
 
 ### On an VM, bare metal
 
-Any version you pick will work fine since we need only the basic functionality. Instructions on how to install it are [here](https://varnish-cache.org/docs/trunk/installation/index.html).
+Preferred version is 8.0. Instructions on how to install it are [here](https://vinyl-cache.org/releases/index.html).
 To start it execute these commands:
 
 ```bash
