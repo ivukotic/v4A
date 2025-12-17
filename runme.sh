@@ -1,8 +1,7 @@
 #!/bin/bash
 echo "released on 2025-12-17"
-if [ -z "$CORES" ]; then CORES=2; fi
 
-echo "site: $SITE, instance: $INSTANCE, cores: $CORES"
+echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
 ulimit -n 131072
@@ -41,4 +40,4 @@ source /usr/local/bin/reconfiguration.sh $nfile &
 echo "Starting Varnish on port $VARNISH_PORT"
 echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl"
 
-/usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -a proxy=:8443,PROXY -p max_restarts=8 -p thread_pools=$CORES -p nuke_limit=5000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM
+/usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -a proxy=:8443,PROXY -p max_restarts=8 -p nuke_limit=5000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM

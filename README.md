@@ -5,7 +5,7 @@ Varnish for CVMFS
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 2 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM.
+Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 2 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM. Make sure ulimit -n on the node is set to at least 100000.
 Varnish for CVMFS should listen on port 6081.
 If your Varnish will serve only local nodes, there is no need to open any ports for access from outside. If your instance will be added to the CloudFlare DNS loadbalancer, port 6081 TCP should be accessible from outside.
 
