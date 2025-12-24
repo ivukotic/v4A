@@ -1,6 +1,6 @@
     vcl 4.1;
     import std;
-    import dynamic;
+    # import dynamic;
     import directors;
     
     backend fermilab {
