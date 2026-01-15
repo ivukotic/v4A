@@ -200,7 +200,7 @@
             "url": "fiona8.ucsc.edu",
             "active": true,
             "local": false,
-            "in_CDN": true,
+            "in_CDN": false,
             "responsible": {
                 "name": "Ilija Vukotic",
                 "email": "ivukotic@uchicago.edu"
@@ -602,7 +602,7 @@
             "url": "lcg-adm3.sfu.computecanada.ca",
             "active": true,
             "local": false,
-            "in_CDN": false,
+            "in_CDN": true,
             "responsible": {
                 "name": "Sergey Chelsky",
                 "email": "chech@sfu.ca"
