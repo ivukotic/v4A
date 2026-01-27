@@ -17,7 +17,7 @@ spec:
           image: ivukotic/varnish-conditions-stress-tester
           imagePullPolicy: IfNotPresent
           workingDir: /work
-          environment:
+          env:
             - name: SERVER
               value: "v4a.mwt2.org:6082"
           command: ["/bin/sh", "-c"]
