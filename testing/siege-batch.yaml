@@ -1,0 +1,43 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: siege-load-test
+spec:
+  # Run seven total pods and allow up to 10 at once
+  completions: 10
+  parallelism: 10
+
+  # Optional: set to 0 to avoid automatic retries if a pod fails
+  backoffLimit: 0
+
+  # Optional: auto-cleanup finished Jobs after 1 hour
+  ttlSecondsAfterFinished: 3600
+
+  template:
+    metadata:
+      labels:
+        app: siege-load-test
+    spec:
+      restartPolicy: Never
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: siege-load-test
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: siege
+          image: ivukotic/varnish-conditions-stress-tester
+          imagePullPolicy: Always
+          workingDir: /work
+          env:
+            - name: SERVER
+              value: "v4a.mwt2.org:6082"
+          command: ["/bin/sh", "-c"]
+          args: ["./runme.sh"]
+          resources:
+            requests:
+              cpu: "10"
+            limits:
+              cpu: "12"
