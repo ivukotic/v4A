@@ -9,6 +9,7 @@ on:
       - "docker/**"
       - "kube/**"
       - "Manual/**"
+      - "testing/**"
       - "README.md"
 
 jobs:
