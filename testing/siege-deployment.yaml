@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: siege-load-test
 spec:
-  replicas: 5
+  replicas: 7
   selector:
     matchLabels:
       app: siege-load-test
@@ -24,6 +24,6 @@ spec:
           args: ["./runme.sh"]
           resources:
             requests:
-              cpu: "5"
+              cpu: "7"
             limits:
-              cpu: "10"
+              cpu: "12"
