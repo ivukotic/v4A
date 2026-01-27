@@ -198,7 +198,7 @@
         {
             "name": "ucsc",
             "url": "fiona8.ucsc.edu",
-            "active": true,
+            "active": false,
             "local": false,
             "in_CDN": false,
             "responsible": {
