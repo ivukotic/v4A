@@ -29,3 +29,11 @@ jobs:
           file: Monitoring/Dockerfile
           push: true
           tags: ivukotic/varnish-conditions-tester
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: testing/
+          file: testing/Dockerfile
+          push: true
+          tags: ivukotic/varnish-conditions-stress-tester

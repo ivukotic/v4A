@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: siege-load-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: siege-load-test
+  template:
+    metadata:
+      labels:
+        app: siege-load-test
+    spec:
+      containers:
+        - name: siege
+          image: ivukotic/varnish-conditions-stress-tester
+          imagePullPolicy: IfNotPresent
+          workingDir: /work
+          environment:
+            - name: SERVER
+              value: "v4a.mwt2.org:6082"
+          command: ["/bin/sh", "-c"]
+          args: ["./runme.sh"]
+          resources:
+            requests:
+              cpu: "5"
+            limits:
+              cpu: "10"
