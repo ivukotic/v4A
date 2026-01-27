@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Docker Build & Push Action
+      - name: Docker Build & Push Varnish for Conditions Image
         uses: mr-smithers-excellent/docker-build-push@v6.8
         with:
           image: ivukotic/v4a
