@@ -6,6 +6,7 @@ on:
       - "frontier"
     paths:
       - "Monitoring/**"
+      - "testing/**"
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -22,7 +23,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push Docker Image
+      - name: Build and Push continuous Tester Image
         uses: docker/build-push-action@v6
         with:
           context: Monitoring/
@@ -30,7 +31,7 @@ jobs:
           push: true
           tags: ivukotic/varnish-conditions-tester
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Stress Tester Image
         uses: docker/build-push-action@v6
         with:
           context: testing/
