@@ -4,7 +4,7 @@ from itertools import count
 from pathlib import Path
 
 input_path = Path("requests.csv")
-output_path = Path("urls.txt")
+output_path = Path("urls_100k.txt")
 
 server="http://SERVER"
 

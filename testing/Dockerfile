@@ -6,6 +6,6 @@ RUN apt-get update \
 
 WORKDIR /work
 
-COPY urls.txt /work/urls.txt
+COPY urls_100k.txt /work/urls_100k.txt
 COPY runme.sh /work/runme.sh
 RUN ln -s /usr/bin/siege /work/siege

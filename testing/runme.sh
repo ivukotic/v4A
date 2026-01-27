@@ -13,7 +13,7 @@ if [ ! -f urls.txt ]; then
 fi
 
 # Process first 10k lines, replace SERVER, and write output
-head -n 10000 urls.txt | sed "s/SERVER/$SERVER/g" > urls_10k.txt
+head -n 10000 urls_100k.txt | sed "s/SERVER/$SERVER/g" > urls_10k.txt
 
 echo "Prepared urls_10k.txt with SERVER=$SERVER"
 
