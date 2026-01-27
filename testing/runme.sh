@@ -7,7 +7,7 @@ if [ -z "$SERVER" ]; then
 fi
 
 # Check that urls.txt exists
-if [ ! -f urls.txt ]; then
+if [ ! -f urls_100k.txt ]; then
     echo "ERROR: urls.txt not found."
     exit 1
 fi
