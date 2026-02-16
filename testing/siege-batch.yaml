@@ -33,7 +33,13 @@ spec:
           workingDir: /work
           env:
             - name: SERVER
-              value: "v4a.mwt2.org:6082"
+              # value: "v4a.mwt2.org:6082"
+              value: v4f-service-varnish.apps.compute.net2.mghpcc.org:30682
+              # value: sl-um-es2.slateci.io:6082
+              # value: msu-nrp.aglt2.org:6082
+              # value: fiona.offn.oscer.ou.edu:6082
+              # value: gk02.atlas-swt2.org:6082
+              # value: lcg-adm3.sfu.computecanada.ca:6082
           command: ["/bin/sh", "-c"]
           args: ["./runme.sh"]
           resources:

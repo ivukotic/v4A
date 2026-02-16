@@ -214,24 +214,24 @@
         },
         {
             "name": "NET2",
-            "url": "net2.hl-lhc.net",
             "active": true,
             "local": false,
-            "in_CDN": true,
-            "responsible": {
-                "name": "Ilija Vukotic",
-                "email": "ivukotic@uchicago.edu"
-            },
+            "in_CDN": false,
             "file": "neo_frontier_F2",
             "instances": [
                 {
-                    "name": "NET2-2f"
+                    "name": "NET2-2f",
+                    "url": "net2.hl-lhc.net",
+                    "active": false,
+                    "responsible": {
+                        "name": "Ilija Vukotic",
+                        "email": "ivukotic@uchicago.edu"
+                    }
                 },
                 {
                     "name": "net2-frontier-prod-01",
                     "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
                     "port": 30682,
-                    "in_CDN": false,
                     "responsible": {
                         "name": "Eduardo Bach",
                         "email": "eduardobach@umass.edu"
@@ -241,13 +241,14 @@
         },
         {
             "name": "BNL",
-            "local": false,
+            "local": true,
             "in_CDN": false,
             "responsible": {
                 "name": "John De Stefano",
                 "email": "jd@bnl.gov"
             },
-            "active": false,
+            "active": true,
+            "url": "varnish01.sdcc.bnl.gov",
             "file": "neo_frontier_F1",
             "instances": [
                 {
