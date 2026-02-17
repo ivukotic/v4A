@@ -218,19 +218,10 @@
             "local": false,
             "in_CDN": false,
             "file": "neo_frontier_F2",
+            "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
             "instances": [
                 {
-                    "name": "NET2-2f",
-                    "url": "net2.hl-lhc.net",
-                    "active": false,
-                    "responsible": {
-                        "name": "Ilija Vukotic",
-                        "email": "ivukotic@uchicago.edu"
-                    }
-                },
-                {
                     "name": "net2-frontier-prod-01",
-                    "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
                     "port": 30682,
                     "responsible": {
                         "name": "Eduardo Bach",
