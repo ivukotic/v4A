@@ -30,12 +30,24 @@
         {
             "name": "NET2",
             "url": "net2.hl-lhc.net",
-            "active": true,
+            "active": false,
             "local": false,
-            "in_CDN": true,
+            "in_CDN": false,
             "instances": [
                 {
                     "name": "NET2-1"
+                }
+            ]
+        },
+        {
+            "name": "OU",
+            "url": "fiona.offn.oscer.ou.edu",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "instances": [
+                {
+                    "name": "cvmfs-1"
                 }
             ]
         },
