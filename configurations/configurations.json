@@ -83,7 +83,7 @@
             "name": "TEST",
             "url": "v4fb.cern.ch",
             "port": 80,
-            "active": true,
+            "active": false,
             "local": false,
             "in_CDN": false,
             "file": "debug",
