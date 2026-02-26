@@ -1,11 +1,10 @@
-from calendar import c
 import requests
 import json
 import os
 from datetime import datetime, timezone
 from elasticsearch import Elasticsearch, exceptions
 
-URL = "https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/cvmfs/configurations/endpoints.json"
+URL = "https://raw.githubusercontent.com/ivukotic/v4A/refs/heads/cvmfs/configurations/configurations.json"
 
 es_user = os.getenv("ES_USER")
 es_password = os.getenv("ES_PASSWORD")
@@ -15,14 +14,56 @@ if not es_user or not es_password:
     no_ES = True
 
 def load_endpoints(url: str = URL) -> list[dict]:
-    """Download the endpoints file and return it as a Python list."""
+    """Download configurations.json and return flattened endpoint definitions."""
     resp = requests.get(url, timeout=15)
-    resp.raise_for_status()          # fail fast if the download didn’t work
-    data = json.loads(resp.text)     # or: resp.json()
+    resp.raise_for_status()
+    data = json.loads(resp.text)
 
-    if not isinstance(data, list):
-        raise ValueError("Expected a top-level JSON array, got something else!")
-    return data
+    if not isinstance(data, dict):
+        raise ValueError("Expected configurations.json top-level JSON object.")
+
+    sites = data.get("sites", [])
+    if not isinstance(sites, list):
+        raise ValueError("Expected 'sites' to be a JSON array.")
+
+    root_defaults = {k: v for k, v in data.items() if k != "sites"}
+
+    def merge(parent: dict, child: dict) -> dict:
+        out = dict(parent)
+        for key, value in child.items():
+            if isinstance(value, dict) and isinstance(out.get(key), dict):
+                nested = dict(out[key])
+                nested.update(value)
+                out[key] = nested
+            else:
+                out[key] = value
+        return out
+
+    endpoints: list[dict] = []
+    for site in sites:
+        if not isinstance(site, dict):
+            continue
+
+        site_cfg = merge(root_defaults, site)
+        site_name = site_cfg.get("name", "UNKNOWN")
+        instances = site.get("instances", [])
+
+        if not instances:
+            endpoint = dict(site_cfg)
+            endpoint["site"] = site_name
+            endpoint["instance"] = endpoint.get("instance", "GLOBAL")
+            endpoints.append(endpoint)
+            continue
+
+        for instance in instances:
+            if not isinstance(instance, dict):
+                continue
+            endpoint = merge(site_cfg, instance)
+            endpoint["site"] = site_name
+            endpoint["instance"] = endpoint.get("name", "GLOBAL")
+            endpoints.append(endpoint)
+
+    return endpoints
 
 # function that returns an elasticsearch client
 # login credentials are read from the environment variables ES_USER and ES_PASSWORD
