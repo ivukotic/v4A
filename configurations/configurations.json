@@ -215,7 +215,7 @@
         {
             "name": "NET2",
             "active": true,
-            "local": false,
+            "local": true,
             "in_CDN": false,
             "file": "neo_frontier_F2",
             "url": "v4f-service-varnish.apps.compute.net2.mghpcc.org",
