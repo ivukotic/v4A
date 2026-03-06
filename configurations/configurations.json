@@ -290,6 +290,7 @@
         },
         {
             "name": "SWT2_CPB",
+            "url": "gk02.atlas-swt2.org",
             "active": true,
             "local": false,
             "in_CDN": false,
@@ -300,11 +301,23 @@
             "file": "neo_frontier_F2",
             "instances": [
                 {
-                    "url": "gk02.atlas-swt2.org",
                     "name": "01"
-                },
+                }
+            ]
+        },
+        {
+            "name": "SWT2_CPB",
+            "url": "gk12.atlas-swt2.org",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "responsible": {
+                "name": "Zachary Booth",
+                "email": "zachary.booth@uta.edu"
+            },
+            "file": "neo_frontier_F1",
+            "instances": [
                 {
-                    "url": "gk12.atlas-swt2.org",
                     "name": "02"
                 }
             ]
