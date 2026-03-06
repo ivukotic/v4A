@@ -290,7 +290,6 @@
         },
         {
             "name": "SWT2_CPB",
-            "url": "gk02.atlas-swt2.org",
             "active": true,
             "local": false,
             "in_CDN": false,
@@ -301,7 +300,12 @@
             "file": "neo_frontier_F2",
             "instances": [
                 {
+                    "url": "gk02.atlas-swt2.org",
                     "name": "01"
+                },
+                {
+                    "url": "gk12.atlas-swt2.org",
+                    "name": "02"
                 }
             ]
         },
