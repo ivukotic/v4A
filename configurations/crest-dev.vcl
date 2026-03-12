@@ -12,7 +12,7 @@ vcl 4.1;
     acl purge {
         "localhost";
         "127.0.0.1";
-        "10.100.0.0/24"; # K8s cluster
+        "10.100.0.0/16"; # K8s cluster
     }
 
     sub vcl_init {
