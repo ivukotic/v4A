@@ -7,14 +7,45 @@ vcl 4.1;
         .port = "80";
     }
 
+
+    # ACL for hosts allowed to purge/ban
+    acl purge {
+        "localhost";
+        "127.0.0.1";
+        "10.100.0.0/24"; # K8s cluster
+    }
+
     sub vcl_init {
         new cluster = directors.hash();
         cluster.add_backend(crest, 1);
     }
 
     
-
     sub vcl_recv {
+        # Handle PURGE requests - invalidate specific URL
+        if (req.method == "PURGE") {
+            if (!client.ip ~ purge) {
+                return (synth(405, "PURGE not allowed from " + client.ip));
+            }
+            return (purge);
+        }
+
+        # Handle BAN requests - invalidate by pattern
+        if (req.method == "BAN") {
+            if (!client.ip ~ purge) {
+                return (synth(405, "BAN not allowed from " + client.ip));
+            }
+            if (req.http.X-Ban-URL) {
+                ban("req.url ~ " + req.http.X-Ban-URL);
+                return (synth(200, "Banned URL pattern: " + req.http.X-Ban-URL));
+            }
+            if (req.http.X-Ban-Tag) {
+                ban("req.url ~ tagname=" + req.http.X-Ban-Tag);
+                return (synth(200, "Banned tag: " + req.http.X-Ban-Tag));
+            }
+            return (synth(400, "Missing X-Ban-URL or X-Ban-Tag header"));
+        }
+
         # Rewrite api-v5.0 paths to api-v6.0
         if (req.url ~ "^/api-v5\.0/") {
             set req.url = regsub(req.url, "^/api-v5\.0/", "/api-v6.0/");
