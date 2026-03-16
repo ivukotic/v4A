@@ -40,7 +40,7 @@ vcl 4.1;
                 return (synth(200, "Banned URL pattern: " + req.http.X-Ban-URL));
             }
             if (req.http.X-Ban-Tag) {
-                ban("req.url ~ tagname=" + req.http.X-Ban-Tag);
+                ban("req.url ~ tagname=" + req.http.X-Ban-Tag + "(&|$)");
                 return (synth(200, "Banned tag: " + req.http.X-Ban-Tag));
             }
             return (synth(400, "Missing X-Ban-URL or X-Ban-Tag header"));
