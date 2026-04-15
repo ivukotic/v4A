@@ -5,7 +5,7 @@ Varnish for CVMFS
 [![DockerPush](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml/badge.svg?branch=cvmfs)](https://github.com/ivukotic/v4A/actions/workflows/DockerPush.yml)
 
 Varnish is a reverse http proxy. It is meant to cache accesses to one application/server. For this purpose it is sufficient to use RAM for caching.
-Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 2 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM. Make sure ulimit -n on the node is set to at least 100000.
+Even a single core and 24 GB of RAM will work well and have a very high cache hit rate, but if you can, optimal would be 4 cores and 64GB RAM. Caching CVMFS accesses always benefit from more RAM. Make sure ulimit -n on the node is set to at least 100000.
 Varnish for CVMFS should listen on port 6081.
 If your Varnish will serve only local nodes, there is no need to open any ports for access from outside. If your instance will be added to the CloudFlare DNS loadbalancer, port 6081 TCP should be accessible from outside.
 
@@ -50,7 +50,7 @@ Ideally you want both of these (server and monitoring script), to be run in syst
 
 ## Configuring it for CVMFS traffic caching
 
-At startup, [runme.sh](runme.sh) script will load appropriate configuration as defined in a [mapping file](configurations/mapping.json). If your site is in Europe or need a special configuration, let Ilija Vukotic <mailto:ivukotic@uchicago.edu> know your \<SITENAME\> and \<INSTANCE\> and he can do it for you. Alternatively, create a PR and he'll review/accept it.
+At startup, [runme.sh](runme.sh) script will load appropriate configuration as defined in a [configurations file](configurations/configurations.json). If your site is in Europe or need a special configuration, let Ilija Vukotic <mailto:ivukotic@uchicago.edu> know your \<SITENAME\> and \<INSTANCE\> and he can do it for you. Alternatively, create a PR and he'll review/accept it.
 
 To test origin do:
 
@@ -83,10 +83,10 @@ This [dashboard](https://atlas-kibana.mwt2.org:5601/s/varnish/app/r/s/gol0t) giv
 | **Deployed at** | **CF Pool** | **Site** | **Instance** | **Address** |
 | --------------- | ----------- | -------- | ------------ | ----------- |
 | [NRP](https://github.com/maniaclab/NRP) | us-central | Starlight | Starlight-1 | <http://starlight.varnish.atlas-ml.org:6081> |
-| [UC-AF](https://github.com/maniaclab/flux_apps) |  us-central     | MWT2 | cvmfs-uc | <http://v4cvmfs.mwt2.org:6081> |
-| NRP | us-east-aglt2    | AGLT2/UM  | cvmfs-02 | <http://sl-um-esw.slateci.io:6081> |
-| NRP | us-east-aglt2    | MSU | msu-cvmfs | <http://msu-nrp.aglt2.org:6081> |
-| NRP | us-east    | NET2 | frontier-uc-01 | <http://gpu-13.nrp.mghpcc.org:6081> |
+| [UC-AF](https://github.com/maniaclab/flux_apps) | us-central | MWT2 | cvmfs-uc | <http://v4cvmfs.mwt2.org:6081> |
+| NRP | us-east-aglt2 | AGLT2/UM | cvmfs-02 | <http://sl-um-esw.slateci.io:6081> |
+| NRP | us-east-aglt2 | MSU | msu-cvmfs | <http://msu-nrp.aglt2.org:6081> |
+| NRP | us-east | NET2 | frontier-uc-01 | <http://gpu-13.nrp.mghpcc.org:6081> |
 
 ## CloudFlare
 

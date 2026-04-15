@@ -24,5 +24,10 @@
     "test-01": {
       "file": "debug"
     }
+  },
+  "MWT2": {
+    "cvmfs-uc": {
+      "file": "america"
+    }
   }
 }

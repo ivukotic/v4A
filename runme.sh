@@ -2,12 +2,12 @@
 echo "released on 2025-12-17"
 
 echo "site: $SITE, instance: $INSTANCE"
-echo "getting mapping..."
+echo "getting configuration..."
 
 ulimit -n 131072
 
 while true; do
-    ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/cvmfs/configurations/mapping.json")
+    ma=$(curl -s "https://raw.githubusercontent.com/ivukotic/v4A/cvmfs/configurations/configurations.json")
     
     # Check if curl was successful
     if [ $? -eq 0 ] && [ -n "$ma" ]; then
@@ -19,18 +19,21 @@ while true; do
     fi
 done
 
-# get value of SITE.INSTANCE 
-config=$(echo "$ma" | jq -r --arg site "$SITE" --arg instance "$INSTANCE" '.[$site][$instance]')
+# get config for SITE.INSTANCE
+config=$(echo "$ma" | jq -c --arg site "$SITE" --arg instance "$INSTANCE" \
+    'first(.sites[] | select(.name == $site) | select(any(.instances[]?; .name == $instance)))' 2>/dev/null)
 
 # Check if the value exists
-if [ -z "$config" ] || [ "$config" == null ]; then
+if [ -z "$config" ] || [ "$config" == "null" ]; then
     echo "No value found for $SITE.$INSTANCE, using default value"
-    config=$(echo "$ma" | jq -r '.default')
-    echo "Default value: $config"
-    nfile=$(echo "$config" | jq -r '.file')
+    nfile=$(echo "$ma" | jq -r '.file')
+    echo "Default value: $nfile"
 else
     echo "Value of $SITE.$INSTANCE: $config"
-    nfile=$(echo "$config" | jq -r '.file')
+    nfile=$(echo "$config" | jq -r '.file // empty')
+    if [ -z "$nfile" ]; then
+        nfile=$(echo "$ma" | jq -r '.file')
+    fi
 fi
 
 curl -s "https://raw.githubusercontent.com/ivukotic/v4A/cvmfs/configurations/$nfile.vcl" -o /tmp/$nfile.vcl
