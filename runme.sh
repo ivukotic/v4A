@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "released on 2025-11-20"
+echo "built: ${BUILD_DATE:-unknown}"
 echo "site: $SITE, instance: $INSTANCE"
 echo "getting mapping..."
 
@@ -43,9 +43,10 @@ if [ $? -ne 0 ] || [ ! -s "/tmp/$nfile.vcl" ]; then
     exit 1
 fi
 
-source /usr/local/bin/reconfiguration.sh "$nfile" &
+/usr/local/bin/reconfiguration.sh "$nfile" &
+RECONFIG_PID=$!
 
 echo "Starting Varnish on port $VARNISH_PORT"
 echo "Using $VARNISH_MEM memory, and $VARNISH_TRANSIENT_MEM and config file $nfile.vcl"
 
-/usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -p max_restarts=8 -p nuke_limit=5000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM
+exec /usr/sbin/varnishd -F -f /tmp/$nfile.vcl -a http=:$VARNISH_PORT,HTTP -p max_restarts=8 -p nuke_limit=5000 -s malloc,$VARNISH_MEM -s Transient=malloc,$VARNISH_TRANSIENT_MEM
