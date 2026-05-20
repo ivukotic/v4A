@@ -103,7 +103,7 @@
                 "name": "Xiaofei Yan",
                 "email": "yanxiaofei@ihep.ac.cn"
             },
-            "file": "neo_frontier_F1",
+            "file": "america",
             "instances": [
                 {
                     "name": "TW-FTT"
@@ -126,9 +126,19 @@
             "in_CDN": true,
             "instances": [
                 {
-                    "name": "cvmfs-uc"
+                    "name": "c033.af.uchicago.edu"
+                },
+                {
+                    "name": "c034.af.uchicago.edu"
+                },
+                {
+                    "name": "c083.af.uchicago.edu"
+                },
+                {
+                    "name": "head04.af.uchicago.edu"
                 }
-            ]
+            ],
+            "port": 80
         }
     ]
 }
