@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "released on 2026-04-15"
 
+echo "built: ${BUILD_DATE:-unknown}"
 echo "site: $SITE, instance: $INSTANCE"
 echo "getting configuration..."
 
