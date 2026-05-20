@@ -23,7 +23,7 @@ jobs:
         run: echo "BUILD_DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_ENV
 
       - name: Docker Build & Push Varnish for Conditions Image
-        uses: mr-smithers-excellent/docker-build-push@v6.10
+        uses: mr-smithers-excellent/docker-build-push@v6.11
         with:
           image: ivukotic/v4a
           tags: latest, ${{ github.sha }}
