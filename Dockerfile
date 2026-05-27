@@ -15,8 +15,8 @@ USER root
 # RUN apk add --no-cache --upgrade curl bash jq
 
 # debian version
-RUN apt-get update \
-    && apt-get -y install curl jq  procps iproute2 \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install curl jq procps iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 # vim 
