@@ -118,6 +118,7 @@
             "active": true,
             "local": false,
             "in_CDN": false,
+            "file": "cern_frontier_varnish",
             "responsible": {
                 "name": "Ilija Vukotic",
                 "email": "ivukotic@uchicago.edu"
