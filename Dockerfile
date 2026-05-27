@@ -22,6 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 # vim 
 
 COPY runme.sh reconfiguration.sh Monitoring/sender.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/runme.sh /usr/local/bin/reconfiguration.sh /usr/local/bin/sender.sh
 
 ENV VARNISH_MEM=4000m
 ENV VARNISH_TRANSIENT_MEM=2000m
