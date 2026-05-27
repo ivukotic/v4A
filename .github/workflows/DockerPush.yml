@@ -22,12 +22,18 @@ jobs:
       - name: Set build date
         run: echo "BUILD_DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_ENV
 
-      - name: Docker Build & Push Varnish for Conditions Image
-        uses: mr-smithers-excellent/docker-build-push@v6.11
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v4
         with:
-          image: ivukotic/v4a
-          tags: latest, ${{ github.sha }}
-          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          buildArgs: BUILD_DATE=${{ env.BUILD_DATE }}
+
+      - name: Docker Build & Push Varnish for Conditions Image
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: ivukotic/v4a:latest,ivukotic/v4a:${{ github.sha }}
+          build-args: BUILD_DATE=${{ env.BUILD_DATE }}
