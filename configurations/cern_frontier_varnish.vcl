@@ -1,15 +1,8 @@
 vcl 4.1;
-import std;
-import directors;
 
 backend frontier {
     .host = "frontier-service";
     .port = "80";
-}
-
-sub vcl_init {
-    new cluster = directors.hash();
-    cluster.add_backend(frontier, 1);
 }
 
 sub vcl_recv {
