@@ -108,9 +108,6 @@
                 },
                 {
                     "name": "frontier-b-fjx4brc2livw-node-1"
-                },
-                {
-                    "name": "frontier-b-fjx4brc2livw-node-2"
                 }
             ]
         },
@@ -127,15 +124,15 @@
             },
             "instances": [
                 {
-                    "name": "frontier-a-bvemqp26frsz-node-0",
+                    "name": "frontier-a-worker-m4-cmtlym3wrkqx-node-0",
                     "file": "cern_frontier_varnish"
                 },
                 {
-                    "name": "frontier-a-bvemqp26frsz-node-1",
+                    "name": "frontier-a-worker-m4-cmtlym3wrkqx-node-1",
                     "file": "cern_frontier_varnish"
                 },
                 {
-                    "name": "frontier-a-bvemqp26frsz-node-2",
+                    "name": "frontier-a-worker-m4-cmtlym3wrkqx-node-2",
                     "file": "cern_frontier_varnish"
                 }
             ]
