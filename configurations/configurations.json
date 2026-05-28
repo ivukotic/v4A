@@ -347,21 +347,21 @@
                 "name": "Alessandro de Salvo",
                 "email": "alessandro.de.salvo@cern.ch"
             },
-            "file": "neo_frontier_F1",
+            "file": "neo_frontier_F2",
             "instances": [
                 {
-                    "name": "v4f-0"
+                    "name": "v4f-0",
+                    "file": "neo_frontier_F1"
                 },
                 {
-                    "name": "v4f-1",
-                    "file": "neo_frontier_F2"
+                    "name": "v4f-1"
                 },
                 {
-                    "name": "v4f-2"
+                    "name": "v4f-2",
+                    "file": "neo_frontier_F1"
                 },
                 {
-                    "name": "v4f-3",
-                    "file": "neo_frontier_F2"
+                    "name": "v4f-3"
                 }
             ]
         },
