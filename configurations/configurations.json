@@ -120,7 +120,7 @@
         },
         {
             "name": "MWT2",
-            "url": "v4cvmfs.atlas-ml.org",
+            "url": "v4cvmfs.mwt2.org",
             "active": true,
             "local": false,
             "in_CDN": true,
@@ -137,8 +137,7 @@
                 {
                     "name": "head04.af.uchicago.edu"
                 }
-            ],
-            "port": 80
+            ]
         }
     ]
 }
