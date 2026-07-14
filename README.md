@@ -30,6 +30,12 @@ Go to docker directory and edit [docker-compose file](docker/docker-compose.yaml
 docker compose start
 ```
 
+### With Apptainer
+
+For nodes without a Docker daemon (e.g. grid/HTC worker nodes), the same image can be run via
+[Apptainer](https://apptainer.org/). See [Apptainer/README.md](Apptainer/README.md) for a
+step-by-step setup (`install.sh`, a systemd unit, and an editable env file).
+
 ### On an VM, bare metal
 
 Preferred version is 8.0. Instructions on how to install it are [here](https://vinyl-cache.org/releases/index.html).

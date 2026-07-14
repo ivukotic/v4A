@@ -1,0 +1,15 @@
+[Unit]
+Description=Varnish for CVMFS (Apptainer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/sysconfig/cvmfs-varnish-apptainer
+ExecStart=/usr/local/bin/cvmfs-varnish-apptainer.sh
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=131072
+
+[Install]
+WantedBy=multi-user.target
