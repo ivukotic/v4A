@@ -1,0 +1,14 @@
+[Unit]
+Description=Varnish for Frontier Monitoring (Apptainer)
+After=frontier-varnish-apptainer.service
+Requires=frontier-varnish-apptainer.service
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/sysconfig/frontier-varnish-apptainer
+ExecStart=/usr/local/bin/frontier-varnish-monitor-apptainer.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

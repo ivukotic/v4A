@@ -41,6 +41,12 @@ Simply go to docker directory and edit [docker-compose file](docker/docker-compo
 docker compose start
 ```
 
+### With Apptainer
+
+For nodes without a Docker daemon, the same image can be run via
+[Apptainer](https://apptainer.org/). See [Apptainer/README.md](Apptainer/README.md) for a
+step-by-step setup (`install.sh`, a systemd unit, and an editable env file).
+
 ### On a bare metal
 
 Preferred version is 8.0. Instructions on how to install it are [here](https://vinyl-cache.org/releases/index.html).

@@ -1,0 +1,15 @@
+[Unit]
+Description=Varnish for Frontier (Apptainer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/sysconfig/frontier-varnish-apptainer
+ExecStart=/usr/local/bin/frontier-varnish-apptainer.sh
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=131072
+
+[Install]
+WantedBy=multi-user.target
