@@ -138,6 +138,19 @@
                     "name": "head04.af.uchicago.edu"
                 }
             ]
+        },
+        {
+            "name": "CA-SFU-T2",
+            "file": "canada",
+            "url": "lcg-adm1.sfu.computecanada.ca",
+            "active": true,
+            "local": false,
+            "in_CDN": false,
+            "instances": [
+                {
+                    "name": "lcg-adm1.sfu.computecanada.ca"
+                }
+            ]
         }
     ]
 }
