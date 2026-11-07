@@ -1,5 +1,5 @@
 namespace: default
 resources:
   - varnish.yaml
-  - services.yaml
+  - service.yaml
   - ingress.yaml
