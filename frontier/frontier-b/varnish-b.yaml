@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v4f
+  labels:
+    app: v4f
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: v4f
+  template:
+    metadata:
+      labels:
+        app: v4f
+    spec:
+      containers:
+        - name: v4f
+          image: ivukotic/v4a
+          imagePullPolicy: Always
+          env:
+            - name: SITE
+              value: "FRONTIER-B"
+            - name: INSTANCE
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: VARNISH_PORT
+              value: "8080"
+            - name: VARNISH_MEM
+              value: "7G"
+            - name: VARNISH_TRANSIENT_MEM
+              value: "100M"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            exec:
+              command:
+                - /usr/local/bin/sender.sh
+            initialDelaySeconds: 120
+            periodSeconds: 10
+            timeoutSeconds: 9
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "2"
+              memory: "8Gi"
+            limits:
+              cpu: "7"
+              memory: "9Gi"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: v4f
+              topologyKey: "kubernetes.io/hostname"

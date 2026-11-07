@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: v4f
+  name: v4f
+spec:
+  ipFamilyPolicy: PreferDualStack
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    app: v4f
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontier-service
+  labels:
+    app: frontier
+spec:
+  ports:
+    - name: frontier-service-port
+      protocol: TCP
+      port: 80
+      targetPort: frontier-svc
+  selector:
+    app: frontier

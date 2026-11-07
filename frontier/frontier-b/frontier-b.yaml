@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontier
+  labels:
+    app: frontier
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontier
+  template:
+    metadata:
+      labels:
+        app: frontier
+    spec:
+      containers:
+        - name: frontier
+          image: registry.cern.ch/crest/frontier-service:1.12
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "3Gi"
+              cpu: "4"
+          # livenessProbe:
+          #   httpGet:
+          #     path: /actuator/health
+          #     port: 8080
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 30
+          ports:
+            - containerPort: 8080
+              name: frontier-svc
+              protocol: TCP
+            - containerPort: 8005
+              name: frontier-admin
+              protocol: TCP
+          env:
+            - name: TNS_ADMIN
+              value: /etc/
+          volumeMounts:
+            - name: frontier-config-volume
+              readOnly: true
+              mountPath: /etc/tnsnames.ora
+              subPath: tnsnames.ora
+            - name: frontier-context-volume
+              mountPath: /usr/local/tomcat/conf/context.xml
+              subPath: context.xml
+              readOnly: true
+      volumes:
+        - name: frontier-config-volume
+          configMap:
+            name: frontier-config
+        - name: frontier-context-volume
+          secret:
+            secretName: context-secret

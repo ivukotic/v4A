@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  labels:
+    k8s-app: v4f
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - v4f-b.cern.ch
+      secretName: v4f-tls-cert-le
+  rules:
+    # - host: v4f-b.cern.ch
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: v4f
+                port:
+                  number: 80
