@@ -5,7 +5,7 @@ configMapGenerator:
   - name: frontier-config
     behavior: create
     files:
-      - tnsnames.ora=../secrets/tnsnames.ora
+      - tnsnames.ora=../tnsnames.ora
 resources:
   - context-secret-sealed.yaml
   - varnish-b.yaml

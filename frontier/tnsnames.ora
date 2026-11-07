@@ -1,0 +1,13 @@
+ATONR_ADG=
+(DESCRIPTION =
+    (CONNECT_TIMEOUT = 120)(RETRY_COUNT = 20)(RETRY_DELAY = 3)(TRANSPORT_CONNECT_TIMEOUT = 3)(ENABLE=broken)
+      (ADDRESS_LIST =
+        (LOAD_BALANCE = on)
+        (ADDRESS = (PROTOCOL = TCP)(HOST = atonr-rac55-scan.cern.ch)(PORT = 10121))
+      )
+      (ADDRESS_LIST =
+        (LOAD_BALANCE = on)
+        (ADDRESS = (PROTOCOL = TCP)(HOST = atonr-rac54-scan.cern.ch)(PORT = 10121))
+      )
+    (CONNECT_DATA = (SERVICE_NAME = atonr_adg.cern.ch))
+)
