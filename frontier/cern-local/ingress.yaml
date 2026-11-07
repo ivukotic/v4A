@@ -1,0 +1,26 @@
+# ##################################
+# since frontier client uses IP and not hostname for ingress, we do not set host rule
+# ##################################
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  labels:
+    k8s-app: v4f
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+    # - host: v4a-local.cern.ch
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: v4f
+                port:
+                  number: 80
