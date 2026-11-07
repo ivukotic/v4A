@@ -1,0 +1,14 @@
+namespace: default
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: frontier-config
+    behavior: create
+    files:
+      - tnsnames.ora=../tnsnames.ora
+resources:
+  - context-secret-sealed.yaml
+  - varnish-a.yaml
+  - services.yaml
+  - ingress-a.yaml
+  - frontier-a.yaml
